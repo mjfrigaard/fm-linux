@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/index.html</loc>
-    <lastmod>2025-06-24T14:26:41.846Z</lastmod>
+    <lastmod>2025-06-24T21:22:54.305Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/preface.html</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/p1.html</loc>
-    <lastmod>2025-06-18T14:54:17.789Z</lastmod>
+    <lastmod>2025-06-24T21:23:38.596Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/setups.html</loc>
@@ -49,6 +49,10 @@
     <lastmod>2024-08-30T20:47:44.905Z</lastmod>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/fm-linux/permissions.html</loc>
+    <lastmod>2025-06-18T15:40:09.884Z</lastmod>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/fm-linux/syntax.html</loc>
     <lastmod>2025-06-18T15:39:14.583Z</lastmod>
   </url>
@@ -73,8 +77,12 @@
     <lastmod>2025-01-26T05:31:15.616Z</lastmod>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/fm-linux/p2.html</loc>
+    <lastmod>2025-06-24T21:32:39.137Z</lastmod>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/fm-linux/text.html</loc>
-    <lastmod>2024-08-28T15:01:36.003Z</lastmod>
+    <lastmod>2025-06-24T21:32:46.567Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/symbols_patterns.html</loc>
@@ -97,12 +105,8 @@
     <lastmod>2025-06-18T15:39:43.478Z</lastmod>
   </url>
   <url>
-    <loc>https://mjfrigaard.github.io/fm-linux/permissions.html</loc>
-    <lastmod>2025-06-18T15:40:09.884Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/fm-linux/p2.html</loc>
-    <lastmod>2025-06-21T20:42:30.080Z</lastmod>
+    <loc>https://mjfrigaard.github.io/fm-linux/p3.html</loc>
+    <lastmod>2025-06-24T21:26:05.778Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/nw_fund.html</loc>
@@ -137,8 +141,8 @@
     <lastmod>2025-06-21T07:24:34.267Z</lastmod>
   </url>
   <url>
-    <loc>https://mjfrigaard.github.io/fm-linux/p3.html</loc>
-    <lastmod>2025-06-18T15:03:28.175Z</lastmod>
+    <loc>https://mjfrigaard.github.io/fm-linux/p4.html</loc>
+    <lastmod>2025-06-24T21:26:04.555Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/maintenance.html</loc>

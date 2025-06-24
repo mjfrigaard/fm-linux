@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-21">
+<meta name="dcterms.date" content="2025-06-24">
 <meta name="description" content="A Linux Field Manual">
 
-<title>🚧 Part 2: Networking – FM-Linux</title>
+<title>🚧 Part 2: Text – FM-Linux</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./nw_fund.html" rel="next">
-<link href="./permissions.html" rel="prev">
+<link href="./text.html" rel="next">
+<link href="./vars.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./p2.html"><span class="chapter-title">🚧 <span style="font-size: 1.05em; font-weight: bold;">Part 2: Networking</span></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./p2.html"><span class="chapter-title">🚧 <span style="font-size: 1.05em; font-weight: bold;">Part 2: Text</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 1: Introduction</span></span></a>
+  <a href="./p1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 1: Fundamentals</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -183,6 +183,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="./sys.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">System</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./permissions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ Permissions</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -221,10 +226,15 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./p2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">🚧 <span style="font-size: 1.05em; font-weight: bold;">Part 2: Text</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Text</span></a>
+ <span class="menu-text">Universal interface</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -262,16 +272,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="./format.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ Format</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./permissions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ Permissions</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">🚧 <span style="font-size: 1.05em; font-weight: bold;">Part 2: Networking</span></span></a>
+  <a href="./p3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🚧 <span style="font-size: 1.05em; font-weight: bold;">Part 3: Networking</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -330,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 3: Use Cases</span></span></a>
+  <a href="./p4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 4: Use Cases</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -417,18 +422,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#networking-fundamentals" id="toc-networking-fundamentals" class="nav-link active" data-scroll-target="#networking-fundamentals">Networking Fundamentals</a>
+  <li><a href="#plain-text" id="toc-plain-text" class="nav-link active" data-scroll-target="#plain-text">Plain Text</a>
   <ul>
-  <li><a href="#network-configurations" id="toc-network-configurations" class="nav-link" data-scroll-target="#network-configurations">Network Configurations</a></li>
-  <li><a href="#domain-name-system" id="toc-domain-name-system" class="nav-link" data-scroll-target="#domain-name-system">Domain Name System</a></li>
-  <li><a href="#routing-ip-management" id="toc-routing-ip-management" class="nav-link" data-scroll-target="#routing-ip-management">Routing &amp; IP Management</a></li>
+  <li><a href="#communication-between-programs" id="toc-communication-between-programs" class="nav-link" data-scroll-target="#communication-between-programs">Communication Between Programs</a></li>
   </ul></li>
-  <li><a href="#firewalling-network-security" id="toc-firewalling-network-security" class="nav-link" data-scroll-target="#firewalling-network-security">Firewalling &amp; Network Security</a>
-  <ul>
-  <li><a href="#monitoring-troubleshooting" id="toc-monitoring-troubleshooting" class="nav-link" data-scroll-target="#monitoring-troubleshooting">Monitoring &amp; Troubleshooting</a></li>
-  <li><a href="#vpns-encryption-tunnels" id="toc-vpns-encryption-tunnels" class="nav-link" data-scroll-target="#vpns-encryption-tunnels">VPNs, Encryption, &amp; Tunnels</a></li>
-  <li><a href="#linux-virtual-container-networking" id="toc-linux-virtual-container-networking" class="nav-link" data-scroll-target="#linux-virtual-container-networking">Linux Virtual &amp; Container Networking</a></li>
-  </ul></li>
+  <li><a href="#text-streams" id="toc-text-streams" class="nav-link" data-scroll-target="#text-streams">Text Streams</a></li>
   </ul>
 </nav>
     </div>
@@ -437,7 +435,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-part-two" class="quarto-section-identifier"><span class="chapter-title">🚧 <span style="font-size: 1.05em; font-weight: bold;">Part 2: Networking</span></span></span></h1>
+<h1 class="title"><span id="sec-part-two" class="quarto-section-identifier"><span class="chapter-title">🚧 <span style="font-size: 1.05em; font-weight: bold;">Part 2: Text</span></span></span></h1>
 </div>
 
 
@@ -448,7 +446,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-06-21</p>
+      <p class="date">2025-06-24</p>
     </div>
   </div>
   
@@ -478,121 +476,27 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>This section provides and introduction to Linux networking. We’ll cover some foundational theory and hands-on configuration on Ubuntu (22.04+) and RHEL 9 operating systems. Each chapter includes a <strong>Common Commands</strong> box highlighting distro-specific tools and syntax.</p>
-<hr>
-<section id="networking-fundamentals" class="level2">
-<h2 class="anchored" data-anchor-id="networking-fundamentals">Networking Fundamentals</h2>
-<ul>
-<li><strong>OSI &amp; TCP/IP Models</strong></li>
-<li><strong>IPv4 vs.&nbsp;IPv6 Addressing</strong></li>
-<li><strong>MAC Addresses &amp; ARP</strong></li>
-<li><strong>Common Protocols (ICMP, DHCP, DNS, HTTP/S)</strong></li>
-</ul>
-<hr>
-<section id="network-configurations" class="level3">
-<h3 class="anchored" data-anchor-id="network-configurations">Network Configurations</h3>
-<ul>
-<li><strong>DHCP vs.&nbsp;Static Assignment</strong><br>
-</li>
-<li><strong>Ubuntu: Netplan</strong>
-<ul>
-<li><code>/etc/netplan/*.yaml</code> syntax<br>
-</li>
-<li><code>sudo netplan apply</code></li>
-</ul></li>
-<li><strong>RHEL 9: NetworkManager &amp; legacy scripts</strong>
-<ul>
-<li><code>nmcli</code> CLI: <code>nmcli connection add/modify</code><br>
-</li>
-<li><code>nmtui</code> TUI<br>
-</li>
-<li>(Optional) <code>/etc/sysconfig/network-scripts/ifcfg-*</code></li>
-</ul></li>
-<li><strong>Bringing Interfaces Up/Down</strong></li>
-</ul>
-<hr>
-</section>
-<section id="domain-name-system" class="level3">
-<h3 class="anchored" data-anchor-id="domain-name-system">Domain Name System</h3>
-<ul>
-<li><strong>DNS &amp; Name Resolution</strong><br>
-</li>
-<li><strong><code>/etc/hosts</code> Basics</strong><br>
-</li>
-<li><strong>Resolver Configuration</strong>
-<ul>
-<li>Ubuntu: <code>systemd-resolved</code>, <code>/etc/resolv.conf</code> symlink<br>
-</li>
-<li>RHEL 9: direct <code>/etc/resolv.conf</code></li>
-</ul></li>
-<li><strong>Testing DNS</strong></li>
-<li><strong>Caching &amp; Stub Resolvers</strong></li>
-</ul>
-<hr>
-</section>
-<section id="routing-ip-management" class="level3">
-<h3 class="anchored" data-anchor-id="routing-ip-management">Routing &amp; IP Management</h3>
-<ul>
-<li><strong>Static Routes</strong></li>
-<li><strong>Policy-Based Routing (ip rule)</strong></li>
-<li><strong>Enabling IP Forwarding</strong></li>
-<li><strong>VRFs &amp; Network Namespaces</strong></li>
-</ul>
-<hr>
+<p>The essence of Linux and Linux systems is their powerful simplicity, and nowhere is this more evident than in how they handle text. Text commands and editors form the backbone of these operating systems, enabling users to perform complex tasks with a few keystrokes. This chapter will delve into pattern matching with regular expressions, the fundamental concepts of plain text files, text streams, and the Linux philosophy that prioritizes text as a universal interface for programming and system administration.</p>
+<section id="plain-text" class="level2">
+<h2 class="anchored" data-anchor-id="plain-text">Plain Text</h2>
+<p>Plain text files are vital to Linux systems, embodying their philosophy of ‘simple and beautiful.’<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> These files only contain text, making them versatile and powerful. Linux believes that ‘<em>everything is a file</em>,’ including devices, configurations, and processes.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Plain text files are the universal interface between systems, programs, and users. Standard Linux tools can easily create, manipulate, and read plain text, making it an essential interface for system administration, programming, and process management.</p>
+<section id="communication-between-programs" class="level3">
+<h3 class="anchored" data-anchor-id="communication-between-programs">Communication Between Programs</h3>
+<p>Linux philosophy values specialized programs that work together efficiently. Plain text is used as inputs or outputs in pipelines of simple, single-purpose programs to perform complex operations.</p>
 </section>
 </section>
-<section id="firewalling-network-security" class="level2">
-<h2 class="anchored" data-anchor-id="firewalling-network-security">Firewalling &amp; Network Security</h2>
-<ul>
-<li><strong>Ubuntu UFW (Uncomplicated Firewall)</strong>
-<ul>
-<li><code>sudo ufw enable/disable</code><br>
-</li>
-<li>Profile management</li>
-</ul></li>
-<li><strong>RHEL 9 firewalld</strong>
-<ul>
-<li><code>sudo firewall-cmd --zone=public --add-port=80/tcp</code><br>
-</li>
-<li>Permanent vs.&nbsp;runtime rules</li>
-</ul></li>
-<li><strong>iptables vs.&nbsp;nftables</strong><br>
-</li>
-<li><strong>SELinux &amp; Network Access</strong></li>
-</ul>
-<hr>
-<section id="monitoring-troubleshooting" class="level3">
-<h3 class="anchored" data-anchor-id="monitoring-troubleshooting">Monitoring &amp; Troubleshooting</h3>
-<ul>
-<li><strong>Connectivity Tests (ping, traceroute, mtr)</strong></li>
-<li><strong>Socket &amp; Port Inspection (ss, netstat)</strong></li>
-<li><strong>Packet Capture (tcpdump, tshark)</strong></li>
-<li><strong>Interface Statistics (ethtool, iftop, nload)</strong></li>
-<li><strong>Logs &amp; Systemd Journal</strong></li>
-</ul>
-<hr>
-</section>
-<section id="vpns-encryption-tunnels" class="level3">
-<h3 class="anchored" data-anchor-id="vpns-encryption-tunnels">VPNs, Encryption, &amp; Tunnels</h3>
-<ul>
-<li><strong>SSH Tunnels &amp; SOCKS Proxies</strong></li>
-<li><strong>OpenVPN Setup</strong></li>
-<li><strong>WireGuard Quick-Start</strong></li>
-<li><strong>IPsec &amp; strongSwan</strong></li>
-</ul>
-<hr>
-</section>
-<section id="linux-virtual-container-networking" class="level3">
-<h3 class="anchored" data-anchor-id="linux-virtual-container-networking">Linux Virtual &amp; Container Networking</h3>
-<ul>
-<li><strong>Bridge &amp; VLAN Interfaces</strong></li>
-<li><strong>Docker &amp; Podman Networks</strong></li>
-<li><strong>CNI Plugins &amp; Kubernetes Basics</strong></li>
-<li><strong>MACVLAN, NAT &amp; Host Networking Modes</strong></li>
-</ul>
+<section id="text-streams" class="level2">
+<h2 class="anchored" data-anchor-id="text-streams">Text Streams</h2>
+<p>A text stream in Linux and Linux is a simple, sequential flow of characters. Text streams can be inputs from keyboards, outputs to a display screen, or the data within a file. The concept of text streams is fundamental to the Linux philosophy; it allows for the chaining together of commands, where the output of one command can be seamlessly passed as input to another through a mechanism known as piping.</p>
 
 
 </section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Doug McIlroy on Linux programming: “<em>Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.</em>” - <a href="https://en.wikipedia.org/wiki/Unix_philosophy#Doug_McIlroy_on_Unix_programming">Wikipedia</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Linus Torvalds (creator and lead developer of the Linux kernel) has <a href="https://yarchive.net/comp/linux/everything_is_file.html">clarified</a> this to, “<em>The UNIX philosophy is often quoted as ”everything is a file”, but that really means ”everything is a stream of bytes.</em>”<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1054,13 +958,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./permissions.html" class="pagination-link" aria-label="🏗️ Permissions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">🏗️ Permissions</span></span>
+      <a href="./vars.html" class="pagination-link" aria-label="Variables">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Variables</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./nw_fund.html" class="pagination-link" aria-label="Fundamentals">
-        <span class="nav-page-text">Fundamentals</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./text.html" class="pagination-link" aria-label="Universal interface">
+        <span class="nav-page-text">Universal interface</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
