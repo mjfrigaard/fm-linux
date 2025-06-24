@@ -70,17 +70,24 @@ This section details the practical aspects of preparing your environment to work
 
 flowchart TD
   VM("Virtual Machine")
-  Linux("Linux Distribution 🐧")
-  HostSystem{"Host System"}
-  CPU("Virtualized CPU")
-  RAM("Virtualized RAM 🧠")
-  Disk("Virtualized Disk 💽")
+  Linux("Linux Distro 🐧")
+  HostSystem{"Host<br>Operating<br>System"}
+  CPU("Virtual CPU")
+  RAM("Virtual RAM 🧠")
+  Disk("Virtual Disk 💽")
 
   HostSystem-->VM
   VM-->Linux
   VM-->CPU
   VM-->RAM
   VM-->Disk
+  
+    style HostSystem fill:#fefefe,font-size:16px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style VM fill:#,font-size:15px,stroke:#000,stroke-width:2px
+    style Linux fill:#fefefe,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style CPU fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style RAM fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style Disk fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
 
 ```
 
@@ -90,9 +97,82 @@ This chapter covers virtualization software options, various Linux distributions
 
 <strong>@sec-shells</strong> are the command-line interpreters that allow users to interact with the operating system by executing commands and running scripts.
 
+```{=html}
+
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #faf9ed;
+  padding: 0.2em;
+}
+
+</style>
+```
+
+```{mermaid}
+%%| fig-width: 8.0
+%%| fig-align: center
+%%| fig-cap: 'Using Shells'
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+flowchart TD
+    Shell["Shell"]
+    Shell --> Exec("Executes Commands")
+    Shell --> Script("Runs Scripts")
+    Exec --> OS["Host Operating System"]
+    Script --> OS
+
+    style Shell fill:#fefefe,font-size:14px,stroke:#000,stroke-width:2px,rx:3,ry:3
+    style Exec fill:#fefefe,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style Script fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style OS fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    
+```
+
 ### Terminals 
 
-<strong>@sec-terminals</strong>
+<strong>@sec-terminals</strong> are text-based interfaces that allow users to interact with the operating system by entering commands directly.
+
+```{=html}
+
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #faf9ed;
+  padding: 0.2em;
+}
+
+</style>
+```
+
+```{mermaid}
+%%| fig-width: 8.0
+%%| fig-align: center
+%%| fig-cap: 'Using Terminals'
+%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+flowchart TD
+    User[User] --> Term["Terminal<br>Emulator"]
+    Term --> Shell["Shell<br>(Command<br>Processor)"]
+    Shell --> Prog["Other Programs"]
+    Shell --> Out["Returns Output"]
+    Prog --> Out
+
+
+    style User fill:#,font-size:16px,stroke:#000,stroke-width:1px
+    style Term fill:#fefefe,font-size:14px,stroke:#000,stroke-width:2px,rx:3,ry:3
+    style Shell fill:#fefefe,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style Prog fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style Out fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    
+```
+
 
 ```{r}
 #| label: git_contrib_box
@@ -101,3 +181,4 @@ This chapter covers virtualization software options, various Linux distributions
 #| eval: true
 git_contrib_box()
 ```
+

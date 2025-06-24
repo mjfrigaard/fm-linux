@@ -157,6 +157,12 @@ Output the first part of files.
 
 Output the last part of files.
 
+## [Iteration]{style="font-size: 1.05em; font-weight: bold;"}
+
+### `for` {#sec-for}
+
+### `while` {#sec-while}
+
 ## [System Administration]{style="font-size: 1.05em; font-weight: bold;"} 
 
 ### `who` {#sec-who}

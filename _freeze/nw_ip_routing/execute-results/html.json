@@ -1,0 +1,15 @@
+{
+  "hash": "0bda8ae11a2dbc1b3398165870a6242a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '#'\n---\n\n\n\n\n\n# Routing & IP Management {#sec-nw-ip-routing}\n\n\n\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n  \n\n::: \n\n::::\n\n\n\n\n\n> **Common Commands**\n>\n> * Add route: `sudo ip route add 10.0.0.0/24 via 192.168.1.1`\n> * List rules: `ip rule show`\n> * Enable forwarding:\n>\n>   ```bash\n>   sudo sysctl -w net.ipv4.ip_forward=1\n>   # persist in /etc/sysctl.conf\n>   ```\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

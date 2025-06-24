@@ -1,0 +1,15 @@
+{
+  "hash": "e262c466bbbfd9b6cbd0886d98de5c01",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '# '\n---\n\n\n\n\n\n# VPNs, Encryption, & Tunnels {#sec-nw-vpns-encrypt .unnumbered}\n\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n  \n\n::: \n\n::::\n\n\n\n\n\n> **Common Commands**\n>\n> * SSH tunnel:\n>\n>   ```bash\n>   ssh -L 8080:remote:80 user@remote\n>   ```\n> * WireGuard:\n>\n>   ```bash\n>   sudo wg-quick up wg0\n>   sudo wg show\n>   ```\n> * OpenVPN:\n>\n>   ```bash\n>   sudo openvpn --config client.ovpn\n>   ```\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -7,7 +7,7 @@ knitr:
     
 ---
 
-# Format {#sec-format-sh}
+# 🏗️ Format {#sec-format-sh}
 
 ```{bash}
 #| label: setup

@@ -53,7 +53,7 @@ co_box(
   hsize = "1.15", 
   size = "1.00", 
   header = "Standard Input and Output", 
-  fold = TRUE,
+  fold = FALSE,
   contents = "
 
 <br>
@@ -65,19 +65,19 @@ co_box(
 
 **Example**
 
-**`echo "Hello, World!" | wc -w`** sends the output of the <code>@sec-echo</code> command to <code>@sec-wc</code>, which then counts the words.
+**`echo "<SOMETHING>" | wc -w`** sends the output of the <code>@sec-echo</code> command to <code>@sec-wc</code>, which then counts the words.
 
 ```{bash}
 echo "Hello, World!" | wc -w
 ```
 
-The output is `2`, indicating there are two words in "Hello, World!".
+The output is `2`, indicating there are two words in `"Hello, World!"`.
 
 ## [Combining Pipes]{style="font-size: 1.05em; font-weight: bold;"} 
 
 Commands can be chained together using multiple pipes, allowing for the creation of command pipelines where data is processed in stages.
 
-**Example**
+**Example 1**
 
 **<code>@sec-ps</code>`aux | `<code>@sec-grep</code> `httpd`** lists all processes, filters those containing "httpd" (HTTPD = web server processes running):
 
@@ -85,7 +85,7 @@ Commands can be chained together using multiple pipes, allowing for the creation
 ps aux | grep httpd
 ```
 
-**Example**
+**Example 2**
 
 **<code>@sec-wc</code>` -l`** counts the number of lines:
 
@@ -97,7 +97,7 @@ ps aux | grep httpd | wc -l
 
 **Example 1**
 
-**<code>@sec-cat</code>`data/roxanne.txt | `<code>@sec-grep</code>` "night"`** displays lines from `data/roxanne.txt` that contain the number `"2"`.
+**<code>@sec-cat</code> `<FILE_PATH> |` <code>@sec-grep</code> `<PATTERN>`** prints the contents from `<FILE_PATH>` that contain the `<PATTERN>`.
 
 ```{bash}
 cat data/raw/roxanne.txt | grep "night"
@@ -107,13 +107,13 @@ Here, <code>@sec-cat</code> outputs the file's contents, which <code>@sec-grep</
 
 **Example 2**
 
-**<code>@sec-ls</code>` -l data/raw | `<code>@sec-sort</code>` -r`** lists the files in `data/raw` in a detailed format, then sorts them in reverse order.
+**<code>@sec-ls</code>` -l <FILE_PATH> | `<code>@sec-sort</code>` -r`** lists the files in `<FILE_PATH>` in a detailed format, then sorts them in reverse order.
 
 ```{bash}
 ls -l data/raw | sort -r
 ```
 
-It showcases how to reverse the listing of directory contents.
+`-r` showcases how to reverse the listing of directory contents.
 
 ### Transformation and Reduction
 
@@ -138,9 +138,10 @@ This pipeline not only identifies files but also sorts them by their disk usage,
 ```{bash}
 #| eval: false
 cat /var/log/system.log | grep "DEAD_PROCESS" 
-## Apr 10 06:35:23 Users-MacBook-Pro login[3596]: DEAD_PROCESS: 3596 ttys000
-## Apr 10 06:35:25 Users-MacBook-Pro sessionlogoutd[19895]: DEAD_PROCESS: 225 console
-## Apr 10 10:20:25 Users-MacBook-Pro login[715]: DEAD_PROCESS: 715 ttys000
+# Jun 17 16:29:49 Martins-MacBook-Pro-2 login[866]: DEAD_PROCESS: 866 ttys000
+# Jun 17 16:29:49 Martins-MacBook-Pro-2 login[1159]: DEAD_PROCESS: 1159 ttys001
+# Jun 17 16:29:49 Martins-MacBook-Pro-2 login[1392]: DEAD_PROCESS: 1392 ttys002
+# Jun 17 16:29:52 Martins-MacBook-Pro-2 sessionlogoutd[11382]: DEAD_PROCESS: 196 console
 ```
 
 ### Data Manipulation
@@ -192,7 +193,7 @@ done
 
 ### Search with `grep`
 
-**`grep "RZA" "$fname"`**: Searches for a specific pattern within the file. <code>@sec-grep</code> looks through the contents of the file (whose path is in `fname`) for lines containing the string "RZA". Only the lines that match this pattern are printed to `stdout`, which is then piped to <code>@sec-wc</code>.
+**<code>@sec-grep</code>` "RZA" "$fname"`**: Searches for a specific pattern within the file. <code>@sec-grep</code> looks through the contents of the file (whose path is in `fname`) for lines containing the string "RZA". Only the lines that match this pattern are printed to `stdout`:
 
 ```{bash}
 #| eval: true 
@@ -204,7 +205,15 @@ done
 
 ### Count with `wc`
 
-**`wc`**: For each file processed by the loop, <code>@sec-wc</code> outputs three numbers: the line count, word count, and character/byte count of the lines that <code>@sec-grep</code> found to contain "RZA". Since no specific option is given to <code>@sec-wc</code>, it defaults to displaying all three counts.
+**<code>@sec-wc</code>**: For each file processed by the loop, <code>@sec-wc</code> outputs three numbers: 
+
+1. The line count  
+2. The word count, and  
+3. The character/byte count of the lines that <code>@sec-grep</code> found to contain "RZA". 
+
+**Example:**
+
+If no options are given to <code>@sec-wc</code>, it defaults to displaying all three counts.
 
 ```{bash}
 #| eval: true 

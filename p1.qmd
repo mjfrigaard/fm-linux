@@ -35,9 +35,9 @@ co_box(
 )
 ```
 
-## [The Tale of Unix]{style="font-size: 1.05em; font-weight: bold;"}
+## [The Origin of Unix]{style="font-size: 1.05em; font-weight: bold;"}
 
-Imagine Unix and Linux as cars in the vast landscape of automobile manufacturers. Our story begins in the late 1960s at AT&T’s Bell Labs—a significant moment in the history of technology. Unix was born out of a desire for a more flexible and portable operating system. In a time when computers were as big as rooms, Unix represented the custom-built car designed by a prestigious automaker. It was tailored to specific customers who needed top-end performance and reliability and was often used by large corporations or organizations.
+Imagine Unix and Linux as cars in the vast landscape of automobile manufacturers. In the late 1960s, a significant moment in the history of technology took place at AT&T’s Bell Labs. Unix was born out of a desire for a more flexible and portable operating system. In a time when computers were as big as rooms, Unix represented the custom-built car designed by a prestigious automaker. It was tailored to specific customers who needed top-end performance and reliability and was often used by large corporations or organizations.
 
 ### Unix Philosophy
 

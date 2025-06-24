@@ -1,0 +1,15 @@
+{
+  "hash": "e5f37b5c1ff04c07892b45c1acaff4b2",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '# '\n---\n\n\n\n\n\n# Firewalling & Network Security {#sec-nw-firewall-security .unnumbered}\n\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n  \n\n::: \n\n::::\n\n\n\n\n\n> **Common Commands**\n>\n> * Ubuntu UFW:\n>\n>   ```bash\n>   sudo ufw status verbose\n>   sudo ufw allow 22/tcp\n>   ```\n> * RHEL 9 firewalld:\n>\n>   ```bash\n>   sudo firewall-cmd --list-all\n>   sudo firewall-cmd --reload\n>   ```\n> * nftables (RHEL 9 default backend):\n>\n>   ```bash\n>   sudo nft list ruleset\n>   sudo nft add rule inet filter input tcp dport 443 accept\n>   ```\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

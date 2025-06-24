@@ -1,0 +1,290 @@
+---
+engine: knitr
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: '# '
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Fundamentals {#sec-nw-funds .unnumbered}
+
+```{r}
+#| label: setup
+#| include: false
+source("_common.R")
+```
+
+```{r}
+#| label: co_box_dev
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(
+  color = "r",
+  look = "default", 
+  hsize = "1.25", 
+  size = "1.00", 
+  header = "Caution", 
+  fold = FALSE,
+  contents = "This section is under development. Thank you for your patience.
+  "
+)
+```
+
+```{r}
+#| label: co_box_tldr
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(
+  color = "b",
+  look = "default", 
+  hsize = "1.25", 
+  size = "1.00", 
+  header = "Common Commands", 
+  fold = FALSE,
+  contents = "
+  
+> **Common Commands**
+>
+> -   Display IP, routes, links:
+>     -   Ubuntu / RHEL 9: `ip addr`, `ip link`, `ip route`
+> -   ARP table: `ip neigh`
+
+  ")
+```
+
+------------------------------------------------------------------------
+
+## OSI & TCP/IP Models
+
+Open systems interconnection & transmission control protocol/internet
+protocol are ways of breaking down “how data moves across a network”
+into layers. Think of it like the stages of sending a letter: you write
+it, put it in an envelope, address it, hand it to the post office, it
+travels, arrives, and someone opens it.
+
+Before we get started, we'll define a few terms:
+
+1.  **OSI (Open Systems Interconnection) model:** A seven-layer
+    framework that standardizes how different network functions (from
+    the physical wiring up to the user’s application) interact so
+    devices from any vendor can communicate.
+    
+2.  **TCP/IP model:** A four-layer suite used on the Internet that
+    groups networking tasks into Link, Internet, Transport, and
+    Application layers to define how data moves end-to-end.
+    
+3.  **Internet protocol (IP) address**: A unique string of numbers that
+    acts like a mailing address for a device on a network, so data knows
+    where to go.
+
+
+The table below displays the layer hierarchy: 
+
+| Layer Model               | OSI (7 layers)   | TCP/IP (4 layers)  |
+|---------------------------|------------------|--------------------|
+| Highest (closest to user) | 7\. Application  | 4\. Application    |
+|                           | 6\. Presentation |                    |
+|                           | 5\. Session      |                    |
+|                           | 4\. Transport    | 3\. Transport      |
+|                           | 3\. Network      | 2\. Internet       |
+|                           | 2\. Data Link    | 1\. Network Access |
+| Lowest (hardware)         | 1\. Physical     |                    |
+
+**7. Application (OSI 7/TCP 4)** Where your programs live (web browsers,
+email clients). They speak protocols like HTTP or SMTP.
+
+**6. Presentation & 5. Session (OSI 6–5)** Formatting (e.g.,
+encrypt/decrypt, compress) and managing conversations. In TCP/IP these
+blur into the Application layer.
+
+**4. Transport (OSI 4/TCP 3)** Ensures “reliable delivery” (TCP) or
+“fire-and-forget” (UDP). Handles port numbers so the right application
+gets the data.
+
+**3 Network/Internet (OSI 3/TCP 2)** Routing packets from source to
+destination IP addresses (e.g., IPv4, IPv6).
+
+**2. Data Link/Network Access (OSI 2/TCP 1)** Frames data for a specific
+physical network (Ethernet, Wi-Fi). Uses MAC addresses (see below).
+
+**1. Physical (OSI 1)** The raw bits on the wire or radio waves—cables,
+switches, electrical signals.
+
+------------------------------------------------------------------------
+
+## IPv4 vs. IPv6 Addressing
+
+An **IP address** is like a home address for your device on the network.
+
+``` bash
+$ ip addr show
+1: lo: <LOOPBACK, UP, LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group 
+default qlen 1000
+link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+inet 127.0.0.1/8 scope host lo
+valid_lft forever preferred_lft forever inet6 ::1/128 scope host noprefixroute
+valid_lft forever preferred_lft forever
+2: enpOs3: <BROADCAST, MULTICAST, UP, LOWER_UP> mtu 1500 qdisc pfifo_ fast 
+state UP group default qlen 1000 link/ether 08:00:27:5c:ce:56 brd ff:ff:ff:ff:ff: ff
+inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute enp®s3
+valid_lft 85586sec preferred_lft 85586sec
+inet6 fd17:625c: f037:2:5324:eba2:90f4:9dd9/64 scope global temporary dynamic
+valid_lft 86007sec preferred_lft 14007sec
+inet6 fd17:625c: f037:2:a00:27ff: fe5c:ce56/64 scope global dynamic mngtmpaddr
+valid_ift 86007sec preferred_lft 14007sec inet6 fe80::a00:27ff: fe5c: ce56/64 scope
+link valid Ift forever preferred Ift forever
+```
+
+As root: 
+
+``` bash
+root$ ifconfig 
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500  
+  inet 10.0.2.15 netmask 255.255.255.0 broadcast 10.0.2.255  
+  inet6 fd17:625c: f037:2:5324:eba2:90f4:9dd9 prefixlen 64 scopeid 0x0<global>  
+  inet6 fe80:: a00:27ff:fe5c: ce56 prefixlen 64 scopeid 0x20<link>  
+  inet6 fd17:625c: f037:2:00:27ff:fe5c:ce56 prefixlen 64 scopeid 0x0<global>  
+  ether 08:00:27:5c:ce: 56 txqueuelen 1000 (Ethernet)   
+  RX packets 2600 bytes 2049028 (2.0 MB)
+  RX errors ® dropped 0 overruns 0 frame 0
+  TX packets 1473 bytes 114794 (114.7 KB)
+  TX errors 0 dropped 0 overruns 0 carrier 0 collisions 0
+  
+lo: flags=73<UP,LOOPBACK,RUNNING> mtu 65536
+  inet 127.0.0.1 netmask 255.0.0.0
+  inet6 ::1 prefixlen 128 scopeid 0x10<host>
+  loop txqueuelen 1000 (Local Loopback)
+  RX packets 153 bytes 14287 (14.2 KB)
+  RX errors 0 dropped 0 overruns 0 frame 0
+  TX packets 153 bytes 14287 (14.2 KB)
+  TX errors 0 dropped 0 overruns 0 carrier O collisions o
+```
+
+-   **IPv4 (Internet Protocol version 4)**
+
+    -   Uses **32-bit** numbers, written as four decimal blocks: e.g.
+        `192.0.2.1`.
+    -   Allows about 4.3 billion addresses—now running out.
+    -   Supports subnetting (dividing into smaller “neighborhoods”).
+
+-   **IPv6 (version 6)**
+
+    -   Uses **128-bit** addresses, written as eight groups of
+        hexadecimal (0–9, A–F), e.g. `2001:0db8:85a3::8a2e:0370:7334`.
+    -   Vast address space (≈3.4×10\^38 addresses).
+    -   Built-in features: simplified headers, automatic address
+        configuration, better support for multicast (one-to-many)
+        traffic, and mandatory IPsec (encryption/authentication).
+
+------------------------------------------------------------------------
+
+## MAC Addresses & ARP
+
+-   **MAC Address (Media Access Control)**
+
+    -   A unique **48-bit** hardware address burned into your network
+        interface card (NIC).
+    -   Written as six pairs of hexadecimal separated by colons, e.g.
+        `00:1A:2B:3C:4D:5E`.
+    -   Operates at the Data Link layer (OSI 2).
+
+-   **ARP (Address Resolution Protocol)**
+
+    -   Translates between IP addresses and MAC addresses on a local
+        network.
+    -   When Host A wants to send to IP `192.0.2.5`, it checks its local
+        ARP cache: “Who has 192.0.2.5? Tell me your MAC.”
+    -   The owner of that IP replies: “I do, my MAC is
+        00:1A:2B:3C:4D:5E.”
+    -   Host A stores that mapping for faster reuse.
+
+------------------------------------------------------------------------
+
+## Common Protocols
+
+| Protocol | Acronym (full name) | Layer | What it does |
+|----------------|----------------|----------------|------------------------|
+| **ICMP** | Internet Control Message Protocol | Network/Internet | Sends test and error messages (e.g., `ping`, `traceroute`). |
+| **DHCP** | Dynamic Host Configuration Protocol | Application | Automatically assigns IP addresses and network settings to devices. |
+| **DNS** | Domain Name System | Application | Translates human names (e.g., `example.com`) to IP addresses. |
+| **HTTP / HTTPS** | HyperText Transfer Protocol (Secure) | Application | Fetches and sends web pages; HTTPS adds encryption via TLS/SSL. |
+
+-   **ICMP**
+
+    -   Built into IP.
+    -   **Echo Request/Reply** = `ping`.
+    -   **Time Exceeded** = `traceroute`.
+
+-   **DHCP**
+
+    -   Client “boots” → broadcasts a **DHCP Discover**.
+    -   Server offers an IP.
+    -   Client requests it.
+    -   Server acknowledges → client configures itself.
+
+-   **DNS**
+
+    -   Your computer asks a DNS server: “What’s the IP for
+        `linuxguru.example`?”
+    -   The DNS server replies with the IP.
+    -   Caching is used to speed up repeat lookups.
+
+-   **HTTP / HTTPS**
+
+    -   **HTTP** is plain text: anyone sniffing can read it.
+    -   **HTTPS** wraps HTTP in **TLS** (Transport Layer Security) so
+        data is encrypted.
+    -   Common ports: 80 for HTTP, 443 for HTTPS.
+    
+``` bash
+martin@martin-VirtualBox:~$ ping linuxcommand.org
+PING linuxcommand.org (216.105.38.11) 56(84) bytes of data.
+64 bytes from secureprojects.sourceforge.net (216.105.38.11): icmp_seq=1 ttl=255 time=25.1 ms
+64 bytes from secureprojects.sourceforge.net (216.105.38.11): icmp_seq=2 ttl=255 time=27.5 ms
+64 bytes from secureprojects.sourceforge.net (216.105.38.11): icmp_seq=3 ttl=255 time=27.6 ms
+64 bytes from secureprojects.sourceforge.net (216.105.38.11): icmp_seq=4 ttl=255 time=25.5 ms
+(216.105.38.11):
+64 bytes from secureprojects.sourceforge.net (216.105.38.11): icmp_seq=5 ttl=255 time=25.7 ms
+
+-- linuxcommand.org ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4511ms
+rtt min/avg/max/mdev = 25.114/26.281/27.624/1.054 ms
+```
+
+------------------------------------------------------------------------
+
+1.  **Domain name**: A memorable web address (like example.com) that
+    points to one or more IP addresses where a website or service lives.
+
+2.  **Protocol**: A clearly defined set of rules and conventions that
+    devices follow to exchange data reliably and predictably over a
+    network.
+
+3.  **Host name**: A human-friendly label assigned to a specific device
+    on a network, making it easier to identify than its numeric IP
+    address.
+
+4.  **Uniform resource identifier (URI)**: A text string (often starting
+    with `http://` or `mailto:`) that specifies the location of, and
+    sometimes how to access, a resource on the internet.
+
+### Bringing It All Together
+
+1.  **You open a browser** (Application layer) to `https://example.com`.
+2.  **DNS lookup** finds the server’s IP.
+3.  Your computer’s OS checks if it already knows the server’s **MAC**;
+    if not, it uses **ARP**.
+4.  The request is packaged (Transport layer: TCP port 443) → into an IP
+    packet → into an Ethernet frame → sent over the wire (Physical
+    layer).
+5.  Routers along the way use **IPv4** or **IPv6** rules to forward your
+    packet (Network/Internet layer).
+6.  The server responds, and **ICMP** messages might report errors if
+    something goes wrong (e.g., TTL expired).
+7.  You see the web page, with all data exchanged securely thanks to
+    HTTPS.

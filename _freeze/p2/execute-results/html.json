@@ -1,0 +1,15 @@
+{
+  "hash": "3e98b72cca4e65c6d795d17a96826030",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '# '\n---\n\n\n\n\n\n# 🚧 [Part 2: Networking]{style=\"font-size: 1.05em; font-weight: bold;\"} {#sec-part-two}\n\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n\n::: \n\n::::\n\n\n\n\n\nThis section provides and introduction to Linux networking. We'll cover some foundational theory and hands-on configuration on Ubuntu (22.04+) and RHEL 9 operating systems. Each chapter includes a **Common Commands** box highlighting distro-specific tools and syntax.\n\n---\n\n##  Networking Fundamentals\n\n* **OSI & TCP/IP Models**\n* **IPv4 vs. IPv6 Addressing**\n* **MAC Addresses & ARP**\n* **Common Protocols (ICMP, DHCP, DNS, HTTP/S)**\n\n---\n\n### Network Configurations\n\n* **DHCP vs. Static Assignment**    \n* **Ubuntu: Netplan**     \n    - `/etc/netplan/*.yaml` syntax    \n    - `sudo netplan apply`\n\n* **RHEL 9: NetworkManager & legacy scripts**   \n    - `nmcli` CLI: `nmcli connection add/modify`    \n    - `nmtui` TUI   \n    - (Optional) `/etc/sysconfig/network-scripts/ifcfg-*`   \n\n* **Bringing Interfaces Up/Down**\n\n\n---\n\n### Domain Name System \n\n* **DNS & Name Resolution**   \n* **`/etc/hosts` Basics**   \n* **Resolver Configuration**    \n    - Ubuntu: `systemd-resolved`, `/etc/resolv.conf` symlink    \n    - RHEL 9: direct `/etc/resolv.conf`   \n\n* **Testing DNS**\n* **Caching & Stub Resolvers**\n\n\n---\n\n### Routing & IP Management\n\n* **Static Routes**\n* **Policy-Based Routing (ip rule)**\n* **Enabling IP Forwarding**\n* **VRFs & Network Namespaces**\n\n\n---\n\n## Firewalling & Network Security\n\n* **Ubuntu UFW (Uncomplicated Firewall)**   \n    - `sudo ufw enable/disable`   \n    - Profile management    \n\n* **RHEL 9 firewalld**\n    - `sudo firewall-cmd --zone=public --add-port=80/tcp`   \n    - Permanent vs. runtime rules   \n\n* **iptables vs. nftables**   \n* **SELinux & Network Access**    \n\n---\n\n### Monitoring & Troubleshooting\n\n* **Connectivity Tests (ping, traceroute, mtr)**\n* **Socket & Port Inspection (ss, netstat)**\n* **Packet Capture (tcpdump, tshark)**\n* **Interface Statistics (ethtool, iftop, nload)**\n* **Logs & Systemd Journal**\n\n---\n\n### VPNs, Encryption, & Tunnels \n\n* **SSH Tunnels & SOCKS Proxies**\n* **OpenVPN Setup**\n* **WireGuard Quick-Start**\n* **IPsec & strongSwan**\n\n---\n\n### Linux Virtual & Container Networking\n\n* **Bridge & VLAN Interfaces**\n* **Docker & Podman Networks**\n* **CNI Plugins & Kubernetes Basics**\n* **MACVLAN, NAT & Host Networking Modes**\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -6,7 +6,11 @@ knitr:
     comment: ' '
 ---
 
-# Syntax {.unnumbered}
+:::{style="color: #9b2e00; font-style: italic;"}
+
+# 🏗️ Syntax {#sec-syntax .unnumbered}
+
+:::
 
 ```{bash}
 #| label: setup
@@ -22,18 +26,18 @@ source("_common.R")
 ```
 
 ```{r}
-#| label: co_box_rev
+#| label: co_box_construct
 #| echo: false
 #| results: asis
 #| eval: true
 co_box(
-  color = "o",
+  color = "y",
   look = "default", 
   hsize = "1.25", 
   size = "1.00", 
   header = "Caution", 
   fold = FALSE,
-  contents = "This section is being revised. Thank you for your patience."
+  contents = "This section is under construction. Thank you for your patience."
 )
 ```
 

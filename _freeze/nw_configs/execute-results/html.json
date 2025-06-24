@@ -1,0 +1,15 @@
+{
+  "hash": "787ff585d2e0c16f69b949406d010bf4",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '#'\n---\n\n\n\n\n\n# Network Configurations  {#sec-nw-configs}\n\n\n\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n  \n\n::: \n\n::::\n\n\n\n\n\n> **Common Commands**\n>\n> * Ubuntu:\n>\n>   ```bash\n>   sudo netplan generate\n>   sudo netplan apply\n>   ```\n> * RHEL 9:\n>\n>   ```bash\n>   nmcli device status\n>   nmcli connection up eth0\n>   nmcli connection edit <name>\n>   nmtui\n>   ```",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

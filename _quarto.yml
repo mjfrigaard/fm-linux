@@ -19,10 +19,11 @@ book:
   chapters:
     - index.qmd 
     - preface.qmd
-    - part_one.qmd
+    - p1.qmd
     - part: setups.qmd
       chapters:
         - vms.qmd
+        - wsl.qmd
         - shells.qmd
         - terminals.qmd
     - part: basics.qmd
@@ -46,7 +47,18 @@ book:
       chapters:
         - format.qmd
         - permissions.qmd
-    - part_two.qmd
+    - p2.qmd
+    - part: nw_fund.qmd
+      chapters:
+        - nw_configs.qmd
+        - nw_dns.qmd
+        - nw_ip_routing.qmd
+    - part: nw_firewall_secure.qmd
+      chapters:
+        - nw_monitor_troubleshoot.qmd
+        - nw_vpns_encrypt.qmd
+        - nw_virtual_containers.qmd
+    - p3.qmd
     - part: maintenance.qmd
       chapters:
         - installs.qmd
@@ -67,25 +79,25 @@ format:
     highlight-style: arrow
     date: last-modified
     date-format: iso
-    code-block-bg: "#f8f8f8"
-    code-block-border-left: "#02577A"
-    code-overflow: scroll
-    number-sections: false
-    callout-appearance: simple 
-    #callout-icon: false
-    code-link: false
-    code-annotations: hover
     toc: true
     toc-depth: 4
     toc-expand: true
     toc-title: Contents
     toc-location: right
+    code-block-bg: "#f8f8f8"
+    code-block-border-left: "#02577A"
+    code-overflow: scroll
+    number-sections: false
+    callout-appearance: minimal
+    callout-icon: false
+    code-link: false
+    code-annotations: hover
     dpi: 320
     df-print: kable
     fig-format: retina
-    fig-asp: 0.618
+    #fig-asp: 0.618
     fontsize: 1.055em
-    linestretch: 1.25
+    linestretch: 1.35
     fig-width: 7
     fig-height: 5
     engine: knitr

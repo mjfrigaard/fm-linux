@@ -1,0 +1,15 @@
+{
+  "hash": "356fb1a51014905a7b66b760e9602c23",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '# '\n---\n\n\n\n\n\n# Linux Virtual & Container Networking {#sec-nw-virtual-containers .unnumbered}\n\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n  \n\n::: \n\n::::\n\n\n\n\n\n> **Common Commands**\n>\n> * Bridge:\n>\n>   ```bash\n>   sudo ip link add name br0 type bridge\n>   sudo ip link set dev eth1 master br0\n>   ```\n> * Docker:\n>\n>   ```bash\n>   docker network ls\n>   docker network create --driver bridge mynet\n>   ```\n> * Podman:\n>\n>   ```bash\n>   podman network ls\n>   podman network create podman-net\n>   ```\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

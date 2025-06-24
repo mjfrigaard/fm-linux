@@ -35,7 +35,7 @@ co_box(
 )
 ```
 
-Framed in the context of the car manufacturers analogy, @sec-shells are the car's dashboards and controls--the interface between the driver and the car’s engine. Shells translate commands into actions a computer can understand and execute. Below I'll cover two popular shells: Bash and Zsh.[^fish]
+Using a car analogy, @sec-shells are the car's dashboards and controls — the interface between the driver and the car’s engine. Shells translate commands into actions a computer can understand and execute. Below I'll cover two popular shells: Bash and Zsh.[^fish]
 
 [^fish]: The appendix also covers the key features and customizations of the [Fish shell](fish.qmd)
 

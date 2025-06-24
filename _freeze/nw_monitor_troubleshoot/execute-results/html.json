@@ -1,0 +1,15 @@
+{
+  "hash": "fb4c8fbcddfb1206f711f8549ebf0b74",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '#'\n---\n\n\n\n\n\n# Monitoring & Troubleshooting {#sec-nw-cmnds}\n\n\n\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n  \n\n::: \n\n::::\n\n\n\n\n\n> **Common Commands**\n>\n> ```bash\n> ping -c 4 8.8.8.8\n> traceroute google.com\n> mtr -r google.com\n> ss -tulwn\n> sudo tcpdump -i eth0 port 53 -vv\n> sudo ethtool eth0\n> ```",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

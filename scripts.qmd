@@ -5,7 +5,7 @@ knitr:
     collapse: true
 ---
 
-# Shell Scripts {.unnumbered}
+# 🚧 Shell Scripts {.unnumbered}
 
 ```{r}
 #| label: setup

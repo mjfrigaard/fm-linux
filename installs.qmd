@@ -40,7 +40,7 @@ In the Linux ecosystem, `apt`, `yum`, and `dnf` are **package managers**. These 
 
 ### `yum`
 
-`yum` (Yellowdog Updater, Modified) is used on **older Red Hat-based distributions** like CentOS 7, RHEL 7, and Fedora. yum installs packages from `.rpm` files, which are precompiled software packages.
+`yum` (Yellowdog Updater, Modified) is used on **older Red Hat-based distributions** like CentOS 7, RHEL 7, and Fedora. `yum` installs packages from `.rpm` files, which are precompiled software packages.
 
 
 #### Example usage

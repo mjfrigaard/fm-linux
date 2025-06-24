@@ -1,0 +1,126 @@
+---
+engine: knitr
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: '# '
+---
+
+# 🚧 [Part 2: Networking]{style="font-size: 1.05em; font-weight: bold;"} {#sec-part-two}
+
+```{r}
+#| label: setup
+#| include: false
+source("_common.R")
+```
+
+```{r}
+#| label: co_box_dev
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(
+  color = "r",
+  look = "default", 
+  hsize = "1.25", 
+  size = "1.00", 
+  header = "Caution", 
+  fold = FALSE,
+  contents = "This section is under development. Thank you for your patience."
+)
+```
+
+This section provides and introduction to Linux networking. We'll cover some foundational theory and hands-on configuration on Ubuntu (22.04+) and RHEL 9 operating systems. Each chapter includes a **Common Commands** box highlighting distro-specific tools and syntax.
+
+---
+
+##  Networking Fundamentals
+
+* **OSI & TCP/IP Models**
+* **IPv4 vs. IPv6 Addressing**
+* **MAC Addresses & ARP**
+* **Common Protocols (ICMP, DHCP, DNS, HTTP/S)**
+
+---
+
+### Network Configurations
+
+* **DHCP vs. Static Assignment**    
+* **Ubuntu: Netplan**     
+    - `/etc/netplan/*.yaml` syntax    
+    - `sudo netplan apply`
+
+* **RHEL 9: NetworkManager & legacy scripts**   
+    - `nmcli` CLI: `nmcli connection add/modify`    
+    - `nmtui` TUI   
+    - (Optional) `/etc/sysconfig/network-scripts/ifcfg-*`   
+
+* **Bringing Interfaces Up/Down**
+
+
+---
+
+### Domain Name System 
+
+* **DNS & Name Resolution**   
+* **`/etc/hosts` Basics**   
+* **Resolver Configuration**    
+    - Ubuntu: `systemd-resolved`, `/etc/resolv.conf` symlink    
+    - RHEL 9: direct `/etc/resolv.conf`   
+
+* **Testing DNS**
+* **Caching & Stub Resolvers**
+
+
+---
+
+### Routing & IP Management
+
+* **Static Routes**
+* **Policy-Based Routing (ip rule)**
+* **Enabling IP Forwarding**
+* **VRFs & Network Namespaces**
+
+
+---
+
+## Firewalling & Network Security
+
+* **Ubuntu UFW (Uncomplicated Firewall)**   
+    - `sudo ufw enable/disable`   
+    - Profile management    
+
+* **RHEL 9 firewalld**
+    - `sudo firewall-cmd --zone=public --add-port=80/tcp`   
+    - Permanent vs. runtime rules   
+
+* **iptables vs. nftables**   
+* **SELinux & Network Access**    
+
+---
+
+### Monitoring & Troubleshooting
+
+* **Connectivity Tests (ping, traceroute, mtr)**
+* **Socket & Port Inspection (ss, netstat)**
+* **Packet Capture (tcpdump, tshark)**
+* **Interface Statistics (ethtool, iftop, nload)**
+* **Logs & Systemd Journal**
+
+---
+
+### VPNs, Encryption, & Tunnels 
+
+* **SSH Tunnels & SOCKS Proxies**
+* **OpenVPN Setup**
+* **WireGuard Quick-Start**
+* **IPsec & strongSwan**
+
+---
+
+### Linux Virtual & Container Networking
+
+* **Bridge & VLAN Interfaces**
+* **Docker & Podman Networks**
+* **CNI Plugins & Kubernetes Basics**
+* **MACVLAN, NAT & Host Networking Modes**

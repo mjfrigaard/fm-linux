@@ -39,19 +39,23 @@ co_box(
 
 I began writing this book when I started a new position as a Posit System Administrator with CDC’s Enterprise Data, Analytics, and Visualization (EDAV) platform.[^edav] EDAV houses multiple enterprise data science products (Databricks, Power BI, Tableau, SAS Viya, etc.), including Posit Workbench, Connect, and Package Manager.
 
-I’d been an R programmer for over ten years and spent the last five years working primarily on Shiny apps. My new responsibilities included (but were not limited to) maintaining, updating, monitoring and improving the Posit services for CDC users.
+I’d been an R programmer for over ten years and spent the last five years developing Shiny applications. As a System Admin, my responsibilities included (but were not limited to) maintaining, updating, monitoring and improving the Posit services for CDC users.
 
 > "*If there's a book that you want to read, but it hasn't been written yet, then you must write it.*" - [Toni Morrison](https://www.goodreads.com/quotes/321-if-there-s-a-book-that-you-want-to-read-but)
 
-I wrote the book I wish I had when transitioning from an R Developer to a System Administrator. 
-
 [^edav]: Read more about EDAV and the Data Modernization Initiative [here](https://www.cdc.gov/data-modernization/php/technologies/edav.html).
+
+I was lucky--[DevOps for Data Science (do4ds)](https://do4ds.com/) by [Alex K Gold](https://alexkgold.space/) was written and released (officially) on June 19, 2024, and it is ~80% of the book I wanted to read. The book you are reading is similar to [do4ds](https://do4ds.com/), but I've included topics covered in the following resources: 
+
+1. [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts    
+2. [How Linux Works: what every superuser show know](https://a.co/d/4YVb01t) by Brian Ward    
+3. [The Linux programming interface: a Linux and UNIX system programming handbook](https://a.co/d/dhKUgR4) by Michael Kerrisk.
 
 ## [Outline]{style="font-size: 1.05em; font-weight: bold;"}
 
-The first half of this book gradually introduces the Linux environment, starting with some history and operating system basics before moving into more complex concepts. These sections (**Set-Ups**, **Basics**, **Syntax**, **Text**, and **Shell Scripts**) cover concepts and topics for users new to Linux.
+The first part of this book gradually introduces the Linux environment, starting with some history and operating system basics before moving into more complex concepts. These sections (**Set-Ups**, **Basics**, **Syntax**, **Text**, and **Shell Scripts**) cover concepts and topics for users new to Linux.
 
-The second half of the book covers case studies (or common tasks). If you’re familiar with Linux/Unix, command-line tools, and regular expressions, skip to these sections.
+Part four of the book covers case studies (or common tasks). 
 
 ```{r}
 #| label: co_box_fms
@@ -67,7 +71,7 @@ co_box(
   fold = TRUE,
   contents = "A field manual (FM) is an educational tool that provides information, instructions, and techniques for various concepts and practices. 
   
-Fiels Manuals function as both reference material and living documentation, encouraging updates and adaptations based on the given situation, available technology, or broader environment.[^field-manuals]
+Field Manuals function as both reference material and living documentation, encouraging updates and adaptations based on the given situation, available technology, or broader environment.[^field-manuals]
 
 ![Example improvised boobytrap made using a charge and blasting cap.](img/fm531_1965_boobytraps.png){width='70%' fig-align='center'}
   
@@ -142,7 +146,7 @@ co_box(
 
 The <strong>[Format](format.qmd)</strong> chapter delves into the differences between these formats, guiding you on writing compatible scripts that can run across different Linux systems. <strong>[Permissions](permissions.qmd)</strong> explains how Linux permissions work and teaches you how to set and modify permissions to protect your data and system from unauthorized access.
 
-### Part Two: Use Cases 
+### Part Two: Networking
 
 ```{r}
 #| label: co_box_use_cases
@@ -160,6 +164,10 @@ co_box(
   contents = "Thank you for your patience."
 )
 ```
+
+
+
+## Data files 
 
 The data files used in this book are documented in the [data](data.qmd) appendix.
 

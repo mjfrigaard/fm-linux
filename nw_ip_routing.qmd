@@ -1,0 +1,51 @@
+---
+engine: knitr
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: '#'
+---
+
+# Routing & IP Management {#sec-nw-ip-routing}
+
+```{bash}
+#| label: setup
+#| include: false
+whoami
+```
+
+```{r}
+#| label: common
+#| include: false
+source("_common.R")
+```
+
+```{r}
+#| label: co_box_dev
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(
+  color = "r",
+  look = "default", 
+  hsize = "1.25", 
+  size = "1.00", 
+  header = "Caution", 
+  fold = FALSE,
+  contents = "This section is under development. Thank you for your patience.
+  "
+)
+```
+
+> **Common Commands**
+>
+> * Add route: `sudo ip route add 10.0.0.0/24 via 192.168.1.1`
+> * List rules: `ip rule show`
+> * Enable forwarding:
+>
+>   ```bash
+>   sudo sysctl -w net.ipv4.ip_forward=1
+>   # persist in /etc/sysctl.conf
+>   ```
+
+

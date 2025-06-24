@@ -1,0 +1,71 @@
+---
+engine: knitr
+knitr:
+  opts_chunk: 
+    collapse: true
+    
+---
+
+# 🏗️ [Windows]{style="color: #9b2e00; font-style: italic;"} {#sec-wsl}
+
+```{bash}
+#| label: setup
+#| include: false
+whoami
+```
+
+```{r}
+#| label: common
+#| include: false
+source("_common.R")
+```
+
+```{r}
+#| label: co_box_rev
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(
+  color = "y",
+  look = "default", 
+  hsize = "1.25", 
+  size = "1.00", 
+  header = "Caution", 
+  fold = FALSE,
+  contents = "This section is under contruction. Thank you for your patience."
+)
+```
+
+Windows Subsystem for Linux ([WSL](https://learn.microsoft.com/en-us/windows/wsl/install)) allows you to run Linux on your Windows computer without a virtual machine or dual-booting. You can use Linux command-line tools and applications alongside your Windows programs.
+
+## Install
+
+Open Windows PowerShell as Administrator and run the following commands: 
+
+```powershell
+wsl install 
+```
+
+To view a list of available linux distributions (*distro*), run the following:
+
+```powershell
+wsl --list --online
+```
+
+Pick the distro you'd like to install (i.e., Ubuntu, Debian, Fedora, openSUSE, etc.) and install it using (replacing `<distro>` with the name of the distribution): 
+
+```powershell
+wsl --install -d <distro>
+```
+
+See example below: 
+
+```powershell
+wsl --install -d Ubuntu
+```
+
+## Configure 
+
+
+
+## Recap
