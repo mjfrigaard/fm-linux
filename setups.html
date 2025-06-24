@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-01-25">
+<meta name="dcterms.date" content="2025-06-10">
 <meta name="description" content="A Linux Field Manual">
 
 <title>Set-Ups – FM-Linux</title>
@@ -33,7 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./vms.html" rel="next">
-<link href="./part_one.html" rel="prev">
+<link href="./p1.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-2c272e4a77f9976b39c4fc697268e7b0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e0e691ba9d940ea6a8e6359c703bc08.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -129,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part_one.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 1: Introduction</span></span></a>
+  <a href="./p1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 1: Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -144,6 +144,11 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./vms.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Virtual Machines</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./wsl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e00; font-style: italic;">Windows</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -187,7 +192,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./syntax.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Syntax</span></a>
+ <span class="menu-text">🏗️ Syntax</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -250,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./scripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Shell Scripts</span></a>
+ <span class="menu-text">🚧 Shell Scripts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -258,30 +263,89 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./format.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Format</span></a>
+  <a href="./format.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ Format</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permissions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Permissions</span></a>
+  <a href="./permissions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ Permissions</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part_two.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 2: Use Cases</span></span></a>
+  <a href="./p2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🚧 <span style="font-size: 1.05em; font-weight: bold;">Part 2: Networking</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./nw_fund.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fundamentals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nw_configs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Network Configurations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nw_dns.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Domain Name System</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nw_ip_routing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Routing &amp; IP Management</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./nw_firewall_secure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Firewalling &amp; Network Security</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nw_monitor_troubleshoot.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nw_vpns_encrypt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">VPNs, Encryption, &amp; Tunnels</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nw_virtual_containers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linux Virtual &amp; Container Networking</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./p3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 3: Use Cases</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./maintenance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Maintenance</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./installs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Installations</span></a>
@@ -293,11 +357,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./performance.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Performance</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./file_size.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Finding Large Files</span></a>
@@ -307,13 +371,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./syntax_ref.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Syntax Reference</span></a>
@@ -379,7 +443,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-01-25</p>
+      <p class="date">2025-06-10</p>
     </div>
   </div>
   
@@ -435,17 +499,24 @@ ul.task-list li input[type="checkbox"] {
 
 flowchart TD
   VM("Virtual Machine")
-  Linux("Linux Distribution 🐧")
-  HostSystem{"Host System"}
-  CPU("Virtualized CPU")
-  RAM("Virtualized RAM 🧠")
-  Disk("Virtualized Disk 💽")
+  Linux("Linux Distro 🐧")
+  HostSystem{"Host&lt;br&gt;Operating&lt;br&gt;System"}
+  CPU("Virtual CPU")
+  RAM("Virtual RAM 🧠")
+  Disk("Virtual Disk 💽")
 
   HostSystem--&gt;VM
   VM--&gt;Linux
   VM--&gt;CPU
   VM--&gt;RAM
   VM--&gt;Disk
+  
+    style HostSystem fill:#fefefe,font-size:16px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style VM fill:#,font-size:15px,stroke:#000,stroke-width:2px
+    style Linux fill:#fefefe,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style CPU fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style RAM fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style Disk fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
 
 </pre>
 </div>
@@ -458,10 +529,85 @@ flowchart TD
 <section id="shells" class="level3">
 <h3 class="anchored" data-anchor-id="shells">Shells</h3>
 <p><strong><a href="shells.html" class="quarto-xref"><span>Shells</span></a></strong> are the command-line interpreters that allow users to interact with the operating system by executing commands and running scripts.</p>
+
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #faf9ed;
+  padding: 0.2em;
+}
+
+</style>
+<div class="cell" data-fig-width="8" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+flowchart TD
+    Shell["Shell"]
+    Shell --&gt; Exec("Executes Commands")
+    Shell --&gt; Script("Runs Scripts")
+    Exec --&gt; OS["Host Operating System"]
+    Script --&gt; OS
+
+    style Shell fill:#fefefe,font-size:14px,stroke:#000,stroke-width:2px,rx:3,ry:3
+    style Exec fill:#fefefe,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style Script fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style OS fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    
+</pre>
+</div>
+<p></p><figcaption> Using Shells</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
 </section>
 <section id="terminals" class="level3">
 <h3 class="anchored" data-anchor-id="terminals">Terminals</h3>
-<p><strong><a href="terminals.html" class="quarto-xref"><span>Terminals</span></a></strong></p>
+<p><strong><a href="terminals.html" class="quarto-xref"><span>Terminals</span></a></strong> are text-based interfaces that allow users to interact with the operating system by entering commands directly.</p>
+
+<style>
+
+.codeStyle span:not(.nodeLabel) {
+  font-family: monospace;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #9753b8 !important;
+  background-color: #faf9ed;
+  padding: 0.2em;
+}
+
+</style>
+<div class="cell" data-fig-width="8" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': { 'fontFamily': 'monospace', "fontSize":"16px"}}}%%
+flowchart TD
+    User[User] --&gt; Term["Terminal&lt;br&gt;Emulator"]
+    Term --&gt; Shell["Shell&lt;br&gt;(Command&lt;br&gt;Processor)"]
+    Shell --&gt; Prog["Other Programs"]
+    Shell --&gt; Out["Returns Output"]
+    Prog --&gt; Out
+
+    style User fill:#,font-size:16px,stroke:#000,stroke-width:1px
+    style Term fill:#fefefe,font-size:14px,stroke:#000,stroke-width:2px,rx:3,ry:3
+    style Shell fill:#fefefe,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style Prog fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    style Out fill:#efefef,font-size:14px,stroke:#000,stroke-width:1px,rx:3,ry:3
+    
+</pre>
+</div>
+<p></p><figcaption> Using Terminals</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -943,7 +1089,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./part_one.html" class="pagination-link" aria-label="[Part 1: Introduction]{style=&quot;font-size: 1.05em; font-weight: bold;&quot;}">
+      <a href="./p1.html" class="pagination-link" aria-label="[Part 1: Introduction]{style=&quot;font-size: 1.05em; font-weight: bold;&quot;}">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 1: Introduction</span></span></span>
       </a>          
   </div>
