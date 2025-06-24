@@ -6,7 +6,7 @@ knitr:
     comment: '# '
 ---
 
-# 🚧 [Part 2: Networking]{style="font-size: 1.05em; font-weight: bold;"} {#sec-part-two}
+# 🚧 [Part 2: Text]{style="font-size: 1.05em; font-weight: bold;"} {#sec-part-two}
 
 ```{r}
 #| label: setup
@@ -30,97 +30,20 @@ co_box(
 )
 ```
 
-This section provides and introduction to Linux networking. We'll cover some foundational theory and hands-on configuration on Ubuntu (22.04+) and RHEL 9 operating systems. Each chapter includes a **Common Commands** box highlighting distro-specific tools and syntax.
+The essence of Linux and Linux systems is their powerful simplicity, and nowhere is this more evident than in how they handle text. Text commands and editors form the backbone of these operating systems, enabling users to perform complex tasks with a few keystrokes. This chapter will delve into pattern matching with regular expressions, the fundamental concepts of plain text files, text streams, and the Linux philosophy that prioritizes text as a universal interface for programming and system administration.
 
----
+## Plain Text 
 
-##  Networking Fundamentals
+Plain text files are vital to Linux systems, embodying their philosophy of 'simple and beautiful.'[^mcilroy] These files only contain text, making them versatile and powerful. Linux believes that '*everything is a file*,' including devices, configurations, and processes.[^file-vs-bits] Plain text files are the universal interface between systems, programs, and users. Standard Linux tools can easily create, manipulate, and read plain text, making it an essential interface for system administration, programming, and process management.
 
-* **OSI & TCP/IP Models**
-* **IPv4 vs. IPv6 Addressing**
-* **MAC Addresses & ARP**
-* **Common Protocols (ICMP, DHCP, DNS, HTTP/S)**
+[^mcilroy]: Doug McIlroy on Linux programming: "*Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.*" - [Wikipedia](https://en.wikipedia.org/wiki/Unix_philosophy#Doug_McIlroy_on_Unix_programming)
 
----
+[^file-vs-bits]: Linus Torvalds (creator and lead developer of the Linux kernel) has [clarified](https://yarchive.net/comp/linux/everything_is_file.html) this to, "*The UNIX philosophy is often quoted as "everything is a file", but that really means "everything is a stream of bytes.*"
 
-### Network Configurations
+### Communication Between Programs
 
-* **DHCP vs. Static Assignment**    
-* **Ubuntu: Netplan**     
-    - `/etc/netplan/*.yaml` syntax    
-    - `sudo netplan apply`
+Linux philosophy values specialized programs that work together efficiently. Plain text is used as inputs or outputs in pipelines of simple, single-purpose programs to perform complex operations.
 
-* **RHEL 9: NetworkManager & legacy scripts**   
-    - `nmcli` CLI: `nmcli connection add/modify`    
-    - `nmtui` TUI   
-    - (Optional) `/etc/sysconfig/network-scripts/ifcfg-*`   
+## Text Streams
 
-* **Bringing Interfaces Up/Down**
-
-
----
-
-### Domain Name System 
-
-* **DNS & Name Resolution**   
-* **`/etc/hosts` Basics**   
-* **Resolver Configuration**    
-    - Ubuntu: `systemd-resolved`, `/etc/resolv.conf` symlink    
-    - RHEL 9: direct `/etc/resolv.conf`   
-
-* **Testing DNS**
-* **Caching & Stub Resolvers**
-
-
----
-
-### Routing & IP Management
-
-* **Static Routes**
-* **Policy-Based Routing (ip rule)**
-* **Enabling IP Forwarding**
-* **VRFs & Network Namespaces**
-
-
----
-
-## Firewalling & Network Security
-
-* **Ubuntu UFW (Uncomplicated Firewall)**   
-    - `sudo ufw enable/disable`   
-    - Profile management    
-
-* **RHEL 9 firewalld**
-    - `sudo firewall-cmd --zone=public --add-port=80/tcp`   
-    - Permanent vs. runtime rules   
-
-* **iptables vs. nftables**   
-* **SELinux & Network Access**    
-
----
-
-### Monitoring & Troubleshooting
-
-* **Connectivity Tests (ping, traceroute, mtr)**
-* **Socket & Port Inspection (ss, netstat)**
-* **Packet Capture (tcpdump, tshark)**
-* **Interface Statistics (ethtool, iftop, nload)**
-* **Logs & Systemd Journal**
-
----
-
-### VPNs, Encryption, & Tunnels 
-
-* **SSH Tunnels & SOCKS Proxies**
-* **OpenVPN Setup**
-* **WireGuard Quick-Start**
-* **IPsec & strongSwan**
-
----
-
-### Linux Virtual & Container Networking
-
-* **Bridge & VLAN Interfaces**
-* **Docker & Podman Networks**
-* **CNI Plugins & Kubernetes Basics**
-* **MACVLAN, NAT & Host Networking Modes**
+A text stream in Linux and Linux is a simple, sequential flow of characters. Text streams can be inputs from keyboards, outputs to a display screen, or the data within a file. The concept of text streams is fundamental to the Linux philosophy; it allows for the chaining together of commands, where the output of one command can be seamlessly passed as input to another through a mechanism known as piping.

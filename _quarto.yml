@@ -31,6 +31,7 @@ book:
         - dirs.qmd
         - files.qmd
         - sys.qmd
+        - permissions.qmd
     - part: syntax.qmd
       chapters:
         - commands.qmd
@@ -38,6 +39,7 @@ book:
         - options.qmd
         - pipes.qmd
         - vars.qmd
+    - p2.qmd
     - part: text.qmd
       chapters:
         - symbols_patterns.qmd
@@ -46,8 +48,7 @@ book:
     - part: scripts.qmd
       chapters:
         - format.qmd
-        - permissions.qmd
-    - p2.qmd
+    - p3.qmd
     - part: nw_fund.qmd
       chapters:
         - nw_configs.qmd
@@ -58,7 +59,7 @@ book:
         - nw_monitor_troubleshoot.qmd
         - nw_vpns_encrypt.qmd
         - nw_virtual_containers.qmd
-    - p3.qmd
+    - p4.qmd
     - part: maintenance.qmd
       chapters:
         - installs.qmd
