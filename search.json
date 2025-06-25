@@ -430,7 +430,7 @@
     "href": "files.html#create",
     "title": "Files",
     "section": "",
-    "text": "touch\nWe’ll start by creating a new empty file (data/who_tb_data.tsv) with touch:\n\ntouch data/who_tb_data.tsv\n\nWe can confirm the new who_tb_data.tsv file was created, we’ll use the tree command to check the data folder:\ntree -P who_tb_data.tsv data\n# data\n# └── who_tb_data.tsv\n# \n# 1 directory, 1 file\nThe -P option lets us specify a pattern to search for in the data folder, which we’ll cover more in the Special Characters, Wildcards, Regular Expressions, Manipulating Text, and Text Editors.\n\n\necho\nWe can add some contents to the data/who_tb_data.tsv file using echo and the &gt; operator.1\n\necho \"country   year    type    count\nAfghanistan 1999    cases   745\nAfghanistan 1999    population  19987071\nAfghanistan 2000    cases   2666\nAfghanistan 2000    population  20595360\nBrazil  1999    cases   37737\nBrazil  1999    population  172006362\nBrazil  2000    cases   80488\nBrazil  2000    population  174504898\nChina   1999    cases   212258\nChina   1999    population  1272915272\nChina   2000    cases   213766\nChina   2000    population  1280428583\" &gt; data/who_tb_data.tsv",
+    "text": "touch\nWe’ll start by creating a new empty file (data/who_tb_data.tsv) with touch:\n\ntouch data/who_tb_data.tsv\n\nWe can confirm the new who_tb_data.tsv file was created, we’ll use the tree command to check the data folder:\ntree -P who_tb_data.tsv data\n# data\n# └── who_tb_data.tsv\n# \n# 1 directory, 1 file\nThe -P option lets us specify a pattern to search for in the data folder, which we’ll cover more in the Special Characters, Wildcards, Regular Expressions, Manipulating Text, and ?sec-txt-edit.\n\n\necho\nWe can add some contents to the data/who_tb_data.tsv file using echo and the &gt; operator.1\n\necho \"country   year    type    count\nAfghanistan 1999    cases   745\nAfghanistan 1999    population  19987071\nAfghanistan 2000    cases   2666\nAfghanistan 2000    population  20595360\nBrazil  1999    cases   37737\nBrazil  1999    population  172006362\nBrazil  2000    cases   80488\nBrazil  2000    population  174504898\nChina   1999    cases   212258\nChina   1999    population  1272915272\nChina   2000    cases   213766\nChina   2000    population  1280428583\" &gt; data/who_tb_data.tsv",
     "crumbs": [
       "Basics",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Files</span>"
@@ -1169,47 +1169,57 @@
     ]
   },
   {
-    "objectID": "text_editors.html",
-    "href": "text_editors.html",
+    "objectID": "txt_edit.html",
+    "href": "txt_edit.html",
     "title": "Text Editors",
     "section": "",
-    "text": "nano",
+    "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.",
     "crumbs": [
-      "Universal Interface",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Text Editors</span>"
+      "Text Editors"
     ]
   },
   {
-    "objectID": "text_editors.html#vi-vim",
-    "href": "text_editors.html#vi-vim",
-    "title": "Text Editors",
-    "section": "vi (Vim)",
-    "text": "vi (Vim)\nVim, short for Vi IMproved, is an advanced text editor that is an enhanced version of the vi editor common to UNIX systems. Vim designed for both casual text editing and complex code development, making it a popular choice for developers and system administrators alike. Vim is known for its power, flexibility, and efficiency, but it can be intimidating for beginners due to its modal nature and extensive commands.\n\nGetting Started\nTo start using Vim, you can simply type vim followed by the name of the file you wish to edit or create. For example:\n\nvim example.txt\n\nThis command will open example.txt in Vim. If the file doesn’t exist, Vim will create it once you attempt to save.\n\n\nVim Modes\nVim operates in several modes, primarily:\n\nNormal Mode: The default mode where you can use vim commands. No text insertion happens in this mode.\nInsert Mode: Allows you to insert text. Enter this mode by pressing i in Normal Mode.\nCommand Mode: Accessed from Normal Mode by pressing :. Here, you can execute Vim commands and scripts.\n\n\n\nBasic Commands\nHere are some fundamental commands to get you started:\n\ni - Enter insert mode to start typing/editing the text.\nEsc - Return to normal mode from any other mode.\n:w - Save the changes made to the file.\n:q - Quit Vim.\n:wq - Save the changes and quit Vim.\ndd - Delete (cut) a line in normal mode.\nyy - Copy (yank) a line in normal mode.\np - Paste the copied or deleted line below the current line.\n\n\n\nExample Session\nLet’s consider a simple session where you edit a new file:\n\nOpen or create a file:\nvim example.txt\nEnter Insert Mode to start typing:\ni\nType your text, for instance:\nHello, this is a test file with Vim.\nPress Esc to go back to Normal Mode.\nSave and exit:\n:wq",
+    "objectID": "vim.html",
+    "href": "vim.html",
+    "title": "Vim",
+    "section": "",
+    "text": "Getting Started\nVim, short for Vi IMproved, is an advanced text editor that is an enhanced version of the vi editor common to UNIX systems. Vim designed for both casual text editing and complex code development, making it a popular choice for developers and system administrators alike. Vim is known for its power, flexibility, and efficiency, but it can be intimidating for beginners due to its modal nature and extensive commands.\nTo start using Vim, you can simply type vim followed by the name of the file you wish to edit or create. For example:\nvim example.txt\nThis command will open example.txt in Vim. If the file doesn’t exist, Vim will create it once you attempt to save.",
     "crumbs": [
-      "Universal Interface",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Text Editors</span>"
+      "Text Editors",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Vim</span>"
     ]
   },
   {
-    "objectID": "text_editors.html#advanced-features",
-    "href": "text_editors.html#advanced-features",
-    "title": "Text Editors",
+    "objectID": "vim.html#advanced-features",
+    "href": "vim.html#advanced-features",
+    "title": "Vim",
     "section": "Advanced Features",
-    "text": "Advanced Features\nAs you grow more comfortable with the basics of Vim, you may explore its advanced features:\n\nMultiple Windows: Open multiple files or views using :split, :vsplit\nMacros: Automate repetitive tasks by recording them.\nCustomizable Settings: Tweak Vim’s behavior through a .vimrc file\nPlugins: Extend Vim’s functionality with plugins like NERDTree for file system navigation or YouCompleteMe for code completion.\n\nWhile Vim has a steep learning curve, mastering it can significantly enhance your productivity and efficiency in text editing tasks. Start with basic commands, gradually exploring more complex features as you become more comfortable with the editor.",
+    "text": "Advanced Features\nAs you grow more comfortable with the basics of Vim, you may explore its advanced features:\n\nMultiple Windows: Open multiple files or views using :split, :vsplit\nMacros: Automate repetitive tasks by recording them.\nCustomizable Settings: Tweak Vim’s behavior through a .vimrc file\nPlugins: Extend Vim’s functionality with plugins like NERDTree for file system navigation or YouCompleteMe for code completion.\n\nWhile Vim has a steep learning curve, mastering it can significantly enhance your productivity and efficiency in text editing tasks. Start with basic commands, gradually exploring more complex features as you become more comfortable with the editor.\n\n\n\n\n\n\nSee a typo, error, or something missing?\n\n\n\n\n\n\nPlease open an issue on GitHub.",
     "crumbs": [
-      "Universal Interface",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Text Editors</span>"
+      "Text Editors",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Vim</span>"
     ]
   },
   {
-    "objectID": "text_editors.html#emacs",
-    "href": "text_editors.html#emacs",
-    "title": "Text Editors",
-    "section": "emacs",
-    "text": "emacs\n\n\n\n\n\n\nSee a typo, error, or something missing?\n\n\n\n\n\n\nPlease open an issue on GitHub.",
+    "objectID": "nano.html",
+    "href": "nano.html",
+    "title": "nano",
+    "section": "",
+    "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.",
     "crumbs": [
-      "Universal Interface",
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Text Editors</span>"
+      "Text Editors",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>nano</span>"
+    ]
+  },
+  {
+    "objectID": "emacs.html",
+    "href": "emacs.html",
+    "title": "emacs",
+    "section": "",
+    "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.",
+    "crumbs": [
+      "Text Editors",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>emacs</span>"
     ]
   },
   {
@@ -1230,7 +1240,7 @@
     "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.\n\n\n\n\n\n# Create and populate the file with your data\ntouch who_tb_data.txt\necho \"country year  type  count\nAfghanistan 1999  cases 745\nAfghanistan 1999  population  19987071\nAfghanistan 2000  cases 2666\nAfghanistan 2000  population  20595360\nBrazil  1999  cases 37737\nBrazil  1999  population  172006362\nBrazil  2000  cases 80488\nBrazil  2000  population  174504898\nChina 1999  cases 212258\nChina 1999  population  1272915272\nChina 2000  cases 213766\nChina 2000  population  1280428583\" &gt; who_tb_data.txt\n\n# Get the word count values\ncounts=$(wc who_tb_data.txt | awk '{print $1, $2, $3}')\n\n# Use printf to format the output\nprintf \"   lines   words characters\\n\"\nprintf \"%8s %7s %10s\\n\" $counts\n\nTo make the commands above more generalizable so that any file can be passed as input rather than being restricted to a specific file (who_tb_data.txt), we can modify the script to take a filename as a command-line argument.\nThis way, you can use the script with any file by specifying the filename when you run the script.\n\nStep 1: Modify the Script to Take Command-Line Arguments\nHere’s how the revised script could look:\n#!/bin/bash\n\n# Check if a file name was provided as an argument\nif [ \"$#\" -ne 1 ]; then\n    echo \"Usage: $0 &lt;filename&gt;\"\n    exit 1\nfi\n\n# Check if the file exists\nif [ ! -f \"$1\" ]; then\n    echo \"File not found: $1\"\n    exit 1\nfi\n\n# Get the word count values\ncounts=$(wc \"$1\" | awk '{print $1, $2, $3}')\n\n# Use printf to format the output\nprintf \"   lines   words characters\\n\"\nprintf \"%8s %7s %10s\\n\" $counts\n\n\nStep 2: Save and Make the Script Executable\n\nSave the script in a file, for example, format_wc_output.sh.\nMake sure the script is executable:\nchmod +x format_wc_output.sh\n\n\n\nStep 3: Run the Script with a File as an Argument\n\nNow you can run the script with any file as an argument. For example:\n./format_wc_output.sh somefile.txt\n\n\n\nExplanation\n\nArgument Checking: The script now starts by checking if exactly one argument (the filename) is provided. If not, it prints a usage message and exits. This ensures the user knows how to run the script correctly.\nFile Existence Checking: It checks if the file exists before attempting to process it. If the file doesn’t exist, it prints an error message and exits. This prevents errors related to non-existent files.\nUsing Command-Line Argument: The wc command now uses $1, which is a placeholder for the first command-line argument provided to the script (i.e., the filename you want to process).\n\nThis version of the script is more flexible and useful, as it can handle any file input, making it a handy tool for quickly formatting word count output for various files across your system.\n\n\n\n\n\n\nSee a typo, error, or something missing?\n\n\n\n\n\n\nPlease open an issue on GitHub.",
     "crumbs": [
       "🚧 Shell Scripts",
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>🏗️ Format</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>🏗️ Format</span>"
     ]
   },
   {
@@ -1240,7 +1250,7 @@
     "section": "",
     "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.",
     "crumbs": [
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>🚧 [Part 3: Networking]{style=\"font-size: 1.05em; font-weight: bold;\"}</span>"
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>🚧 [Part 3: Networking]{style=\"font-size: 1.05em; font-weight: bold;\"}</span>"
     ]
   },
   {
@@ -1301,7 +1311,7 @@
     "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.\n\n\n\n\n\nCommon Commands\n\nUbuntu:\nsudo netplan generate\nsudo netplan apply\nRHEL 9:\nnmcli device status\nnmcli connection up eth0\nnmcli connection edit &lt;name&gt;\nnmtui",
     "crumbs": [
       "Fundamentals",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Network Configurations</span>"
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Network Configurations</span>"
     ]
   },
   {
@@ -1312,7 +1322,7 @@
     "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.",
     "crumbs": [
       "Fundamentals",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Domain Name System</span>"
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Domain Name System</span>"
     ]
   },
   {
@@ -1323,7 +1333,7 @@
     "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.\n\n\n\n\n\nCommon Commands\n\nAdd route: sudo ip route add 10.0.0.0/24 via 192.168.1.1\nList rules: ip rule show\nEnable forwarding:\nsudo sysctl -w net.ipv4.ip_forward=1\n# persist in /etc/sysctl.conf",
     "crumbs": [
       "Fundamentals",
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Routing & IP Management</span>"
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Routing & IP Management</span>"
     ]
   },
   {
@@ -1344,7 +1354,7 @@
     "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.\n\n\n\n\n\nCommon Commands\nping -c 4 8.8.8.8\ntraceroute google.com\nmtr -r google.com\nss -tulwn\nsudo tcpdump -i eth0 port 53 -vv\nsudo ethtool eth0",
     "crumbs": [
       "Firewalling & Network Security",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Monitoring & Troubleshooting</span>"
+      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Monitoring & Troubleshooting</span>"
     ]
   },
   {
@@ -1376,7 +1386,7 @@
     "section": "",
     "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.",
     "crumbs": [
-      "<span class='chapter-number'>27</span>  <span class='chapter-title'>[Part 4: Use Cases]{style=\"font-size: 1.05em; font-weight: bold;\"}</span>"
+      "<span class='chapter-number'>29</span>  <span class='chapter-title'>[Part 4: Use Cases]{style=\"font-size: 1.05em; font-weight: bold;\"}</span>"
     ]
   },
   {
@@ -1417,7 +1427,7 @@
     "text": "Package managers\nScenario: You’ve been asked to install a software package on your Linux operating system. This could be an applications, library, utility, or their dependencies.\nIn the Linux ecosystem, apt, yum, and dnf are package managers. These tools are responsible for installing and managing software packages, such as installing, updating, and removing software, as well as resolving package dependencies.",
     "crumbs": [
       "Maintenance",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Installations</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Installations</span>"
     ]
   },
   {
@@ -1428,7 +1438,7 @@
     "text": "apt\napt (Advanced Package Tool)is used on Debian-based distributions like Ubuntu, Debian, etc. apt installs packages from .deb files, which are precompiled software packages.\n\nExample usage\n\nInstall a package:\nsudo apt install &lt;package_name&gt;\nUpdate a package:\nsudo apt update\nUpgrade installed packages:\nsudo apt upgrade\n\n\n\n\nyum\nyum (Yellowdog Updater, Modified) is used on older Red Hat-based distributions like CentOS 7, RHEL 7, and Fedora. yum installs packages from .rpm files, which are precompiled software packages.\n\nExample usage\n\nInstall a package:\nsudo yum install &lt;package_name&gt;\nUpdate all packages:\nsudo yum update\nRemove a package:\nsudo yum remove &lt;package_name&gt;\n\n\n\n\ndnf\ndnf (Dandified YUM) is the next-generation version of yum and the default package manager for RHEL 8+, CentOS 8+, and Fedora.\n\nMore efficient and faster than yum, with better dependency management.\n\n\nExample usage\n\nInstall a package:\nsudo dnf install &lt;package_name&gt;\nUpdate all packages:\nsudo dnf update\nRemove a package:\nsudo dnf remove &lt;package_name&gt;",
     "crumbs": [
       "Maintenance",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Installations</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Installations</span>"
     ]
   },
   {
@@ -1439,7 +1449,7 @@
     "text": "Recap\nThe apt, yum, and dnf package managers install:\n\nSoftware packages: Precompiled binaries or scripts, such as applications, libraries, and utilities.\nDependencies: Additional packages required for the primary software to function correctly.\nUpdates: Security patches and newer versions of existing software.\n\nThese package managers fetch packages from their respective repositories, which are online or local directories containing approved and signed software packages.",
     "crumbs": [
       "Maintenance",
-      "<span class='chapter-number'>28</span>  <span class='chapter-title'>Installations</span>"
+      "<span class='chapter-number'>30</span>  <span class='chapter-title'>Installations</span>"
     ]
   },
   {
@@ -1460,7 +1470,7 @@
     "text": "find\nScenario: You’ve been asked to discover any files over a certain size. This could be due concerns over disk space, performance optimization, backup and recovery, network load reduction, compliance, auditing, a system migration, user quotas, or internal data management policies (usually related to cost).",
     "crumbs": [
       "Performance",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Finding Large Files</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Finding Large Files</span>"
     ]
   },
   {
@@ -1471,7 +1481,7 @@
     "text": "du & sort",
     "crumbs": [
       "Performance",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Finding Large Files</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Finding Large Files</span>"
     ]
   },
   {
@@ -1482,7 +1492,7 @@
     "text": "awk & ls",
     "crumbs": [
       "Performance",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Finding Large Files</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Finding Large Files</span>"
     ]
   },
   {
@@ -1493,7 +1503,7 @@
     "text": "ncdu",
     "crumbs": [
       "Performance",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Finding Large Files</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Finding Large Files</span>"
     ]
   },
   {
@@ -1504,7 +1514,7 @@
     "text": "grep & find or du",
     "crumbs": [
       "Performance",
-      "<span class='chapter-number'>29</span>  <span class='chapter-title'>Finding Large Files</span>"
+      "<span class='chapter-number'>31</span>  <span class='chapter-title'>Finding Large Files</span>"
     ]
   },
   {

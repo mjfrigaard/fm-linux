@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/index.html</loc>
-    <lastmod>2025-06-24T21:22:54.305Z</lastmod>
+    <lastmod>2025-06-25T13:24:04.982Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/preface.html</loc>
@@ -101,8 +101,20 @@
     <lastmod>2024-08-28T15:01:36.007Z</lastmod>
   </url>
   <url>
-    <loc>https://mjfrigaard.github.io/fm-linux/text_editors.html</loc>
-    <lastmod>2025-06-25T06:54:42.795Z</lastmod>
+    <loc>https://mjfrigaard.github.io/fm-linux/txt_edit.html</loc>
+    <lastmod>2025-06-25T13:29:51.101Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/fm-linux/vim.html</loc>
+    <lastmod>2025-06-25T13:30:07.192Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/fm-linux/nano.html</loc>
+    <lastmod>2025-06-25T13:28:33.265Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/fm-linux/emacs.html</loc>
+    <lastmod>2025-06-25T13:28:30.429Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/scripts.html</loc>

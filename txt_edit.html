@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-10-03">
+<meta name="dcterms.date" content="2025-06-25">
 <meta name="description" content="A Linux Field Manual">
 
-<title>Appendix C — Fish – FM-Linux</title>
+<title>Text Editors – FM-Linux</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -66,8 +32,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./macos.html" rel="next">
-<link href="./data.html" rel="prev">
+<link href="./vim.html" rel="next">
+<link href="./text_commands.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -117,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syntax_ref.html">Appendices</a></li><li class="breadcrumb-item"><a href="./fish.html"><span class="chapter-title">Fish</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./txt_edit.html">Text Editors</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -298,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./txt_edit.html" class="sidebar-item-text sidebar-link">
+            <a href="./txt_edit.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Text Editors</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -455,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fish.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Fish</span></a>
+  <a href="./fish.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Fish</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -481,26 +447,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#the-fish-shell" id="toc-the-fish-shell" class="nav-link active" data-scroll-target="#the-fish-shell">The <img src="img/fish-logo.png" class="img-fluid quarto-figure quarto-figure-right" style="width:12.0%"> <span style="font-weight: bold;">Fish</span> shell</a>
-  <ul>
-  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key features</a></li>
-  <li><a href="#customizations" id="toc-customizations" class="nav-link" data-scroll-target="#customizations">Customizations</a></li>
-  <li><a href="#advanced" id="toc-advanced" class="nav-link" data-scroll-target="#advanced">Advanced</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./syntax_ref.html">Appendices</a></li><li class="breadcrumb-item"><a href="./fish.html"><span class="chapter-title">Fish</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-fish" class="quarto-section-identifier">Appendix C — Fish</span></h1>
+<h1 class="title"><span id="sec-txt-edit" class="quarto-section-identifier">Text Editors</span></h1>
 </div>
 
 
@@ -511,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2024-10-03</p>
+      <p class="date">2025-06-25</p>
     </div>
   </div>
   
@@ -523,71 +478,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="the-fish-shell" class="level2">
-<h2 class="anchored" data-anchor-id="the-fish-shell">The <img src="img/fish-logo.png" class="img-fluid quarto-figure quarto-figure-right" style="width:12.0%"> <span style="font-weight: bold;">Fish</span> shell</h2>
-<p><a href="https://fishshell.com/"><strong>Fish, or the Friendly Interactive SHell</strong></a>, is a smart and user-friendly command line shell for Linux-like operating systems. It’s designed to be more interactive and user-friendly than traditional shells like Bash or Zsh.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<section id="key-features" class="level3">
-<h3 class="anchored" data-anchor-id="key-features">Key features</h3>
-<p><strong>Autosuggestions</strong></p>
-<p>Fish suggests commands as you type based on history and completions, just like a web browser. This feature allows users to see and reuse previous commands by simply pressing the right arrow key to complete the suggested command, which can significantly speed up typing and reduce errors.</p>
-<p><strong>Syntax Highlighting</strong></p>
-<p>One of Fish’s most noticeable features is its real-time syntax highlighting. Commands that are valid change color as you type them. It also helps users catch errors before the command is executed, such as highlighting misspelled commands or incorrect paths in red.</p>
-<p><strong>Web-Based Configuration</strong></p>
-<p>Fish includes a web-based configuration interface (accessible via the <code>fish_config</code> command), which makes customizing the shell settings and prompt easier for users who prefer a graphical interface over editing configuration files manually (or if you’re new to the command line).</p>
-<p><strong>Enhanced Tab Completion</strong></p>
-<p>Fish provides intelligent tab completions for commands, file names, variables, and user-defined functions. It not only completes based on the prefix but also considers the whole line context, making the completions more relevant.</p>
-<p><strong>Improved Variables and Scoping</strong></p>
-<p>Fish simplifies variable management, including universal variables that are automatically shared between all running shells and persist across restarts without needing explicit saving to a file. Variable scoping is also more straightforward, helping avoid common bugs seen in other shells.</p>
-<p><strong>Function Autoloads</strong></p>
-<p>Fish allows functions to be defined in individual files and automatically loads them only when needed. This lazy-loading of functions helps speed up the start time of the shell.</p>
-<p><strong>Extensible</strong></p>
-<p>Fish is designed to be easily extensible through plugins. The Fisherman and Oh My Fish frameworks offer many plugins and themes designed to enhance Fish’s capabilities or customize its appearance.</p>
-<p><strong>Man Page Completions</strong></p>
-<p>Fish generates command completions automatically from <code>man</code> pages, which means it often supports completions for all the installed commands without needing special configuration.</p>
-<p><strong>No Configuration Needed</strong></p>
-<p>Fish is designed to work properly out of the box, without needing to configure it extensively. This makes it very accessible for new users or those who want a powerful shell without the need to customize or configure it heavily.</p>
-<p><strong>User-Friendly Scripts</strong></p>
-<p>Fish uses a syntax that is slightly different from the traditional POSIX shell syntax, which is often simpler and easier to understand. For example, loops and conditionals are clearer, and there is no need for explicit subshell management.</p>
-</section>
-<section id="customizations" class="level3">
-<h3 class="anchored" data-anchor-id="customizations">Customizations</h3>
-<p><img src="img/fish-logo.png" class="img-fluid quarto-figure quarto-figure-right" style="width:10.0%"> <span style="font-size: 1.05em;">Fish</span></p>
-<p>Fish customizations are generally done through the <code>config.fish</code> file, typically located in <code>~/.config/fish/</code>. Fish makes it easy to customize the prompt using the <code>fish_prompt</code> function.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span><span class="fu"> fish_prompt</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">set_color</span> green</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="at">-n</span> <span class="er">(</span><span class="fu">whoami</span><span class="kw">)</span> <span class="st">"@"</span> <span class="er">(</span><span class="fu">hostname</span><span class="kw">)</span> <span class="st">" "</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">set_color</span> blue</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="at">-n</span> <span class="er">(</span><span class="ex">prompt_pwd</span><span class="kw">)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">set_color</span> normal</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="at">-n</span> <span class="st">"&gt; "</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This prompt shows the username in green, the hostname, and the current working directory in blue, followed by a <code>&gt;</code> symbol.</p>
-<p><strong>Aliases</strong>: Fish uses the <code>alias</code> command similar to Bash and Zsh.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> ll=<span class="st">"ls -la"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Functions</strong>: In Fish, functions are first-class citizens and are easy to define.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span><span class="fu"> mkcd</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mkdir</span> <span class="at">-p</span> <span class="va">$argv</span><span class="kw">;</span> <span class="ex">and</span> cd <span class="va">$argv</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="advanced" class="level3">
-<h3 class="anchored" data-anchor-id="advanced">Advanced</h3>
-<p><strong>Universal Variables</strong></p>
-<p>Fish supports universal variables that persist across sessions and are shared among all Fish instances.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-U</span> fish_greeting <span class="st">"Welcome to Fish Shell"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Plugins and Themes</strong></p>
-<p>Fish has a growing ecosystem of plugins and themes, often managed by the <code>fisher</code> plugin manager.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-sL</span> https://git.io/fisher <span class="kw">|</span> <span class="bu">source</span> <span class="kw">&amp;&amp;</span> <span class="ex">fisher</span> install jorgebucaran/fisher</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fisher</span> install oh-my-fish/theme-bobthefish</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span style="font-weight: bold; font-size: 1.25em;">Caution</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div style="font-size: 1.00em; color: #282b2d;">
+<p>This section is under development. Thank you for your patience.</p>
+</div>
+</div>
+</div>
+</div>
 
 
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Ars Technica has a great <a href="https://arstechnica.com/information-technology/2005/12/linux-20051218/">summary</a> comparing Fish to other shells.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1048,13 +958,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./data.html" class="pagination-link" aria-label="Data files">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Data files</span></span>
+      <a href="./text_commands.html" class="pagination-link" aria-label="Manipulating Text">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Manipulating Text</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./macos.html" class="pagination-link" aria-label="macOS">
-        <span class="nav-page-text"><span class="chapter-title">macOS</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./vim.html" class="pagination-link" aria-label="Vim">
+        <span class="nav-page-text"><span class="chapter-title">Vim</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
