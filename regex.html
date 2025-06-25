@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-21">
+<meta name="dcterms.date" content="2025-06-25">
 <meta name="description" content="A Linux Field Manual">
 
-<title>Monitoring &amp; Troubleshooting – FM-Linux</title>
+<title>Regular Expressions – FM-Linux</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./nw_vpns_encrypt.html" rel="next">
-<link href="./nw_firewall_secure.html" rel="prev">
+<link href="./text_commands.html" rel="next">
+<link href="./special_chars.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./nw_firewall_secure.html">Firewalling &amp; Network Security</a></li><li class="breadcrumb-item"><a href="./nw_monitor_troubleshoot.html"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./text.html">Universal Interface</a></li><li class="breadcrumb-item"><a href="./regex.html"><span class="chapter-title">Regular Expressions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regex.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regular Expressions</span></a>
+  <a href="./regex.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Regular Expressions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -359,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nw_monitor_troubleshoot.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></a>
+  <a href="./nw_monitor_troubleshoot.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -460,15 +460,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#matching-occurrences" id="toc-matching-occurrences" class="nav-link active" data-scroll-target="#matching-occurrences">Matching occurrences</a></li>
+  <li><a href="#starts-with" id="toc-starts-with" class="nav-link" data-scroll-target="#starts-with">Starts with</a></li>
+  <li><a href="#ends-with" id="toc-ends-with" class="nav-link" data-scroll-target="#ends-with">Ends with</a></li>
+  <li><a href="#search" id="toc-search" class="nav-link" data-scroll-target="#search">Search</a></li>
+  <li><a href="#deep-search" id="toc-deep-search" class="nav-link" data-scroll-target="#deep-search">Deep search</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./nw_firewall_secure.html">Firewalling &amp; Network Security</a></li><li class="breadcrumb-item"><a href="./nw_monitor_troubleshoot.html"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./text.html">Universal Interface</a></li><li class="breadcrumb-item"><a href="./regex.html"><span class="chapter-title">Regular Expressions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-nw-cmnds" class="quarto-section-identifier"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></span></h1>
+<h1 class="title"><span id="sec-regexp" class="quarto-section-identifier"><span class="chapter-title">Regular Expressions</span></span></h1>
 </div>
 
 
@@ -479,7 +489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-06-21</p>
+      <p class="date">2025-06-25</p>
     </div>
   </div>
   
@@ -509,17 +519,135 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
-<p><strong>Common Commands</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ping</span> <span class="at">-c</span> 4 8.8.8.8</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">traceroute</span> google.com</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">mtr</span> <span class="at">-r</span> google.com</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ss</span> <span class="at">-tulwn</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> tcpdump <span class="at">-i</span> eth0 port 53 <span class="at">-vv</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ethtool eth0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</blockquote>
+<p>Regular expressions (or the singular ‘regex’) are powerful tools for searching and manipulating text data. A regex is made up of the symbols and characters that define specific patterns to be matched, identified or transformed.</p>
+<p>A regex operates on text–the sequence of characters that include letters, digits, punctuation, and other character types. Text serves as the ‘data’ or ‘medium’ for which the patterns the regex describes are searched.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<section id="matching-occurrences" class="level2">
+<h2 class="anchored" data-anchor-id="matching-occurrences">Matching occurrences</h2>
+<p><code>+</code> matches one or more occurrences of the preceding element.</p>
+<p><code>[abc]</code>: Matches any one character listed (<code>a</code>, <code>b</code>, or <code>c</code>).</p>
+<p><strong>Example</strong></p>
+<p>Match any line containing one or more digits in <code>who_tb_data.csv.</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-E</span> <span class="st">'[0-9]+'</span> data/raw/who_tb_data.csv</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Afghanistan,1999,cases,745</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Afghanistan,1999,population,19987071</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Afghanistan,2000,cases,2666</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Afghanistan,2000,population,20595360</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Brazil,1999,cases,37737</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Brazil,1999,population,172006362</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Brazil,2000,cases,80488</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Brazil,2000,population,174504898</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># China,1999,cases,212258</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># China,1999,population,1272915272</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># China,2000,cases,213766</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># China,2000,population,1280428583</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="starts-with" class="level2">
+<h2 class="anchored" data-anchor-id="starts-with">Starts with</h2>
+<p><code>^</code> matches the start of a line.</p>
+<p><code>[abc]</code>: Matches any one character listed (<code>a</code>, <code>b</code>, or <code>c</code>).</p>
+<p><strong>Example</strong></p>
+<p>Find lines beginning with an uppercase letter in <code>README.md</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-E</span> <span class="st">'^[A-Z]'</span> data/README.md</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The `ajperlis_epigrams.txt` file contains a collection of witty</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># These statements cover various topics related to computer programming,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The file `music_vids.tsv` is a tab-separated values (TSV) data file that</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The dataset contains information about passwords' strength, popularity</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The file `roxanne.txt` contains the lyrics to the song "Roxanne" by The</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Police.[^readme-4] The structure of the lyrics emphasizes the repeated</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The file `trees.csv` is a comma-separated value (CSV) document that</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># The file `vg_hof.csv` is a comma-separated values (CSV) document that</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># The fields detailed in the dataset are:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># The dataset includes the following fields:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ends-with" class="level2">
+<h2 class="anchored" data-anchor-id="ends-with">Ends with</h2>
+<p><code>($| )</code>: followed by either end-of-line (<code>$</code>) <em>or</em> space</p>
+<p><strong>Example</strong></p>
+<p>Match lines that match a literal <code>ah</code> and either end-of-line (<code>$</code>) <em>or</em> space.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-E</span> <span class="st">'ah($| )'</span> data/wu_tang.psv</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># |Ghostface Killah |Dennis Coles         |</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># |Inspectah Deck   |Jason Hunter         |</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="search" class="level2">
+<h2 class="anchored" data-anchor-id="search">Search</h2>
+<p><strong>Example</strong></p>
+<p><code>^</code> matches the start of a line.</p>
+<p>Find lines beginning with <code>Ghost</code> in <code>data/raw/wu_tang.csv</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-E</span> <span class="st">'^Ghost'</span> data/raw/wu_tang.csv</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ghostface Killah,Dennis Coles</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Example</strong></p>
+<p>Print lines with <code>i</code> followed by one or more <code>l</code>s or lines with <code>i</code> followed by one or more <code>f</code>s:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-E</span>  <span class="st">'(il+|if+)'</span> data/wu_tang.psv</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># |Method Man       |Clifford Smith       |</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># |Ghostface Killah |Dennis Coles         |</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># |Masta Killa      |Jamel Irief          |</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># |Cappadonna       |Darryl Hill          |</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="deep-search" class="level2">
+<h2 class="anchored" data-anchor-id="deep-search">Deep search</h2>
+<p><strong>Example</strong></p>
+<p>Recursively search for <code>Kill</code> or <code>cybernetic</code> in any file under <code>data/raw</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-R</span> <span class="at">-E</span> <span class="st">'(Kill|cybernetic)'</span> data/raw</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data/raw/wu_tang.csv:Ghostface Killah,Dennis Coles</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data/raw/wu_tang.csv:Masta Killa,Jamel Irief</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># data/raw/ajperlis_epigrams.txt:The cybernetic exchange between man, computer and algorithm is like a game of musical chairs: The frantic search for balance always leaves one of the three standing ill at ease.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Example</strong></p>
+<p>Print lines containing any four-digit sequence with square brackets and curly braces:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">'/[0-9]{4}/ {print}'</span> data/raw/who_tb_data.csv</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Afghanistan,1999,cases,745</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Afghanistan,1999,population,19987071</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Afghanistan,2000,cases,2666</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Afghanistan,2000,population,20595360</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Brazil,1999,cases,37737</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Brazil,1999,population,172006362</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Brazil,2000,cases,80488</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Brazil,2000,population,174504898</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># China,1999,cases,212258</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># China,1999,population,1272915272</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># China,2000,cases,213766</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># China,2000,population,1280428583</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Regular expressions can combine wildcards and special characters and are typically used with tools like <code><a href="syntax_ref.html#sec-grep" class="quarto-xref"><span>grep</span></a></code> (global regular expression print), <code><a href="syntax_ref.html#sec-sed" class="quarto-xref"><span>sed</span></a></code> (stream editor), <code><a href="syntax_ref.html#sec-cat" class="quarto-xref"><span>cat</span></a></code> (concatenate) and <code><a href="syntax_ref.html#sec-awk" class="quarto-xref"><span>awk</span></a></code>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span style="font-weight: bold; font-size: 1.15em;">See a typo, error, or something missing?</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div style="font-size: 1.00em; color: #282b2d;">
+<p>Please open an issue on <a href="https://github.com/mjfrigaard/fm-linux/issues/new">GitHub.</a></p>
+</div>
+</div>
+</div>
+</div>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The <code>regex</code> patterns are not the data themselves, but rather a framework for locating or modifying text data.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -980,13 +1108,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./nw_firewall_secure.html" class="pagination-link" aria-label="Firewalling &amp; Network Security">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Firewalling &amp; Network Security</span>
+      <a href="./special_chars.html" class="pagination-link" aria-label="Special Characters">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Special Characters</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./nw_vpns_encrypt.html" class="pagination-link" aria-label="VPNs, Encryption, &amp; Tunnels">
-        <span class="nav-page-text">VPNs, Encryption, &amp; Tunnels</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./text_commands.html" class="pagination-link" aria-label="Manipulating Text">
+        <span class="nav-page-text"><span class="chapter-title">Manipulating Text</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

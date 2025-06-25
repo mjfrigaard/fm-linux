@@ -234,7 +234,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Universal interface</span></a>
+ <span class="menu-text">Universal Interface</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -242,7 +242,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./symbols_patterns.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Symbols &amp; Patterns</span></a>
+  <a href="./wildcards.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Wildcards</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./special_chars.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Special Characters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regex.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regular Expressions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -252,8 +262,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./text_editors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Text Editors</span></a>
+  <a href="./text_editors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Text Editors</span></a>
   </div>
 </li>
       </ul>
@@ -422,11 +431,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#plain-text" id="toc-plain-text" class="nav-link active" data-scroll-target="#plain-text">Plain Text</a>
-  <ul>
-  <li><a href="#communication-between-programs" id="toc-communication-between-programs" class="nav-link" data-scroll-target="#communication-between-programs">Communication Between Programs</a></li>
-  </ul></li>
-  <li><a href="#text-streams" id="toc-text-streams" class="nav-link" data-scroll-target="#text-streams">Text Streams</a></li>
+  <li><a href="#plain-text-and-the-linux-philosophy" id="toc-plain-text-and-the-linux-philosophy" class="nav-link active" data-scroll-target="#plain-text-and-the-linux-philosophy">Plain Text and The Linux Philosophy</a></li>
   </ul>
 </nav>
     </div>
@@ -477,26 +482,13 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>The essence of Linux and Linux systems is their powerful simplicity, and nowhere is this more evident than in how they handle text. Text commands and editors form the backbone of these operating systems, enabling users to perform complex tasks with a few keystrokes. This chapter will delve into pattern matching with regular expressions, the fundamental concepts of plain text files, text streams, and the Linux philosophy that prioritizes text as a universal interface for programming and system administration.</p>
-<section id="plain-text" class="level2">
-<h2 class="anchored" data-anchor-id="plain-text">Plain Text</h2>
-<p>Plain text files are vital to Linux systems, embodying their philosophy of ‘simple and beautiful.’<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> These files only contain text, making them versatile and powerful. Linux believes that ‘<em>everything is a file</em>,’ including devices, configurations, and processes.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Plain text files are the universal interface between systems, programs, and users. Standard Linux tools can easily create, manipulate, and read plain text, making it an essential interface for system administration, programming, and process management.</p>
-<section id="communication-between-programs" class="level3">
-<h3 class="anchored" data-anchor-id="communication-between-programs">Communication Between Programs</h3>
-<p>Linux philosophy values specialized programs that work together efficiently. Plain text is used as inputs or outputs in pipelines of simple, single-purpose programs to perform complex operations.</p>
-</section>
-</section>
-<section id="text-streams" class="level2">
-<h2 class="anchored" data-anchor-id="text-streams">Text Streams</h2>
-<p>A text stream in Linux and Linux is a simple, sequential flow of characters. Text streams can be inputs from keyboards, outputs to a display screen, or the data within a file. The concept of text streams is fundamental to the Linux philosophy; it allows for the chaining together of commands, where the output of one command can be seamlessly passed as input to another through a mechanism known as piping.</p>
+<section id="plain-text-and-the-linux-philosophy" class="level2">
+<h2 class="anchored" data-anchor-id="plain-text-and-the-linux-philosophy">Plain Text and The Linux Philosophy</h2>
+<p>The Linux philosophy emphasizes simplicity, clarity, and the principle of “doing one thing well.” Plain text embodies this philosophy, serving as a simple, straightforward, and versatile means of interaction between the user, the system, and the programs running on it. This philosophy also underpins the design of Linux text editors, which range from the simple (like nano) to the powerful and extensible (like vi and emacs).</p>
+<p>Text commands and editors are not just tools but the medium through which users communicate with the system and manipulate it to their will. Mastering these commands and editors opens up a world of possibilities for efficient system management, programming, and beyond.</p>
+<p>This section will explore the core text commands that every Linux and Linux user should know, from file manipulation to text processing and searching. We will also introduce the most popular text editors, guiding you through their primary usage and highlighting their unique features.</p>
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Doug McIlroy on Linux programming: “<em>Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.</em>” - <a href="https://en.wikipedia.org/wiki/Unix_philosophy#Doug_McIlroy_on_Unix_programming">Wikipedia</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Linus Torvalds (creator and lead developer of the Linux kernel) has <a href="https://yarchive.net/comp/linux/everything_is_file.html">clarified</a> this to, “<em>The UNIX philosophy is often quoted as ”everything is a file”, but that really means ”everything is a stream of bytes.</em>”<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -963,8 +955,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./text.html" class="pagination-link" aria-label="Universal interface">
-        <span class="nav-page-text">Universal interface</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./text.html" class="pagination-link" aria-label="Universal Interface">
+        <span class="nav-page-text">Universal Interface</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

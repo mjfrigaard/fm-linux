@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-01-25">
+<meta name="dcterms.date" content="2025-06-24">
 <meta name="description" content="A Linux Field Manual">
 
 <title>Files – FM-Linux</title>
@@ -268,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./text.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Universal interface</span></a>
+ <span class="menu-text">Universal Interface</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -276,7 +276,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./symbols_patterns.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Symbols &amp; Patterns</span></a>
+  <a href="./wildcards.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Wildcards</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./special_chars.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Special Characters</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regex.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regular Expressions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -286,8 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./text_editors.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Text Editors</span></a>
+  <a href="./text_editors.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Text Editors</span></a>
   </div>
 </li>
       </ul>
@@ -513,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-01-25</p>
+      <p class="date">2025-06-24</p>
     </div>
   </div>
   
@@ -559,7 +568,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># └── who_tb_data.tsv</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 directory, 1 file</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The <code>-P</code> option lets us specify a pattern to search for in the <code>data</code> folder, which we’ll cover more in <a href="symbols_patterns.html" class="quarto-xref"><span>Symbols &amp; Patterns</span></a>.</p>
+<p>The <code>-P</code> option lets us specify a pattern to search for in the <code>data</code> folder, which we’ll cover more in the <a href="special_chars.html" class="quarto-xref"><span>Special Characters</span></a>, <a href="wildcards.html" class="quarto-xref"><span>Wildcards</span></a>, <a href="regex.html" class="quarto-xref"><span>Regular Expressions</span></a>, <a href="text_commands.html" class="quarto-xref"><span>Manipulating Text</span></a>, and <a href="text_editors.html" class="quarto-xref"><span>Text Editors</span></a>.</p>
 </section>
 <section id="echo" class="level3">
 <h3 class="anchored" data-anchor-id="echo"><code>echo</code></h3>
@@ -673,9 +682,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code><a href="syntax_ref.html#sec-locate" class="quarto-xref"><span>locate</span></a></code> finds files by name quickly using a database.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">locate</span> who_tb_data data <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n3</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># /Users/mjfrigaard/projects/books/fm-unix/data/csv/who_tb_data.csv</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># /Users/mjfrigaard/projects/books/fm-unix/data/tsv/who_tb_data.tsv</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># /Users/mjfrigaard/projects/books/fm-unix/data/who_tb_data.csv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># /Users/mjfrigaard/projects/books/fm-linux/data/csv/who_tb_data.csv</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># /Users/mjfrigaard/projects/books/fm-linux/data/tsv/who_tb_data.tsv</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># /Users/mjfrigaard/projects/books/fm-linux/data/who_tb_data.csv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -1177,7 +1186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div style="font-size: 1.00em; color: #282b2d;">
-<p>Please open an issue on <a href="https://github.com/mjfrigaard/fm-unix/issues/new">GitHub.</a></p>
+<p>Please open an issue on <a href="https://github.com/mjfrigaard/fm-linux/issues/new">GitHub.</a></p>
 </div>
 </div>
 </div>

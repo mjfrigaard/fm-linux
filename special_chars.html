@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-21">
+<meta name="dcterms.date" content="2025-06-25">
 <meta name="description" content="A Linux Field Manual">
 
-<title>Monitoring &amp; Troubleshooting – FM-Linux</title>
+<title>Special Characters – FM-Linux</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,8 +66,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./nw_vpns_encrypt.html" rel="next">
-<link href="./nw_firewall_secure.html" rel="prev">
+<link href="./regex.html" rel="next">
+<link href="./wildcards.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./nw_firewall_secure.html">Firewalling &amp; Network Security</a></li><li class="breadcrumb-item"><a href="./nw_monitor_troubleshoot.html"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./text.html">Universal Interface</a></li><li class="breadcrumb-item"><a href="./special_chars.html"><span class="chapter-title">Special Characters</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./special_chars.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Special Characters</span></a>
+  <a href="./special_chars.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Special Characters</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -359,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nw_monitor_troubleshoot.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></a>
+  <a href="./nw_monitor_troubleshoot.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -460,15 +460,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#sec-braces" id="toc-sec-braces" class="nav-link active" data-scroll-target="#sec-braces">Braces: <code>{}</code></a></li>
+  <li><a href="#sec-backslash" id="toc-sec-backslash" class="nav-link" data-scroll-target="#sec-backslash">Backslash: <code>\</code></a></li>
+  <li><a href="#sec-single-quotes" id="toc-sec-single-quotes" class="nav-link" data-scroll-target="#sec-single-quotes">Single quotes: <code>''</code></a></li>
+  <li><a href="#sec-double-quotes" id="toc-sec-double-quotes" class="nav-link" data-scroll-target="#sec-double-quotes">Double quotes: <code>""</code></a></li>
+  <li><a href="#sec-tilde" id="toc-sec-tilde" class="nav-link" data-scroll-target="#sec-tilde">Tilde: <code>~</code></a></li>
+  <li><a href="#sec-dollar" id="toc-sec-dollar" class="nav-link" data-scroll-target="#sec-dollar">Dollar Sign: <code>$</code></a></li>
+  <li><a href="#sec-ampersand" id="toc-sec-ampersand" class="nav-link" data-scroll-target="#sec-ampersand">Ampersand: <code>&amp;</code></a></li>
+  <li><a href="#sec-semicolon" id="toc-sec-semicolon" class="nav-link" data-scroll-target="#sec-semicolon">Semicolon: <code>;</code></a></li>
+  <li><a href="#sec-gt" id="toc-sec-gt" class="nav-link" data-scroll-target="#sec-gt">Greater Than: <code>&gt;</code></a></li>
+  <li><a href="#sec-lt" id="toc-sec-lt" class="nav-link" data-scroll-target="#sec-lt">Less Than: <code>&lt;</code></a></li>
+  <li><a href="#sec-parens" id="toc-sec-parens" class="nav-link" data-scroll-target="#sec-parens">Parentheses: <code>()</code></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./nw_firewall_secure.html">Firewalling &amp; Network Security</a></li><li class="breadcrumb-item"><a href="./nw_monitor_troubleshoot.html"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./text.html">Universal Interface</a></li><li class="breadcrumb-item"><a href="./special_chars.html"><span class="chapter-title">Special Characters</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-nw-cmnds" class="quarto-section-identifier"><span class="chapter-title">Monitoring &amp; Troubleshooting</span></span></h1>
+<h1 class="title"><span id="sec-special-chars" class="quarto-section-identifier"><span class="chapter-title">Special Characters</span></span></h1>
 </div>
 
 
@@ -479,7 +495,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-06-21</p>
+      <p class="date">2025-06-25</p>
     </div>
   </div>
   
@@ -509,17 +525,196 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
-<p><strong>Common Commands</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ping</span> <span class="at">-c</span> 4 8.8.8.8</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">traceroute</span> google.com</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">mtr</span> <span class="at">-r</span> google.com</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">ss</span> <span class="at">-tulwn</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> tcpdump <span class="at">-i</span> eth0 port 53 <span class="at">-vv</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ethtool eth0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</blockquote>
+<p>Some characters such as curly braces, single quotes, ampersand, and parentheses have special meanings in the shell. They can be used with arguments to add search, match, and print functionality.</p>
+<section id="sec-braces" class="level2">
+<h2 class="anchored" data-anchor-id="sec-braces">Braces: <code>{}</code></h2>
+<p><strong>Brace Expansion</strong> (<code>{}</code>) allows the creation of multiple text strings from a pattern containing braces.</p>
+<p><strong>Example</strong></p>
+<p>List <code>.tsv</code> and <code>.csv</code> files named <code>wu_tang</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> data/wu_tang.<span class="dt">{tsv</span><span class="op">,</span><span class="dt">psv}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data/wu_tang.psv</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data/wu_tang.tsv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Expands into:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data/wu_tang.tsv </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Member    Name</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># RZA   Robert Diggs</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># GZA   Gary Grice</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Method Man    Clifford Smith</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Raekwon the Chef  Corey Woods</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ghostface Killah  Dennis Coles</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspectah Deck    Jason Hunter</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># U-God Lamont Hawkins</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Masta Killa   Jamel Irief</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Cappadonna    Darryl Hill</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Ol Dirty Bastard  Russell Tyrone Jones</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data/wu_tang.psv</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># |Member           |Name                 |</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># |RZA              |Robert Diggs         |</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># |GZA              |Gary Grice           |</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># |Method Man       |Clifford Smith       |</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># |Raekwon the Chef |Corey Woods          |</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># |Ghostface Killah |Dennis Coles         |</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># |Inspectah Deck   |Jason Hunter         |</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># |U-God            |Lamont Hawkins       |</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># |Masta Killa      |Jamel Irief          |</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># |Cappadonna       |Darryl Hill          |</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># |Ol Dirty Bastard |Russell Tyrone Jones |</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-backslash" class="level2">
+<h2 class="anchored" data-anchor-id="sec-backslash">Backslash: <code>\</code></h2>
+<p><code>\</code> escapes the following character, nullifying its special meaning</p>
+<p><strong>Example</strong></p>
+<p>Print text with spaces and the ampersand:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"File name with spaces \&amp; special characters"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># File name with spaces &amp; special characters</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-single-quotes" class="level2">
+<h2 class="anchored" data-anchor-id="sec-single-quotes">Single quotes: <code>''</code></h2>
+<p>Single quotes (<code>' '</code>) treat every character literally, ignoring the special meaning of all characters.</p>
+<p><strong>Example</strong></p>
+<p><code>echo '$HOME'</code> prints <code>$HOME</code>, not the path to the home directory:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'$HOME'</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># $HOME</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-double-quotes" class="level2">
+<h2 class="anchored" data-anchor-id="sec-double-quotes">Double quotes: <code>""</code></h2>
+<p>Double quotes (<code>" "</code>) allow for the inclusion of special characters in an argument, except for the dollar sign (<code>$</code>), backticks (` `), and backslash (<code>\</code>).</p>
+<p><strong>Example</strong></p>
+<p><code>echo "$HOME"</code> prints the path to the home directory:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"</span><span class="va">$HOME</span><span class="st">"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; /Users/username</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-tilde" class="level2">
+<h2 class="anchored" data-anchor-id="sec-tilde">Tilde: <code>~</code></h2>
+<p><code>~</code> represents the home directory of the current user.</p>
+<p><strong>Example</strong></p>
+<p>Print a folder <code>tree</code> of the items in the user’s <code>Library/Python</code> directory:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tree</span> ~/Library/Python <span class="at">-L</span> 1</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; /Users/username/Library/Python</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; └── 3.9</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 directories, 0 files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-dollar" class="level2">
+<h2 class="anchored" data-anchor-id="sec-dollar">Dollar Sign: <code>$</code></h2>
+<p><code>$</code> indicates a variable.</p>
+<p><strong>Example</strong></p>
+<p><code>echo $PATH</code> prints the value of the <code>PATH</code> environment variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$PATH</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-ampersand" class="level2">
+<h2 class="anchored" data-anchor-id="sec-ampersand">Ampersand: <code>&amp;</code></h2>
+<p><code>&amp;</code> runs a command in the background.</p>
+<p><strong>Example</strong></p>
+<p><code>firefox &amp;</code> opens Firefox in the background, allowing the terminal to be used for other commands.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">firefox</span> <span class="kw">&amp;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-semicolon" class="level2">
+<h2 class="anchored" data-anchor-id="sec-semicolon">Semicolon: <code>;</code></h2>
+<p><code>;</code> separates multiple commands to be run in sequence.</p>
+<p><strong>Example</strong></p>
+<p>Change the directory to <code>data/</code> and then print a folder <code>tree</code> of it’s contents with the full path (<code>-f</code>), size (<code>-s</code>) in SI units (powers of 1000) in a more human readable way (<code>-h</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> data/<span class="kw">;</span> <span class="ex">tree</span> <span class="at">-f</span> <span class="at">-s</span> <span class="at">--si</span> <span class="at">-h</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [ 320]  .</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ├── [6.1k]  ./music_vids.tsv</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ├── [ 12k]  ./pwrds.tsv</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ├── [ 320]  ./raw</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; │   ├── [ 13k]  ./raw/ajperlis_epigrams.txt</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; │   ├── [6.5k]  ./raw/music_vids.csv</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; │   ├── [ 12k]  ./raw/pwrds.csv</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; │   ├── [1.3k]  ./raw/roxanne.txt</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; │   ├── [4.5k]  ./raw/trees.csv</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; │   ├── [4.8k]  ./raw/vg_hof.csv</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; │   ├── [ 381]  ./raw/who_tb_data.csv</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; │   └── [ 263]  ./raw/wu_tang.csv</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ├── [9.0k]  ./README.md</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ├── [4.4k]  ./trees.tsv</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ├── [4.8k]  ./vg_hof.tsv</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ├── [ 462]  ./wu_tang.psv</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; └── [ 263]  ./wu_tang.tsv</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 directories, 15 files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-gt" class="level2">
+<h2 class="anchored" data-anchor-id="sec-gt">Greater Than: <code>&gt;</code></h2>
+<p><strong>Redirection operators</strong>: <code>&gt;</code> directs output to a file or a device.</p>
+<p><strong>Example</strong></p>
+<p><code>echo "This is my 2nd file" &gt; myfile2.txt</code> writes <code>"This is my 2nd file"</code> into <code>myfile2.txt</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This is my 2nd file"</span> <span class="op">&gt;</span> myfile2.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-lt" class="level2">
+<h2 class="anchored" data-anchor-id="sec-lt">Less Than: <code>&lt;</code></h2>
+<p><strong>Redirection operators</strong>: <code>&lt;</code> takes input from a file or a device.</p>
+<p><strong>Example</strong></p>
+<p>Then <code>wc &lt; myfile2.txt</code> counts the words in <code>myfile2.txt</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="op">&lt;</span> myfile2.txt</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#        1       5      20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="sec-parens" class="level2">
+<h2 class="anchored" data-anchor-id="sec-parens">Parentheses: <code>()</code></h2>
+<p>Parentheses can be used to group commands or for command substitution with <code>$( )</code>.</p>
+<p><strong>Example</strong></p>
+<p>Runs <code>ls</code> in <code>/data</code> without changing the current directory:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="bu">cd</span> data<span class="kw">;</span> <span class="fu">ls</span><span class="kw">)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># confirm working directory hasn't changed </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># music_vids.tsv</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pwrds.tsv</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># raw</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># README.md</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># trees.tsv</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># vg_hof.tsv</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># wu_tang.psv</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># wu_tang.tsv</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># /Users/mjfrigaard/projects/books/fm-linux</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>$(command)</code> uses the output of <code>command</code>.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span style="font-weight: bold; font-size: 1.15em;">See a typo, error, or something missing?</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div style="font-size: 1.00em; color: #282b2d;">
+<p>Please open an issue on <a href="https://github.com/mjfrigaard/fm-linux/issues/new">GitHub.</a></p>
+</div>
+</div>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -980,13 +1175,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./nw_firewall_secure.html" class="pagination-link" aria-label="Firewalling &amp; Network Security">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Firewalling &amp; Network Security</span>
+      <a href="./wildcards.html" class="pagination-link" aria-label="Wildcards">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Wildcards</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./nw_vpns_encrypt.html" class="pagination-link" aria-label="VPNs, Encryption, &amp; Tunnels">
-        <span class="nav-page-text">VPNs, Encryption, &amp; Tunnels</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./regex.html" class="pagination-link" aria-label="Regular Expressions">
+        <span class="nav-page-text"><span class="chapter-title">Regular Expressions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
