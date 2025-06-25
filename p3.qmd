@@ -6,7 +6,7 @@ knitr:
     comment: '# '
 ---
 
-# 🚧 [Part 3: Networking]{style="font-size: 1.05em; font-weight: bold;"} {#sec-part-two}
+# 🚧 [Part 3: Networking]{style="font-size: 1.05em; color: #03396c;"} {#sec-part-two}
 
 ```{r}
 #| label: setup

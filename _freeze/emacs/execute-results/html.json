@@ -1,8 +1,8 @@
 {
-  "hash": "15c433c103ebedcc8faf2abd0353cee7",
+  "hash": "cff2dbfc672fb05e1f9285be3e46fe67",
   "result": {
     "engine": "knitr",
-    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '# '\n    \nexecute: \n  eval: false\n---\n\n\n\n\n# emacs {#sec-emacs}\n\n\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n  \n\n::: \n\n::::",
+    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '# '\n    \nexecute: \n  eval: false\n---\n\n\n\n\n\n# 🚧 [emacs]{style=\"color: #9b2e0c;\"} {#sec-emacs}\n\n\n\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n  \n\n::: \n\n::::",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

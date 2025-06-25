@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-18">
+<meta name="dcterms.date" content="2025-06-25">
 <meta name="description" content="A Linux Field Manual">
 
-<title>Permissions – FM-Linux</title>
+<title>🏗️ Permissions – FM-Linux</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,7 +67,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./syntax.html" rel="next">
-<link href="./sys.html" rel="prev">
+<link href="./usr_grp.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -83,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./permissions.html"><span class="chapter-title">🏗️ Permissions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./permissions.html"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -125,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 1: Fundamentals</span></span></a>
+  <a href="./p1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; color: #03396c;">Part 1: Fundamentals</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -144,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./wsl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e00; font-style: italic;">Windows</span></span></a>
+  <a href="./wsl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Windows</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -185,7 +219,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permissions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">🏗️ Permissions</span></a>
+  <a href="./usr_grp.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Users and Groups</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./permissions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></a>
   </div>
 </li>
       </ul>
@@ -228,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🚧 <span style="font-size: 1.05em; font-weight: bold;">Part 2: Text</span></span></a>
+  <a href="./p2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; color: #03396c;">Part 2: Text</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -265,7 +304,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./txt_edit.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Text Editors</span></a>
+ <span class="menu-text">🚧 Text Editors</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -273,17 +312,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./vim.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vim</span></a>
+  <a href="./vim.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗 Vim</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nano.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">nano</span></a>
+  <a href="./nano.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🚧 <span style="color: #9b2e0c;">nano</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./emacs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">emacs</span></a>
+  <a href="./emacs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🚧 <span style="color: #9b2e0c;">emacs</span></span></a>
   </div>
 </li>
       </ul>
@@ -299,14 +338,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./format.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ Format</span></a>
+  <a href="./format.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Format</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🚧 <span style="font-size: 1.05em; font-weight: bold;">Part 3: Networking</span></span></a>
+  <a href="./p3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🚧 <span style="font-size: 1.05em; color: #03396c;">Part 3: Networking</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -365,7 +404,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; font-weight: bold;">Part 4: Use Cases</span></span></a>
+  <a href="./p4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="font-size: 1.05em; color: #03396c;">Part 4: Use Cases</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -447,15 +486,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#chmod" id="toc-chmod" class="nav-link active" data-scroll-target="#chmod"><code>chmod</code></a></li>
+  <li><a href="#chown" id="toc-chown" class="nav-link" data-scroll-target="#chown"><code>chown</code></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./permissions.html"><span class="chapter-title">🏗️ Permissions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./permissions.html"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-perms" class="quarto-section-identifier"><span class="chapter-title">Permissions</span></span></h1>
+<h1 class="title"><span id="sec-perms" class="quarto-section-identifier"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></span></h1>
 </div>
 
 
@@ -466,7 +512,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-06-18</p>
+      <p class="date">2025-06-25</p>
     </div>
   </div>
   
@@ -496,27 +542,133 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>File permissions with <code>chmod</code></p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<section id="chmod" class="level3">
+<h3 class="anchored" data-anchor-id="chmod"><code>chmod</code></h3>
+<p><code><a href="syntax_ref.html#sec-chmod" class="quarto-xref"><span>chmod</span></a></code> changes file permissions.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> data/README.md</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--@ 1 username  staff  8834 May 14 09:33 data/README.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The file permissions for <code>data/README.md</code> are stored in the combination of characters and symbols returned from <code>ls -l</code>:</p>
+<p>Breakdown of <strong><code>-rw-r--r--@</code></strong>:</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="sourceCode" id="cb2" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>The <code>-</code> indicates that the item is a regular file.</p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="sourceCode" id="cb3" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>The first three characters after the dash represent the user (owner) permissions. The user has read (<code>r</code>) and write (<code>w</code>) permissions but no execute (<code>x</code>) permission.</p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="sourceCode" id="cb4" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>The next three characters represent the group permissions. The group has read (<code>r</code>) permission only, with no write (<code>w</code>) or execute (<code>x</code>) permissions.</p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="sourceCode" id="cb5" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>The final three characters represent the permissions for others (everyone else). Like the group, others have only read (<code>r</code>) permission, with no write (<code>w</code>) or execute (<code>x</code>) permissions.</p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="sourceCode" id="cb6" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--@</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>The <code>@</code> symbol indicates that the file has extended attributes, which are additional metadata stored by the operating system.</p>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[50,50]">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="sourceCode" id="cb7" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--@ 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>The <code>1</code> indicates the count of hard links pointing to the file, which in this case is the file itself. This is typical for regular files that haven’t been explicitly linked elsewhere.</p>
+</div>
+</div>
+</div>
+<p><strong>Symbolic Notation</strong></p>
+<p>To grant the permissions above (i.e., <code>-rw-r--r--</code>), we can group the arguments to <code>chmod</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u=rw,go=r filename</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this case,</p>
+<p><strong><code>u=rw</code></strong>: specifies that the <code>u</code>ser (owner) can <code>r</code>ead and <code>w</code>rite</p>
+<p><strong><code>go=r</code></strong>: specifies that <em>both</em> the <code>g</code>roup and <code>o</code>thers can <code>r</code>ead, but not <code>w</code>rite or <code>e</code>xecute.</p>
+<p>We can also use <code>chmod</code> to add permissions with <code>+</code>. The code below grants execute permissions to the user (owner) of the file named <code>data/README.md</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u+x data/README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This command adds (<code>+</code>) execute (<code>x</code>) permission to the user (<code>u</code>) of the file.</p>
+<p><strong>Numeric Notation</strong></p>
+<p>To set the permissions of the file <code>data/README.md</code> so that the user can read and execute it, the group can read it, and others have no permissions, we would use:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 750 data/README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, <code>7</code> stands for read (<code>4</code>), write (<code>2</code>), and execute (<code>1</code>) permissions for the user. <code>5</code> represents read and execute permissions for the group (<code>4+1</code>), and <code>0</code> means no permissions for others.</p>
+<p>Both of these examples modify the permissions of <code>data/README.md</code> to enhance or restrict access as specified.</p>
+<!--
+Overall, the permissions `644` (as represented numerically) allow the owner to read and write the file, while the group and others can only read it.
+-->
+</section>
+<section id="chown" class="level3">
+<h3 class="anchored" data-anchor-id="chown"><code>chown</code></h3>
+<p><code><a href="syntax_ref.html#sec-chown" class="quarto-xref"><span>chown</span></a></code> changes file ownership</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span style="font-weight: bold; font-size: 0.95em;">See a typo, error, or something missing?</span>
+<span style="font-weight: bold; font-size: 1.15em;">See a typo, error, or something missing?</span>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div style="font-size: 0.90em; color: #282b2d;">
-<p>Please open an issue on <a href="https://github.com/mjfrigaard/fm-unix/issues/new">GitHub.</a></p>
+<div style="font-size: 1.00em; color: #282b2d;">
+<p>Please open an issue on <a href="https://github.com/mjfrigaard/fm-linux/issues/new">GitHub.</a></p>
 </div>
 </div>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -977,8 +1129,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./sys.html" class="pagination-link" aria-label="System">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">System</span></span>
+      <a href="./usr_grp.html" class="pagination-link" aria-label="🏗️ [Users and Groups]{style=&quot;color: #9b2e0c;&quot;}">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Users and Groups</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

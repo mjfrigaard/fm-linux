@@ -31,6 +31,7 @@ book:
         - dirs.qmd
         - files.qmd
         - sys.qmd
+        - usr_grp.qmd
         - permissions.qmd
     - part: syntax.qmd
       chapters:

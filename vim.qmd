@@ -9,7 +9,7 @@ execute:
   eval: false
 ---
 
-# Vim {#sec-vim}
+# 🏗 Vim {#sec-vim}
 
 ```{bash}
 #| label: setup

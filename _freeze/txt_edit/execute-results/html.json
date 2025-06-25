@@ -1,8 +1,8 @@
 {
-  "hash": "4077a2e6476351fd674b8a404dfc83f3",
+  "hash": "4071f07f82ffbdf96e6f985ac5a64e07",
   "result": {
     "engine": "knitr",
-    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '# '\n---\n\n\n\n\n# Text Editors {#sec-txt-edit .unnumbered}\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n  \n\n::: \n\n::::",
+    "markdown": "---\nengine: knitr\nknitr:\n  opts_chunk: \n    collapse: true\n    comment: '# '\n---\n\n\n\n\n\n# 🚧 Text Editors {#sec-txt-editors .unnumbered}\n\n\n\n\n\n\n\n\n:::: {.callout-important collapse='false' appearance='default' icon='false'}\n\n## [Caution]{style='font-weight: bold; font-size: 1.25em;'}\n\n::: {style='font-size: 1.00em; color: #282b2d;'}\n\n\nThis section is under development. Thank you for your patience.\n  \n\n::: \n\n::::",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

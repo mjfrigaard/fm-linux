@@ -6,7 +6,7 @@ knitr:
     
 ---
 
-# 🏗️ [Windows]{style="color: #9b2e00; font-style: italic;"} {#sec-wsl}
+# 🏗️ [Windows]{style="color: #9b2e0c;"} {#sec-wsl}
 
 ```{bash}
 #| label: setup

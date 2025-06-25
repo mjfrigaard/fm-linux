@@ -3,25 +3,13 @@ engine: knitr
 knitr:
   opts_chunk: 
     collapse: true
-    comment: '# '
-    
-execute: 
-  eval: false
 ---
 
-# 🚧 [nano]{style="color: #9b2e0c;"} {#sec-nano}
-
-```{bash}
-#| label: setup
-#| include: false 
-#| eval: true
-whoami
-```
+# 🏗️ [Users and Groups]{style="color: #9b2e0c;"} {#sec-usr-grps}
 
 ```{r}
-#| label: common
+#| label: setup
 #| include: false
-#| eval: true
 source("_common.R")
 ```
 

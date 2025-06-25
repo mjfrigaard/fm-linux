@@ -9,7 +9,7 @@ execute:
   eval: false
 ---
 
-# emacs {#sec-emacs}
+# 🚧 [emacs]{style="color: #9b2e0c;"} {#sec-emacs}
 
 ```{bash}
 #| label: setup
