@@ -46,7 +46,11 @@ book:
         - special_chars.qmd
         - regex.qmd
         - text_commands.qmd
-        - text_editors.qmd
+    - part: txt_edit.qmd
+      chapters:
+        - vim.qmd
+        - nano.qmd
+        - emacs.qmd
     - part: scripts.qmd
       chapters:
         - format.qmd

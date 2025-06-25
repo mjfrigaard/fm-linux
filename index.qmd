@@ -38,7 +38,7 @@ Linux is a powerful, versatile, and widely used operating system that runs on mi
 <a href="https://github.com/mjfrigaard/fm-linux"><img src="img/fm_linux_logo.png" width="100%" class="cover" alt="Github Repo" fig-align="center"/></a> 
 
 
-This field manual covers an introduction to the command-line (terminals and shells), the Linux filesystem hierarchy, permissions, encryption, access control lists, network file systems, processes, virtual machines, services, and managing users, groups, and security.
+This field manual covers an introduction to the command-line (terminals and shells), the Linux filesystem hierarchy, virtual machines, permissions, working with text commands and files, network file systems, processes, services, encryption, access control lists, and managing users, groups, and security.
 
 ```{r}
 #| label: git_contrib_box

@@ -9,7 +9,7 @@ execute:
   eval: false
 ---
 
-# Text Editors {#sec-txt-edit}
+# Vim {#sec-vim}
 
 ```{bash}
 #| label: setup
@@ -41,10 +41,6 @@ co_box(
   "
 )
 ```
-
-## nano
-
-## `vi` (Vim) 
 
 Vim, short for Vi IMproved, is an advanced text editor that is an enhanced version of the `vi` editor common to UNIX systems. Vim designed for both casual text editing and complex code development, making it a popular choice for developers and system administrators alike. Vim is known for its power, flexibility, and efficiency, but it can be intimidating for beginners due to its modal nature and extensive commands.
 
@@ -122,8 +118,6 @@ As you grow more comfortable with the basics of Vim, you may explore its advance
 - **Plugins**: Extend Vim’s functionality with plugins like NERDTree for file system navigation or YouCompleteMe for code completion.
 
 While Vim has a steep learning curve, mastering it can significantly enhance your productivity and efficiency in text editing tasks. Start with basic commands, gradually exploring more complex features as you become more comfortable with the editor. 
-
-## emacs
 
 ```{r}
 #| label: git_contrib_box
