@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/p1.html</loc>
-    <lastmod>2025-06-24T21:23:38.596Z</lastmod>
+    <lastmod>2025-06-25T15:46:22.073Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/setups.html</loc>
-    <lastmod>2025-06-10T17:12:19.106Z</lastmod>
+    <lastmod>2025-06-25T15:49:45.115Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/vms.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/wsl.html</loc>
-    <lastmod>2025-06-19T05:17:38.079Z</lastmod>
+    <lastmod>2025-06-25T15:50:50.617Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/shells.html</loc>
@@ -49,8 +49,12 @@
     <lastmod>2024-08-30T20:47:44.905Z</lastmod>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/fm-linux/usr_grp.html</loc>
+    <lastmod>2025-06-25T16:05:02.658Z</lastmod>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/fm-linux/permissions.html</loc>
-    <lastmod>2025-06-18T15:40:09.884Z</lastmod>
+    <lastmod>2025-06-25T15:59:45.280Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/syntax.html</loc>
@@ -78,7 +82,7 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/p2.html</loc>
-    <lastmod>2025-06-24T23:09:31.466Z</lastmod>
+    <lastmod>2025-06-25T16:15:34.883Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/text.html</loc>
@@ -102,19 +106,19 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/txt_edit.html</loc>
-    <lastmod>2025-06-25T13:29:51.101Z</lastmod>
+    <lastmod>2025-06-25T15:41:41.259Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/vim.html</loc>
-    <lastmod>2025-06-25T13:30:07.192Z</lastmod>
+    <lastmod>2025-06-25T14:00:43.333Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/nano.html</loc>
-    <lastmod>2025-06-25T13:28:33.265Z</lastmod>
+    <lastmod>2025-06-25T16:17:48.097Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/emacs.html</loc>
-    <lastmod>2025-06-25T13:28:30.429Z</lastmod>
+    <lastmod>2025-06-25T16:17:57.693Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/scripts.html</loc>
@@ -122,11 +126,11 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/format.html</loc>
-    <lastmod>2025-06-18T15:39:43.478Z</lastmod>
+    <lastmod>2025-06-25T16:18:50.879Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/p3.html</loc>
-    <lastmod>2025-06-24T21:26:05.778Z</lastmod>
+    <lastmod>2025-06-25T15:47:21.610Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/nw_fund.html</loc>
@@ -162,7 +166,7 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/p4.html</loc>
-    <lastmod>2025-06-24T21:26:04.555Z</lastmod>
+    <lastmod>2025-06-25T15:47:39.229Z</lastmod>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/fm-linux/maintenance.html</loc>
