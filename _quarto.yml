@@ -42,7 +42,9 @@ book:
     - p2.qmd
     - part: text.qmd
       chapters:
-        - symbols_patterns.qmd
+        - wildcards.qmd
+        - special_chars.qmd
+        - regex.qmd
         - text_commands.qmd
         - text_editors.qmd
     - part: scripts.qmd

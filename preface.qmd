@@ -102,9 +102,9 @@ Understanding the shell syntax is vital for effectively communicating with a Lin
 
 <strong>@sec-pipes</strong> are a cornerstone of Linux productivity, enabling the output of one command to serve as the input to another.  <strong>[Syntax](syntax.qmd)</strong> also covers how to combine commands using `stdout` and `stdin`, allowing for robust command chains that can perform complex tasks. Understanding pipes unlocks a higher level of command-line efficiency.
 
-#### Manipulating Text
+#### Text
 
-Linux systems are renowned for their powerful text manipulation capabilities.  <strong>[The Text](text.qmd)</strong> section covers using <strong>@sec-symbols-patterns</strong> to build regular expressions (regex). <strong>@sec-txt-cmds</strong> introduces commands such as `cat` for displaying file contents, `grep` for searching within files, sorting data, sorting data, `uniq` for filtering unique lines, and cutting, pasting, and joining for editing files. Mastering these commands will allow you to handle and process text data efficiently. <strong>[Text Editors](text_editors.qmd)</strong> cover Nano, vim, and Emacs.
+Linux systems are renowned for their powerful text manipulation capabilities.  <strong>[The Text](text.qmd)</strong> section covers using <strong>@sec-special-chars</strong> to build regular expressions (regex). <strong>@sec-regexp</strong> introduces commands such as `cat` for displaying file contents, `grep` for searching within files, sorting data, sorting data, `uniq` for filtering unique lines, and cutting, pasting, and joining for editing files. Mastering these commands will allow you to handle and process text data efficiently. <strong>[Text Editors](text_editors.qmd)</strong> cover Nano, vim, and Emacs.
 
 ```{r}
 #| label: co_box_dev_manip_text

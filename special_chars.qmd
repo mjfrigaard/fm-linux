@@ -1,0 +1,234 @@
+---
+engine: knitr
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: '#'
+    
+---
+
+# Special Characters {#sec-special-chars}
+
+```{bash}
+#| label: setup
+#| include: false
+whoami
+```
+
+```{r}
+#| label: common
+#| include: false
+source("_common.R")
+```
+
+```{r}
+#| label: co_box_dev
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(
+  color = "r",
+  look = "default", 
+  hsize = "1.25", 
+  size = "1.00", 
+  header = "Caution", 
+  fold = FALSE,
+  contents = "This section is under development. Thank you for your patience.
+  "
+)
+```
+
+
+
+Some characters such as curly braces, single quotes, ampersand, and parentheses have special meanings in the shell. They can be used with arguments to add search, match, and print functionality.
+
+## Braces: `{}` {#sec-braces}
+
+**Brace Expansion** (`{}`) allows the creation of multiple text strings from a pattern containing braces. 
+
+**Example**
+
+List `.tsv` and `.csv` files named `wu_tang`:
+
+```{bash}
+ls data/wu_tang.{tsv,psv}
+```
+
+Expands into:
+
+```{bash}
+cat data/wu_tang.tsv 
+```
+
+```{bash}
+cat data/wu_tang.psv
+```
+
+## Backslash: `\` {#sec-backslash}
+
+`\` escapes the following character, nullifying its special meaning
+
+**Example** 
+
+Print text with spaces and the ampersand:
+
+```{bash}
+#| eval: false
+echo "File name with spaces \& special characters"
+# File name with spaces & special characters
+```
+
+
+## Single quotes: `''` {#sec-single-quotes}
+
+Single quotes (`' '`) treat every character literally, ignoring the special meaning of all characters.
+
+**Example** 
+
+`echo '$HOME'` prints `$HOME`, not the path to the home directory:
+
+```{bash}
+echo '$HOME'
+```
+
+## Double quotes: `""` {#sec-double-quotes}
+
+Double quotes (`" "`) allow for the inclusion of special characters in an argument, except for the dollar sign (`$`), backticks (\` \`), and backslash (`\`). 
+
+**Example** 
+
+`echo "$HOME"` prints the path to the home directory:
+
+```{bash}
+#| eval: false
+echo "$HOME"
+#> /Users/username
+```
+
+## Tilde: `~` {#sec-tilde}
+
+`~` represents the home directory of the current user.
+
+**Example** 
+
+Print a folder `tree` of the items in the user's `Library/Python` directory:
+
+```{bash}
+#| eval: false
+tree ~/Library/Python -L 1
+#> /Users/username/Library/Python
+#> └── 3.9
+#>
+#> 2 directories, 0 files
+```
+
+
+## Dollar Sign: `$` {#sec-dollar}
+
+`$` indicates a variable.
+
+**Example** 
+
+`echo $PATH` prints the value of the `PATH` environment variable:
+
+```{bash}
+#| eval: false
+echo $PATH
+```
+
+
+## Ampersand: `&` {#sec-ampersand}
+
+`&` runs a command in the background.
+
+**Example** 
+
+`firefox &` opens Firefox in the background, allowing the terminal to be used for other commands.
+
+```{bash}
+#| eval: false
+firefox &
+```
+
+## Semicolon: `;` {#sec-semicolon}
+
+`;` separates multiple commands to be run in sequence.
+
+**Example** 
+
+Change the directory to `data/` and then print a folder `tree` of it's contents with the full path (`-f`), size (`-s`) in SI units (powers of 1000) in a more human readable way (`-h`).
+
+```{bash}
+#| eval: false
+cd data/; tree -f -s --si -h
+#> [ 320]  .
+#> ├── [6.1k]  ./music_vids.tsv
+#> ├── [ 12k]  ./pwrds.tsv
+#> ├── [ 320]  ./raw
+#> │   ├── [ 13k]  ./raw/ajperlis_epigrams.txt
+#> │   ├── [6.5k]  ./raw/music_vids.csv
+#> │   ├── [ 12k]  ./raw/pwrds.csv
+#> │   ├── [1.3k]  ./raw/roxanne.txt
+#> │   ├── [4.5k]  ./raw/trees.csv
+#> │   ├── [4.8k]  ./raw/vg_hof.csv
+#> │   ├── [ 381]  ./raw/who_tb_data.csv
+#> │   └── [ 263]  ./raw/wu_tang.csv
+#> ├── [9.0k]  ./README.md
+#> ├── [4.4k]  ./trees.tsv
+#> ├── [4.8k]  ./vg_hof.tsv
+#> ├── [ 462]  ./wu_tang.psv
+#> └── [ 263]  ./wu_tang.tsv
+#> 
+#> 2 directories, 15 files
+```
+
+
+
+## Greater Than: `>` {#sec-gt}
+
+**Redirection operators**: `>` directs output to a file or a device. 
+
+**Example** 
+
+`echo "This is my 2nd file" > myfile2.txt` writes `"This is my 2nd file"` into `myfile2.txt`:
+
+```{bash}
+echo "This is my 2nd file" > myfile2.txt
+```
+
+## Less Than: `<` {#sec-lt}
+
+**Redirection operators**: `<` takes input from a file or a device.
+
+**Example** 
+
+Then `wc < myfile2.txt` counts the words in `myfile2.txt`:
+
+```{bash}
+wc < myfile2.txt
+```
+
+
+## Parentheses: `()` {#sec-parens}
+
+Parentheses can be used to group commands or for command substitution with `$( )`.
+
+**Example** 
+
+Runs `ls` in `/data` without changing the current directory:
+
+```{bash}
+(cd data; ls)
+# confirm working directory hasn't changed 
+pwd
+```
+
+`$(command)` uses the output of `command`.
+
+```{r}
+#| label: git_contrib_box
+#| echo: false
+#| results: asis
+#| eval: true
+git_contrib_box()
+```

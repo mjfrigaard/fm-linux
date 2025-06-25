@@ -1,0 +1,135 @@
+---
+engine: knitr
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: '#'
+    
+---
+
+# Regular Expressions {#sec-regexp}
+
+```{bash}
+#| label: setup
+#| include: false
+whoami
+```
+
+```{r}
+#| label: common
+#| include: false
+source("_common.R")
+```
+
+```{r}
+#| label: co_box_dev
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(
+  color = "r",
+  look = "default", 
+  hsize = "1.25", 
+  size = "1.00", 
+  header = "Caution", 
+  fold = FALSE,
+  contents = "This section is under development. Thank you for your patience.
+  "
+)
+```
+
+Regular expressions (or the singular 'regex') are powerful tools for searching and manipulating text data. A regex is made up of the symbols and characters that define specific patterns to be matched, identified or transformed. 
+
+A regex operates on text--the sequence of characters that include letters, digits, punctuation, and other character types. Text serves as the 'data' or 'medium' for which the patterns the regex describes are searched.[^regex-data]
+
+[^regex-data]: The `regex` patterns are not the data themselves, but rather a framework for locating or modifying text data. 
+
+## Matching occurrences 
+
+`+` matches one or more occurrences of the preceding element.
+
+`[abc]`: Matches any one character listed (`a`, `b`, or `c`).
+
+**Example**
+
+Match any line containing one or more digits in `who_tb_data.csv.`:
+
+```{bash}
+grep -E '[0-9]+' data/raw/who_tb_data.csv
+```
+
+## Starts with
+
+`^` matches the start of a line.
+
+`[abc]`: Matches any one character listed (`a`, `b`, or `c`).
+
+**Example**
+
+Find lines beginning with an uppercase letter in `README.md`:
+
+```{bash}
+grep -E '^[A-Z]' data/README.md
+```
+
+## Ends with
+
+`($| )`: followed by either end-of-line (`$`) *or* space
+
+
+**Example**
+
+Match lines that match a literal `ah` and either end-of-line (`$`) *or* space.
+
+```{bash}
+grep -E 'ah($| )' data/wu_tang.psv
+```
+
+## Search
+
+**Example**
+
+`^` matches the start of a line.
+
+Find lines beginning with `Ghost` in `data/raw/wu_tang.csv`:
+
+```{bash}
+grep -E '^Ghost' data/raw/wu_tang.csv
+```
+
+**Example**
+
+Print lines with `i` followed by one or more `l`s or lines with `i` followed by one or more `f`s:
+
+```{bash}
+grep -E  '(il+|if+)' data/wu_tang.psv
+```
+
+## Deep search
+
+**Example**
+
+Recursively search for `Kill` or `cybernetic` in any file under `data/raw`
+
+```{bash}
+grep -R -E '(Kill|cybernetic)' data/raw
+```
+
+**Example**
+
+Print lines containing any four-digit sequence with square brackets and curly braces:
+
+```{bash}
+awk '/[0-9]{4}/ {print}' data/raw/who_tb_data.csv
+```
+
+Regular expressions can combine wildcards and special characters and are typically used with tools like <code>@sec-grep</code> (global regular expression print), <code>@sec-sed</code> (stream editor), <code>@sec-cat</code> (concatenate) and <code>@sec-awk</code>.
+
+```{r}
+#| label: git_contrib_box
+#| echo: false
+#| results: asis
+#| eval: true
+git_contrib_box()
+```
+

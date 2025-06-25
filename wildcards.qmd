@@ -1,0 +1,147 @@
+---
+engine: knitr
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: '#'
+    
+---
+
+# Wildcards {#sec-wildcards}
+
+```{bash}
+#| label: setup
+#| include: false
+whoami
+```
+
+```{r}
+#| label: common
+#| include: false
+source("_common.R")
+```
+
+```{r}
+#| label: co_box_dev
+#| echo: false
+#| results: asis
+#| eval: true
+co_box(
+  color = "r",
+  look = "default", 
+  hsize = "1.25", 
+  size = "1.00", 
+  header = "Caution", 
+  fold = FALSE,
+  contents = "This section is under development. Thank you for your patience.
+  "
+)
+```
+
+Wildcards (or *glob patterns*) can be used with commands to match filenames, paths, or filter text (`ls`, `cp`, `mv`, `rm`, etc.). The shell expands arguments and wildcards into a list of files or directories that match the pattern.
+
+## Asterisk: `*` {#sec-wc-asterisk}
+
+`*` is a wildcard for matching **zero or more characters**. 
+
+**Example** 
+
+List all files in the `data/` directory that end with `.md`:
+
+```{bash}
+ls data/*.md
+```
+
+**Example** 
+
+List all top-level files starting with `w` and ending in `.tsv` in `data/`
+
+```{bash}
+ls data/w*.tsv
+```
+
+**Example**
+
+Print the top ten lines of the `pwrds` .csv file in `data/raw/` via `*`:
+
+```{bash}
+head data/raw/p*.csv
+```
+
+
+## Question Mark: `?` {#sec-wc-question}
+
+`?` is the wildcard for matching **exactly one character**.
+
+**Example** 
+
+`ls myfile?.txt` lists files like `myfile2.txt`, but not `myfile.txt` and `my file 3.txt`:
+
+```{bash}
+ls myfile?.txt
+```
+
+**Example** 
+
+List five-character names in` data/raw/` ending with `.csv`:
+
+```{bash}
+ls data/raw/?????.csv
+```
+
+**Example** 
+
+List any four-character names in` data/raw/` ending with `s.csv`:
+
+```{bash}
+ls data/raw/????s.csv
+```
+
+
+## Square brackets: `[]` {#sec-wc-square-brackets}
+
+`[abc]`: Matches any one character listed (a, b, or c).
+
+**Example** 
+
+`[a-z]`: match the top-level TSV files starting with `m`, `p`, or `t` in `data/`:
+
+```{bash}
+ls data/[mpt]*.tsv
+```
+
+**Example** 
+
+Matches files beginning with `p` or `t` and ending in `.tsv` in `data/`:
+
+```{bash}
+ls data/[pt]*.tsv
+```
+
+
+**Example** 
+
+Matches `ajperlis_epigrams.txt` (but excludes` roxanne.txt`) in `data/raw/`:
+
+```{bash}
+ls data/raw/[!r]*.txt
+```
+
+
+**Example** 
+
+Match any one character in range (`a` to `p`).
+
+```{bash}
+ls data/[a-p]*
+```
+
+In the next section we'll cover how to use special characters to enhance matching and searching text with tools like `grep`, `cat`, `head`, `awk`. etc.
+
+```{r}
+#| label: git_contrib_box
+#| echo: false
+#| results: asis
+#| eval: true
+git_contrib_box()
+```

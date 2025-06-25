@@ -65,7 +65,7 @@ tree -P who_tb_data.tsv data
 # 1 directory, 1 file
 ```
 
-The `-P` option lets us specify a pattern to search for in the `data` folder, which we'll cover more in @sec-symbols-patterns.
+The `-P` option lets us specify a pattern to search for in the `data` folder, which we'll cover more in the @sec-special-chars, @sec-wildcards, @sec-regexp, @sec-txt-cmds, and @sec-txt-edit.
 
 ### `echo`
 

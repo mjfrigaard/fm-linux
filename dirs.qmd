@@ -285,7 +285,7 @@ tree data -P *.tsv
 # 3 directories, 1 file
 ```
 
-[^tree-pattern]: The `-P *.tsv` option for `tree` tells it to look in `data` for files or folders with a `.tsv` extension. We'll cover wildcards and patterns in the @sec-symbols-patterns chapter.
+[^tree-pattern]: The `-P *.tsv` option for `tree` tells it to look in `data` for files or folders with a `.tsv` extension. We'll cover wildcards and patterns in the @sec-wildcards chapter.
 
 It can also be used for renaming files. 
 
