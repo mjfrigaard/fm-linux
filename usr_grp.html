@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-25">
+<meta name="dcterms.date" content="2025-06-26">
 <meta name="description" content="A Linux Field Manual">
 
-<title>🏗️ Users and Groups – FM-Linux</title>
+<title>Users and Groups – FM-Linux</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -83,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./usr_grp.html"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Users and Groups</span></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./usr_grp.html"><span class="chapter-title"><span style="color: #9b2e0c;">Users and Groups</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -144,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./wsl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Windows</span></span></a>
+  <a href="./wsl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Windows</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -185,12 +219,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./usr_grp.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Users and Groups</span></span></a>
+  <a href="./usr_grp.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title"><span style="color: #9b2e0c;">Users and Groups</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permissions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></a>
+  <a href="./permissions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="color: #9b2e0c;">Permissions</span></span></a>
   </div>
 </li>
       </ul>
@@ -452,15 +486,47 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#why-users" id="toc-why-users" class="nav-link active" data-scroll-target="#why-users">Why Users?</a></li>
+  <li><a href="#the-superuser" id="toc-the-superuser" class="nav-link" data-scroll-target="#the-superuser">The Superuser</a>
+  <ul>
+  <li><a href="#check-accounts" id="toc-check-accounts" class="nav-link" data-scroll-target="#check-accounts">Check Accounts</a></li>
+  <li><a href="#list-all-users" id="toc-list-all-users" class="nav-link" data-scroll-target="#list-all-users">List All Users</a></li>
+  <li><a href="#add-new-users" id="toc-add-new-users" class="nav-link" data-scroll-target="#add-new-users">Add New Users</a></li>
+  <li><a href="#change-passwords" id="toc-change-passwords" class="nav-link" data-scroll-target="#change-passwords">Change Passwords</a></li>
+  <li><a href="#remove-users" id="toc-remove-users" class="nav-link" data-scroll-target="#remove-users">Remove Users</a></li>
+  <li><a href="#change-user" id="toc-change-user" class="nav-link" data-scroll-target="#change-user">Change user</a></li>
+  </ul></li>
+  <li><a href="#groups" id="toc-groups" class="nav-link" data-scroll-target="#groups">Groups</a>
+  <ul>
+  <li><a href="#view-groups" id="toc-view-groups" class="nav-link" data-scroll-target="#view-groups">View Groups</a></li>
+  <li><a href="#create-new-group" id="toc-create-new-group" class="nav-link" data-scroll-target="#create-new-group">Create New Group</a></li>
+  <li><a href="#add-users-to-a-group" id="toc-add-users-to-a-group" class="nav-link" data-scroll-target="#add-users-to-a-group">Add Users to a Group</a></li>
+  <li><a href="#remove-user-from-a-group" id="toc-remove-user-from-a-group" class="nav-link" data-scroll-target="#remove-user-from-a-group">Remove User from a Group</a></li>
+  </ul></li>
+  <li><a href="#ownership-and-permissions" id="toc-ownership-and-permissions" class="nav-link" data-scroll-target="#ownership-and-permissions">Ownership and Permissions</a>
+  <ul>
+  <li><a href="#change-ownership" id="toc-change-ownership" class="nav-link" data-scroll-target="#change-ownership">Change Ownership</a></li>
+  <li><a href="#change-group" id="toc-change-group" class="nav-link" data-scroll-target="#change-group">Change Group</a></li>
+  <li><a href="#change-both" id="toc-change-both" class="nav-link" data-scroll-target="#change-both">Change Both</a></li>
+  <li><a href="#change-permissions" id="toc-change-permissions" class="nav-link" data-scroll-target="#change-permissions">Change Permissions</a></li>
+  </ul></li>
+  <li><a href="#a-simple-example" id="toc-a-simple-example" class="nav-link" data-scroll-target="#a-simple-example">A Simple Example</a></li>
+  <li><a href="#troubleshoot" id="toc-troubleshoot" class="nav-link" data-scroll-target="#troubleshoot">Troubleshoot</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./usr_grp.html"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Users and Groups</span></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./usr_grp.html"><span class="chapter-title"><span style="color: #9b2e0c;">Users and Groups</span></span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-usr-grps" class="quarto-section-identifier"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Users and Groups</span></span></span></h1>
+<h1 class="title"><span id="sec-usr-grps" class="quarto-section-identifier"><span class="chapter-title"><span style="color: #9b2e0c;">Users and Groups</span></span></span></h1>
 </div>
 
 
@@ -471,7 +537,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-06-25</p>
+      <p class="date">2025-06-26</p>
     </div>
   </div>
   
@@ -483,7 +549,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -496,13 +562,459 @@ ul.task-list li input[type="checkbox"] {
 <div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div style="font-size: 1.00em; color: #282b2d;">
-<p>This section is under development. Thank you for your patience.</p>
+<p>This section is being reviewd Thank you for your patience.</p>
 </div>
 </div>
 </div>
 </div>
+<p>Linux is built for sharing. Whether you’re the only person on your laptop or part of a team on a shared server, Linux keeps everyone’s files and settings organized and secure by using <strong>users</strong> and <strong>groups</strong>. In this chapter, you’ll learn how Linux separates people and workloads, how to create and manage accounts, and how to use groups to let the right people share the right stuff.</p>
+<section id="why-users" class="level2">
+<h2 class="anchored" data-anchor-id="why-users">Why Users?</h2>
+<p><strong><em>Users in an operating system provide a transparent, secure and private personal space.</em></strong></p>
+<p>Each user gets a “home” folder where their personal files live (i.e., <code>/home/john</code>). No one else can poke around in <code>home/john</code> without explicit permission. By default, one user can’t read or change another user’s files. This keeps us from accidentally breaking someone else’s work (and vice versa).</p>
+<p>If something goes wrong (i.e., a file is deleted, a program crashes), we (Admins) can see which user account ran the command, which helps with troubleshooting.</p>
+</section>
+<section id="the-superuser" class="level2">
+<h2 class="anchored" data-anchor-id="the-superuser">The Superuser</h2>
+<p>The <strong><code>root</code></strong> account is like the <strong>master</strong> user. <code>root</code> can do anything—install software, delete any file, change other users’ passwords. Because <code>root</code> has so much power, we usually do routine tasks as a normal user and only become <code>root</code> when we need more authority.</p>
+<p>We can use <strong><code>sudo &lt;COMMAND&gt;</code></strong> (“superuser do”) to run single commands as <code>root</code>, instead of logging in as the root <code>user</code> directly.</p>
+<section id="check-accounts" class="level3">
+<h3 class="anchored" data-anchor-id="check-accounts">Check Accounts</h3>
+<p>Open a terminal and try these:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">whoami</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># martin </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Lists your user ID (UID), your primary group ID (GID), and any extra groups you belong to.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">id</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># uid=1000 (martin) gid=1000(martin)groups=1000(martin),4(adm),24(cdrom),</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 27(sudo),30(dip),46(plugdev),100(users),114(lpadmin)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="list-all-users" class="level3">
+<h3 class="anchored" data-anchor-id="list-all-users">List All Users</h3>
+<p>All user accounts are recorded in the file <code>/etc/passwd</code>. You can view it by running:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-d:</span> <span class="at">-f1</span> /etc/passwd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>root</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>daemon</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>bin</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>sys</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>sync</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>games</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>man</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>lp</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>mail</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>news</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>uucp</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>proxy</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>www-data</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>backup</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>list</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>irc</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>_apt</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>nobody</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>systemd-network</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>systemd-timesync</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>dhcpcd</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>messagebus</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>syslog</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>systend-resolve</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>uuidd</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>USbnux</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>tss</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>systemd-oom</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>kernoops</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>whoopsie</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>dnsmasq</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>avahi</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>tcpdump</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>sssd</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>speech-dispatcher</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>cups-pk-helper</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>fwupd-refresh</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>saned</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>geoclue</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>cups-browsed</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>hplip</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>polkitd</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>rtkit</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>colord</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>gnome-initial-setup</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>gdm</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>na-openvpn</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>gnone-remote-desktop</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>martin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>That command prints the list of user names (the first field in each line).</p>
+<blockquote class="blockquote">
+<p><strong>Tip:</strong> On a typical desktop you’ll see your account plus system accounts (like <code>daemon</code>, <code>syslog</code>). You usually only manage the human users.</p>
+</blockquote>
+</section>
+<section id="add-new-users" class="level3">
+<h3 class="anchored" data-anchor-id="add-new-users">Add New Users</h3>
+<p>Log into the <code>su</code> account to manage user and groups to avoid typing <code>sudo</code> with the commands below. Linux provides a friendly command called <strong><code>adduser</code></strong> (on Debian/Ubuntu) or <strong><code>useradd</code></strong> (on Red Hat–based systems). We’ll use <code>adduser</code> here:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">adduser</span> bob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The terminal returns the following prompts:</p>
+<ol type="1">
+<li><strong>Enter a password</strong> for the new account.<br>
+</li>
+<li><strong>Confirm</strong> the password.<br>
+</li>
+<li>Optionally, enter the user’s full name and other details (you can press Enter to skip).</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>New password:</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Retype new password:</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>passwd: password updated successfully</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Changing the user information for bob</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>Enter the new value, or press ENTER for the default</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    Full Name []: Bob Smith</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    Room Number []: 101</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    Work Phone []: 555-555-5555</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    Home Phone []: 555-555-5551</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    Other []: 555-555-5552</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>Is the information correct? [Y/n] y</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>info: Adding new user 'bob' to supplemental / extra groups 'users' ...</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>info: Adding user 'bob' to group 'users' ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When it’s done, you’ll have a new home folder at <code>/home/bob</code> and a private environment just for Bob.</p>
+</section>
+<section id="change-passwords" class="level3">
+<h3 class="anchored" data-anchor-id="change-passwords">Change Passwords</h3>
+<p>If someone forgets their password, as admins we can reset it:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">passwd</span> bob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We’ll be asked to enter the new password for Bob and then confirm it.</p>
+</section>
+<section id="remove-users" class="level3">
+<h3 class="anchored" data-anchor-id="remove-users">Remove Users</h3>
+<p>To delete an account and its home folder:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deluser</span> <span class="at">--remove-home</span> bob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong><code>--remove-home</code></strong> also erases <code>/home/bob</code>. If we only want to delete the account but keep the files, omit this option.</p>
+</section>
+<section id="change-user" class="level3">
+<h3 class="anchored" data-anchor-id="change-user">Change user</h3>
+<p>As Admins, we can sign in as other users with <code>su</code> (<em>switch user</em>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">su</span> bob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can move into the user’s home directory with <code>cd</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Confirm this with <code>pwd</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>/home/bob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="groups" class="level2">
+<h2 class="anchored" data-anchor-id="groups">Groups</h2>
+<p>A <strong><code>group</code></strong> is a collection of users. Groups make it easy to share files:</p>
+<p><strong>Example:</strong> A ‘design’ group might include Alice, Bob, and Carol. Any files owned by the design group can be read or modified by all three.</p>
+<p>Linux gives every user a <strong>primary group</strong> (by default, a <code>group</code> with the same name as their user). We can also add users to extra (secondary) groups.</p>
+<p>We’ll switch back to our original user to see what groups we belong to:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bob@martin-VirtualBox:-$</span> exit</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span> <span class="co"># out of bob into root</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">root@martin-VirtualBox:/home/martin#</span> exit  </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span> <span class="co"># out of root into original user</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ex">martingnartin-VirtualBox:-$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="view-groups" class="level3">
+<h3 class="anchored" data-anchor-id="view-groups">View Groups</h3>
+<p>To see which groups we’re in:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">groups</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>martin adm cdrom sudo dip plugdev users lpadmin</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To see which groups a user is in:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">groups</span> bob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>bob : bob users</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>As we can see, <code>bob</code> is a user who belong to the <code>users</code> group (also named <code>bob</code>).</p>
+<p>To list all groups on the system:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-d:</span> <span class="at">-f1</span> /etc/group</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>root </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>daemon </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>bin </span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>sys</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>adm </span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>tty </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>disk</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>lp</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>mail </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>news</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>uucp</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>man </span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>proxy </span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>kmem</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>dialout </span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>fax </span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>voice </span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>cdron </span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>floppy </span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>tape </span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>sudo </span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>audio </span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>dip </span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>www-data </span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>backup </span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>operator </span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>list </span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>irc</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>src</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>shadow </span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>utmp</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>video </span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>sasl </span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>plugdev</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>staff </span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>games </span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>users</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>nogroup </span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>systemd-journal </span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>systemd-network</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>crontab </span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>systemd-timesync </span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>input </span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>sgx</span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>kvn</span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>render </span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>messagebus </span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>syslog</span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>systemd-resolve</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>_ssh</span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>tss</span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>ssl-cert </span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>systemd-oom</span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>bluetooth </span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>rdma</span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>whoopsie </span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>netdev</span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>avahi </span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a>tcpdump</span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>sssd</span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>lpadmin</span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>fwupd-refresh</span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>scanner </span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>saned </span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>geoclue </span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>pipewire </span>
+<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>polkitd</span>
+<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>rtkit</span>
+<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a>colord </span>
+<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a>gdr</span>
+<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>nm-openvpn</span>
+<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a>lxd</span>
+<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>gnome-remote-desktop </span>
+<span id="cb19-74"><a href="#cb19-74" aria-hidden="true" tabindex="-1"></a>gamemode </span>
+<span id="cb19-75"><a href="#cb19-75" aria-hidden="true" tabindex="-1"></a>gnome-initial-setup </span>
+<span id="cb19-76"><a href="#cb19-76" aria-hidden="true" tabindex="-1"></a>martin </span>
+<span id="cb19-77"><a href="#cb19-77" aria-hidden="true" tabindex="-1"></a>bob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="create-new-group" class="level3">
+<h3 class="anchored" data-anchor-id="create-new-group">Create New Group</h3>
+<p>Sign into <code>su</code> to add groups:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">groupadd</span> datasci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Creates a group called <code>datasci</code>.</p>
+</section>
+<section id="add-users-to-a-group" class="level3">
+<h3 class="anchored" data-anchor-id="add-users-to-a-group">Add Users to a Group</h3>
+<p>Add <code>bob</code> to the <code>datasci</code> group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">usermod</span> <span class="at">-aG</span> datasci bob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>-aG</code> flag means “<em>append to the supplemental groups.</em>”</p>
+<p>To confirm, run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">groups</span> bob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>bob : bob users datasci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We should see <code>datasci</code> listed.</p>
+</section>
+<section id="remove-user-from-a-group" class="level3">
+<h3 class="anchored" data-anchor-id="remove-user-from-a-group">Remove User from a Group</h3>
+<p>Sometimes we need to take someone off a team:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">gpasswd</span> <span class="at">-d</span> bob datasci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Removes Bob from the <code>datasci</code> group.</p>
+</section>
+</section>
+<section id="ownership-and-permissions" class="level2">
+<h2 class="anchored" data-anchor-id="ownership-and-permissions">Ownership and Permissions</h2>
+<p>This is a brief overview of ownership and permissions, but we’ll dive deeper in the <a href="./permissions.html">Permissions</a> chapter.</p>
+<p>Files in Linux has three categories of permissions:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Permissions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Owner</strong></td>
+<td>the user who owns the file</td>
+</tr>
+<tr class="even">
+<td><strong>Group</strong></td>
+<td>the file’s group</td>
+</tr>
+<tr class="odd">
+<td><strong>Others</strong></td>
+<td>everyone else</td>
+</tr>
+</tbody>
+</table>
+<p>And three permission types:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Permission Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>r</code></td>
+<td>read</td>
+</tr>
+<tr class="even">
+<td><code>w</code></td>
+<td>write</td>
+</tr>
+<tr class="odd">
+<td><code>x</code></td>
+<td>execute (run a program or enter a folder)</td>
+</tr>
+</tbody>
+</table>
+<p>We’ll sign in as <code>bob</code> and create a new <code>report.txt</code> file in <code>/home/bob/</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">su</span> bob</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"new report"</span> <span class="op">&gt;&gt;</span> report.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can see permissions with:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> report.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For example:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>-rw-rw-r-- 1 bob bob 11 Jun 26 10:15 report.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><p><code>-rw-rw-r--</code> means:</p>
+<ul>
+<li>Owner (bob) can read/write.</li>
+<li>Group (bob) can read/write.</li>
+<li>Others have read access.</li>
+</ul></li>
+<li><p><code>bob</code> is the owner and the group.</p></li>
+</ul>
+<section id="change-ownership" class="level3">
+<h3 class="anchored" data-anchor-id="change-ownership">Change Ownership</h3>
+<p><strong><code>chown</code></strong> changes the file’s owner:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chown</span> martin report.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="change-group" class="level3">
+<h3 class="anchored" data-anchor-id="change-group">Change Group</h3>
+<p><strong><code>chgrp</code></strong> changes the file’s group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chgrp</span> datasci report.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="change-both" class="level3">
+<h3 class="anchored" data-anchor-id="change-both">Change Both</h3>
+<p>Change both at once with <strong><code>chown</code></strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chown</span> martin:datasci report.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="change-permissions" class="level3">
+<h3 class="anchored" data-anchor-id="change-permissions">Change Permissions</h3>
+<p>To adjust who can do what:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> g+w report.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Adds write permission (<code>+w</code>) to the group (<code>g</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> o-rwx report.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Removes all rights (<code>-rwx</code>) from others (<code>o</code>).</p>
+<blockquote class="blockquote">
+<p><strong>Tip:</strong> We can also use numeric codes (e.g., <code>chmod 660 report.txt</code> gives read/write to owner and group, none to others), but starting with letters (u, g, o) is more intuitive.</p>
+</blockquote>
+</section>
+</section>
+<section id="a-simple-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-simple-example">A Simple Example</h2>
+<p>We’ll set up a shared folder for the “<code>datasci</code>” group:</p>
+<p><strong>Create the folder:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> /srv/datasci-projects</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Change its group and owner:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chown</span> root:datasci /srv/datasci-projects</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Set group write permissions:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 770 /srv/datasci-projects</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Enable the “setgid” bit</strong> so new files inherit the group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> g+s /srv/datasci-projects</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now any member of the <code>datasci</code> group can drop files in <code>/srv/datasci-projects</code>, and they’ll automatically belong to the <code>datasci</code> group.</p>
+</section>
+<section id="troubleshoot" class="level2">
+<h2 class="anchored" data-anchor-id="troubleshoot">Troubleshoot</h2>
+<ul>
+<li><p><strong>“Permission denied”</strong> User doesn’t have the right permission. Check <code>ls -l</code> and see if they need to be in a group, change ownership, or use <code>sudo</code>.</p></li>
+<li><p><strong>User can’t access shared folder</strong> Make sure:</p>
+<ol type="1">
+<li>The folder’s group matches the user’s group.</li>
+<li>Permissions allow group read/write (<code>rwx</code> or at least <code>rw-</code>).</li>
+<li>The user has been added (and re-logged-in) to that group.</li>
+</ol></li>
+<li><p><strong>“User already exists”</strong> We might have a system or service account with that name. Pick a unique user name.</p></li>
+</ul>
+</section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<p>Users and groups are Linux’s way of keeping things tidy and safe. By:</p>
+<ul>
+<li>Creating individual accounts,</li>
+<li>Assigning people to groups,</li>
+<li>Setting permissions on files and folders,</li>
+</ul>
+<p>As Admins, we control who can see, change, or run anything on the system. Once we’re comfortable with these basics, we can:</p>
+<ul>
+<li>Set up project teams,</li>
+<li>Secure sensitive data,</li>
+<li>Delegate system tasks safely.</li>
+</ul>
+<p>In the next chapter, we’ll explore permissions in depth.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -968,8 +1480,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./permissions.html" class="pagination-link" aria-label="🏗️ [Permissions]{style=&quot;color: #9b2e0c;&quot;}">
-        <span class="nav-page-text"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./permissions.html" class="pagination-link" aria-label="[Permissions]{style=&quot;color: #9b2e0c;&quot;}">
+        <span class="nav-page-text"><span class="chapter-title"><span style="color: #9b2e0c;">Permissions</span></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

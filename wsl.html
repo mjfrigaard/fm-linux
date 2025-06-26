@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2025-06-25">
 <meta name="description" content="A Linux Field Manual">
 
-<title>🏗️ Windows – FM-Linux</title>
+<title>Windows – FM-Linux</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./setups.html">Set-Ups</a></li><li class="breadcrumb-item"><a href="./wsl.html"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Windows</span></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./setups.html">Set-Ups</a></li><li class="breadcrumb-item"><a href="./wsl.html"><span class="chapter-title">Windows</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,7 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./wsl.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Windows</span></span></a>
+  <a href="./wsl.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Windows</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -219,12 +219,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./usr_grp.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Users and Groups</span></span></a>
+  <a href="./usr_grp.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="color: #9b2e0c;">Users and Groups</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permissions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></a>
+  <a href="./permissions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="color: #9b2e0c;">Permissions</span></span></a>
   </div>
 </li>
       </ul>
@@ -492,7 +492,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#install" id="toc-install" class="nav-link active" data-scroll-target="#install">Install</a></li>
-  <li><a href="#configure" id="toc-configure" class="nav-link" data-scroll-target="#configure">Configure</a></li>
+  <li><a href="#configure" id="toc-configure" class="nav-link" data-scroll-target="#configure">Configure</a>
+  <ul>
+  <li><a href="#keeping-linux-updated" id="toc-keeping-linux-updated" class="nav-link" data-scroll-target="#keeping-linux-updated">Keeping Linux Updated</a></li>
+  <li><a href="#sharing-files" id="toc-sharing-files" class="nav-link" data-scroll-target="#sharing-files">Sharing Files</a></li>
+  <li><a href="#customizing-shell" id="toc-customizing-shell" class="nav-link" data-scroll-target="#customizing-shell">Customizing Shell</a></li>
+  </ul></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   </ul>
 </nav>
@@ -500,9 +505,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./setups.html">Set-Ups</a></li><li class="breadcrumb-item"><a href="./wsl.html"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Windows</span></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./setups.html">Set-Ups</a></li><li class="breadcrumb-item"><a href="./wsl.html"><span class="chapter-title">Windows</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-wsl" class="quarto-section-identifier"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Windows</span></span></span></h1>
+<h1 class="title"><span id="sec-wsl" class="quarto-section-identifier"><span class="chapter-title">Windows</span></span></h1>
 </div>
 
 
@@ -538,7 +543,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div style="font-size: 1.00em; color: #282b2d;">
-<p>This section is under contruction. Thank you for your patience.</p>
+<p>This section is being reviewed. Thank you for your patience.</p>
 </div>
 </div>
 </div>
@@ -557,9 +562,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="configure" class="level2">
 <h2 class="anchored" data-anchor-id="configure">Configure</h2>
+<p>A Linux terminal looks like a text window with a prompt, something like:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">john@LAPTOP:~$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong><code>john</code></strong> is your Linux user name.</li>
+<li><strong><code>LAPTOP</code></strong> is your computer’s name.</li>
+<li><strong><code>~</code></strong> means you’re in your “home” folder (your personal space).</li>
+<li>After the dollar sign (<code>$</code>), you type commands.</li>
+</ul>
+<section id="keeping-linux-updated" class="level3">
+<h3 class="anchored" data-anchor-id="keeping-linux-updated">Keeping Linux Updated</h3>
+<p>Linux uses a package manager to install and update software.</p>
+<p><strong>On Ubuntu or Debian</strong>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This asks Windows for your Linux password (<code>sudo</code> means <em>run as administrator</em>).</p>
+<p>After updating <code>apt</code>, download and install any available updates:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt upgrade</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run these commands every few weeks to keep things fresh and secure.</p>
+</section>
+<section id="sharing-files" class="level3">
+<h3 class="anchored" data-anchor-id="sharing-files">Sharing Files</h3>
+<p>One of WSL’s coolest features is file sharing:</p>
+<p><strong>Windows → Linux</strong></p>
+<p>Your Windows drives are mounted under <code>/mnt</code>. For example, your C: drive is at <code>/mnt/c</code>. So if you want to work on a file stored in Windows’ Documents folder, you might type:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /mnt/c/Users/YourName/Documents</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Linux → Windows</strong></p>
+<p>You can save files in your Linux home (<code>~/</code>), then open them in Windows by navigating in File Explorer to:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>\\wsl$\Ubuntu\home\john</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>(Replace <code>Ubuntu</code> and <code>john</code> with your distribution name and user name.)</p>
+</section>
+<section id="customizing-shell" class="level3">
+<h3 class="anchored" data-anchor-id="customizing-shell">Customizing Shell</h3>
+<p>If you’re spending a lot of time in the terminal, it’s nice to customize it to your liking. Below are some examples:</p>
+<p><strong>Change the prompt color</strong></p>
+<p>Edit a file called <code>.bashrc</code>. In your terminal, type:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> ~/.bashrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Scroll to the bottom and add a line like:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">=</span><span class="st">"\[\e[32m\]\u@\h:\w</span><span class="dt">\$</span><span class="st"> \[\e[0m\]"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Press Ctrl+O to save, Enter to confirm, then Ctrl+X to exit. Finally, reload with:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Auto-update on launch</strong></p>
+<p>In the same file (<code>~/.bashrc</code>), you could add:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update <span class="kw">&amp;&amp;</span> <span class="fu">sudo</span> apt upgrade <span class="at">-y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now every time you open your terminal, it checks for updates.</p>
+</section>
 </section>
 <section id="recap" class="level2">
 <h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<p>Linux can feel a bit mysterious if we’re used to clicking icons in Windows. WSL lets you run a “real” Linux command line inside Windows, without setting up a separate computer or virtual machine. WSL allows us to use Linux tools from the same computer we’re already using.</p>
+<p>WSL is fast, lightweight, and it integrates quickly with Windows files and applications.</p>
 
 
 </section>

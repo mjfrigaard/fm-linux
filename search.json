@@ -155,45 +155,45 @@
   {
     "objectID": "wsl.html",
     "href": "wsl.html",
-    "title": "🏗️ Windows",
+    "title": "Windows",
     "section": "",
     "text": "Install\nWindows Subsystem for Linux (WSL) allows you to run Linux on your Windows computer without a virtual machine or dual-booting. You can use Linux command-line tools and applications alongside your Windows programs.\nOpen Windows PowerShell as Administrator and run the following commands:\nTo view a list of available linux distributions (distro), run the following:\nPick the distro you’d like to install (i.e., Ubuntu, Debian, Fedora, openSUSE, etc.) and install it using (replacing &lt;distro&gt; with the name of the distribution):\nSee example below:",
     "crumbs": [
       "Set-Ups",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>🏗️ [Windows]{style=\"color: #9b2e0c;\"}</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Windows</span>"
     ]
   },
   {
     "objectID": "wsl.html#install",
     "href": "wsl.html#install",
-    "title": "🏗️ Windows",
+    "title": "Windows",
     "section": "",
     "text": "wsl install \n\nwsl --list --online\n\nwsl --install -d &lt;distro&gt;\n\nwsl --install -d Ubuntu",
     "crumbs": [
       "Set-Ups",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>🏗️ [Windows]{style=\"color: #9b2e0c;\"}</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Windows</span>"
     ]
   },
   {
     "objectID": "wsl.html#configure",
     "href": "wsl.html#configure",
-    "title": "🏗️ Windows",
+    "title": "Windows",
     "section": "Configure",
-    "text": "Configure",
+    "text": "Configure\nA Linux terminal looks like a text window with a prompt, something like:\njohn@LAPTOP:~$\n\njohn is your Linux user name.\nLAPTOP is your computer’s name.\n~ means you’re in your “home” folder (your personal space).\nAfter the dollar sign ($), you type commands.\n\n\nKeeping Linux Updated\nLinux uses a package manager to install and update software.\nOn Ubuntu or Debian:\nsudo apt update\nThis asks Windows for your Linux password (sudo means run as administrator).\nAfter updating apt, download and install any available updates:\nsudo apt upgrade\nRun these commands every few weeks to keep things fresh and secure.\n\n\nSharing Files\nOne of WSL’s coolest features is file sharing:\nWindows → Linux\nYour Windows drives are mounted under /mnt. For example, your C: drive is at /mnt/c. So if you want to work on a file stored in Windows’ Documents folder, you might type:\ncd /mnt/c/Users/YourName/Documents\nls\nLinux → Windows\nYou can save files in your Linux home (~/), then open them in Windows by navigating in File Explorer to:\n\\\\wsl$\\Ubuntu\\home\\john\n(Replace Ubuntu and john with your distribution name and user name.)\n\n\nCustomizing Shell\nIf you’re spending a lot of time in the terminal, it’s nice to customize it to your liking. Below are some examples:\nChange the prompt color\nEdit a file called .bashrc. In your terminal, type:\nnano ~/.bashrc\nScroll to the bottom and add a line like:\nPS1=\"\\[\\e[32m\\]\\u@\\h:\\w\\$ \\[\\e[0m\\]\"\nPress Ctrl+O to save, Enter to confirm, then Ctrl+X to exit. Finally, reload with:\nsource ~/.bashrc\nAuto-update on launch\nIn the same file (~/.bashrc), you could add:\nsudo apt update && sudo apt upgrade -y\nNow every time you open your terminal, it checks for updates.",
     "crumbs": [
       "Set-Ups",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>🏗️ [Windows]{style=\"color: #9b2e0c;\"}</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Windows</span>"
     ]
   },
   {
     "objectID": "wsl.html#recap",
     "href": "wsl.html#recap",
-    "title": "🏗️ Windows",
+    "title": "Windows",
     "section": "Recap",
-    "text": "Recap",
+    "text": "Recap\nLinux can feel a bit mysterious if we’re used to clicking icons in Windows. WSL lets you run a “real” Linux command line inside Windows, without setting up a separate computer or virtual machine. WSL allows us to use Linux tools from the same computer we’re already using.\nWSL is fast, lightweight, and it integrates quickly with Windows files and applications.",
     "crumbs": [
       "Set-Ups",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>🏗️ [Windows]{style=\"color: #9b2e0c;\"}</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Windows</span>"
     ]
   },
   {
@@ -485,7 +485,7 @@
     "href": "files.html#sec-file-permissions",
     "title": "Files",
     "section": "Permissions",
-    "text": "Permissions\nWe’ll go over file permissions in-depth in the 🏗️ Permissions chapter, but I’ll quickly summarize two common uses of chmod below. The file permissions are printed with the ls -l output:\nls -l data/README.md\n# -rw-r--r--@ 1 username  staff  8834 May 14 09:33 data/README.md\n\nchmod\nchmod changes file permissions. To change the file permissions using chmod, using either Below are some simple examples using symbolic notation.8\nTo grant the permissions above (i.e., -rw-r--r--) using symbolic notation with chmod, we could use:\nchmod u=rw,g=r,o=r data/README.md\nu=rw: sets the user (owner) permissions to read and write.\ng=r: sets the group permissions to read.\no=r: set the permissions for others to read.",
+    "text": "Permissions\nWe’ll go over file permissions in-depth in the Permissions chapter, but I’ll quickly summarize two common uses of chmod below. The file permissions are printed with the ls -l output:\nls -l data/README.md\n# -rw-r--r--@ 1 username  staff  8834 May 14 09:33 data/README.md\n\nchmod\nchmod changes file permissions. To change the file permissions using chmod, using either Below are some simple examples using symbolic notation.8\nTo grant the permissions above (i.e., -rw-r--r--) using symbolic notation with chmod, we could use:\nchmod u=rw,g=r,o=r data/README.md\nu=rw: sets the user (owner) permissions to read and write.\ng=r: sets the group permissions to read.\no=r: set the permissions for others to read.",
     "crumbs": [
       "Basics",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Files</span>"
@@ -507,7 +507,7 @@
     "href": "files.html#footnotes",
     "title": "Files",
     "section": "",
-    "text": "data/who_tb_data.tsv comes from the WHO global tuberculosis programme.↩︎\ndata/vg_hof.tsv is the Video Game Hall of Fame data↩︎\nlocate sometimes requires the search database is generated/updated. Read more here↩︎\nThe -L 2 option tells tree to only look in the data folder (no subfolders), -P '*.tsv' matches the .csv files, and --filesfirst lists the files first, then the new directories.↩︎\nThe -L 2 option tells tree to only look in the data folder (no subfolders) and -P '*who_tb_data.psv' matches the who_tb_data.psv file.↩︎\ncp and mv also work with directories.↩︎\nThis type of difference is significant if the format impacts how data is parsed or used. For example, a software program expecting data in CSV format might not correctly parse a PSV file, and vice versa.↩︎\nWe’ll cover octal (numeric) notation in the 🏗️ Permissions chapter.↩︎",
+    "text": "data/who_tb_data.tsv comes from the WHO global tuberculosis programme.↩︎\ndata/vg_hof.tsv is the Video Game Hall of Fame data↩︎\nlocate sometimes requires the search database is generated/updated. Read more here↩︎\nThe -L 2 option tells tree to only look in the data folder (no subfolders), -P '*.tsv' matches the .csv files, and --filesfirst lists the files first, then the new directories.↩︎\nThe -L 2 option tells tree to only look in the data folder (no subfolders) and -P '*who_tb_data.psv' matches the who_tb_data.psv file.↩︎\ncp and mv also work with directories.↩︎\nThis type of difference is significant if the format impacts how data is parsed or used. For example, a software program expecting data in CSV format might not correctly parse a PSV file, and vice versa.↩︎\nWe’ll cover octal (numeric) notation in the Permissions chapter.↩︎",
     "crumbs": [
       "Basics",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Files</span>"
@@ -571,23 +571,133 @@
   {
     "objectID": "usr_grp.html",
     "href": "usr_grp.html",
-    "title": "🏗️ Users and Groups",
+    "title": "Users and Groups",
     "section": "",
-    "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.",
+    "text": "Why Users?\nLinux is built for sharing. Whether you’re the only person on your laptop or part of a team on a shared server, Linux keeps everyone’s files and settings organized and secure by using users and groups. In this chapter, you’ll learn how Linux separates people and workloads, how to create and manage accounts, and how to use groups to let the right people share the right stuff.\nUsers in an operating system provide a transparent, secure and private personal space.\nEach user gets a “home” folder where their personal files live (i.e., /home/john). No one else can poke around in home/john without explicit permission. By default, one user can’t read or change another user’s files. This keeps us from accidentally breaking someone else’s work (and vice versa).\nIf something goes wrong (i.e., a file is deleted, a program crashes), we (Admins) can see which user account ran the command, which helps with troubleshooting.",
     "crumbs": [
       "Basics",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>🏗️ [Users and Groups]{style=\"color: #9b2e0c;\"}</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>[Users and Groups]{style=\"color: #9b2e0c;\"}</span>"
+    ]
+  },
+  {
+    "objectID": "usr_grp.html#the-superuser",
+    "href": "usr_grp.html#the-superuser",
+    "title": "Users and Groups",
+    "section": "The Superuser",
+    "text": "The Superuser\nThe root account is like the master user. root can do anything—install software, delete any file, change other users’ passwords. Because root has so much power, we usually do routine tasks as a normal user and only become root when we need more authority.\nWe can use sudo &lt;COMMAND&gt; (“superuser do”) to run single commands as root, instead of logging in as the root user directly.\n\nCheck Accounts\nOpen a terminal and try these:\n\nwhoami\n# martin \n\nLists your user ID (UID), your primary group ID (GID), and any extra groups you belong to.\n\nid\n# uid=1000 (martin) gid=1000(martin)groups=1000(martin),4(adm),24(cdrom),\n# 27(sudo),30(dip),46(plugdev),100(users),114(lpadmin)\n\n\n\nList All Users\nAll user accounts are recorded in the file /etc/passwd. You can view it by running:\n\ncut -d: -f1 /etc/passwd\n\nroot\ndaemon\nbin\nsys\nsync\ngames\nman\nlp\nmail\nnews\nuucp\nproxy\nwww-data\nbackup\nlist\nirc\n_apt\nnobody\nsystemd-network\nsystemd-timesync\ndhcpcd\nmessagebus\nsyslog\nsystend-resolve\nuuidd\nUSbnux\ntss\nsystemd-oom\nkernoops\nwhoopsie\ndnsmasq\navahi\ntcpdump\nsssd\nspeech-dispatcher\ncups-pk-helper\nfwupd-refresh\nsaned\ngeoclue\ncups-browsed\nhplip\npolkitd\nrtkit\ncolord\ngnome-initial-setup\ngdm\nna-openvpn\ngnone-remote-desktop\nmartin\nThat command prints the list of user names (the first field in each line).\n\nTip: On a typical desktop you’ll see your account plus system accounts (like daemon, syslog). You usually only manage the human users.\n\n\n\nAdd New Users\nLog into the su account to manage user and groups to avoid typing sudo with the commands below. Linux provides a friendly command called adduser (on Debian/Ubuntu) or useradd (on Red Hat–based systems). We’ll use adduser here:\n\nadduser bob\n\nThe terminal returns the following prompts:\n\nEnter a password for the new account.\n\nConfirm the password.\n\nOptionally, enter the user’s full name and other details (you can press Enter to skip).\n\nNew password:\nRetype new password:\npasswd: password updated successfully\nChanging the user information for bob\nEnter the new value, or press ENTER for the default\n    Full Name []: Bob Smith\n    Room Number []: 101\n    Work Phone []: 555-555-5555\n    Home Phone []: 555-555-5551\n    Other []: 555-555-5552\nIs the information correct? [Y/n] y\ninfo: Adding new user 'bob' to supplemental / extra groups 'users' ...\ninfo: Adding user 'bob' to group 'users' ...\nWhen it’s done, you’ll have a new home folder at /home/bob and a private environment just for Bob.\n\n\nChange Passwords\nIf someone forgets their password, as admins we can reset it:\n\npasswd bob\n\nWe’ll be asked to enter the new password for Bob and then confirm it.\n\n\nRemove Users\nTo delete an account and its home folder:\n\ndeluser --remove-home bob\n\n--remove-home also erases /home/bob. If we only want to delete the account but keep the files, omit this option.\n\n\nChange user\nAs Admins, we can sign in as other users with su (switch user)\n\nsu bob\n\nWe can move into the user’s home directory with cd:\n\ncd ~\n\nConfirm this with pwd:\n\npwd\n\n/home/bob",
+    "crumbs": [
+      "Basics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>[Users and Groups]{style=\"color: #9b2e0c;\"}</span>"
+    ]
+  },
+  {
+    "objectID": "usr_grp.html#groups",
+    "href": "usr_grp.html#groups",
+    "title": "Users and Groups",
+    "section": "Groups",
+    "text": "Groups\nA group is a collection of users. Groups make it easy to share files:\nExample: A ‘design’ group might include Alice, Bob, and Carol. Any files owned by the design group can be read or modified by all three.\nLinux gives every user a primary group (by default, a group with the same name as their user). We can also add users to extra (secondary) groups.\nWe’ll switch back to our original user to see what groups we belong to:\n\nbob@martin-VirtualBox:-$ exit\nexit # out of bob into root\nroot@martin-VirtualBox:/home/martin# exit  \nexit # out of root into original user\nmartingnartin-VirtualBox:-$\n\n\nView Groups\nTo see which groups we’re in:\n\ngroups\n\nmartin adm cdrom sudo dip plugdev users lpadmin\nTo see which groups a user is in:\n\ngroups bob\n\nbob : bob users\nAs we can see, bob is a user who belong to the users group (also named bob).\nTo list all groups on the system:\n\ncut -d: -f1 /etc/group\n\nroot \ndaemon \nbin \nsys\nadm \ntty \ndisk\nlp\nmail \nnews\nuucp\nman \nproxy \nkmem\ndialout \nfax \nvoice \ncdron \nfloppy \ntape \nsudo \naudio \ndip \nwww-data \nbackup \noperator \nlist \nirc\nsrc\nshadow \nutmp\nvideo \nsasl \nplugdev\nstaff \ngames \nusers\nnogroup \nsystemd-journal \nsystemd-network\ncrontab \nsystemd-timesync \ninput \nsgx\nkvn\nrender \nmessagebus \nsyslog\nsystemd-resolve\n_ssh\ntss\nssl-cert \nsystemd-oom\nbluetooth \nrdma\nwhoopsie \nnetdev\navahi \ntcpdump\nsssd\nlpadmin\nfwupd-refresh\nscanner \nsaned \ngeoclue \npipewire \npolkitd\nrtkit\ncolord \ngdr\nnm-openvpn\nlxd\ngnome-remote-desktop \ngamemode \ngnome-initial-setup \nmartin \nbob\n\n\nCreate New Group\nSign into su to add groups:\n\nsudo su\n\n\ngroupadd datasci\n\nCreates a group called datasci.\n\n\nAdd Users to a Group\nAdd bob to the datasci group:\n\nusermod -aG datasci bob\n\nThe -aG flag means “append to the supplemental groups.”\nTo confirm, run:\n\ngroups bob\n\nbob : bob users datasci\nWe should see datasci listed.\n\n\nRemove User from a Group\nSometimes we need to take someone off a team:\n\ngpasswd -d bob datasci\n\nRemoves Bob from the datasci group.",
+    "crumbs": [
+      "Basics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>[Users and Groups]{style=\"color: #9b2e0c;\"}</span>"
+    ]
+  },
+  {
+    "objectID": "usr_grp.html#ownership-and-permissions",
+    "href": "usr_grp.html#ownership-and-permissions",
+    "title": "Users and Groups",
+    "section": "Ownership and Permissions",
+    "text": "Ownership and Permissions\nThis is a brief overview of ownership and permissions, but we’ll dive deeper in the Permissions chapter.\nFiles in Linux has three categories of permissions:\n\n\n\nPermissions\nDescription\n\n\n\n\nOwner\nthe user who owns the file\n\n\nGroup\nthe file’s group\n\n\nOthers\neveryone else\n\n\n\nAnd three permission types:\n\n\n\nPermission Type\nDescription\n\n\n\n\nr\nread\n\n\nw\nwrite\n\n\nx\nexecute (run a program or enter a folder)\n\n\n\nWe’ll sign in as bob and create a new report.txt file in /home/bob/:\n\nsu bob\ncd ~\necho \"new report\" &gt;&gt; report.txt\n\nWe can see permissions with:\n\nls -l report.txt\n\nFor example:\n-rw-rw-r-- 1 bob bob 11 Jun 26 10:15 report.txt\n\n-rw-rw-r-- means:\n\nOwner (bob) can read/write.\nGroup (bob) can read/write.\nOthers have read access.\n\nbob is the owner and the group.\n\n\nChange Ownership\nchown changes the file’s owner:\n\nchown martin report.txt\n\n\n\nChange Group\nchgrp changes the file’s group:\n\nchgrp datasci report.txt\n\n\n\nChange Both\nChange both at once with chown:\n\nchown martin:datasci report.txt\n\n\n\nChange Permissions\nTo adjust who can do what:\n\nchmod g+w report.txt\n\nAdds write permission (+w) to the group (g).\n\nchmod o-rwx report.txt\n\nRemoves all rights (-rwx) from others (o).\n\nTip: We can also use numeric codes (e.g., chmod 660 report.txt gives read/write to owner and group, none to others), but starting with letters (u, g, o) is more intuitive.",
+    "crumbs": [
+      "Basics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>[Users and Groups]{style=\"color: #9b2e0c;\"}</span>"
+    ]
+  },
+  {
+    "objectID": "usr_grp.html#a-simple-example",
+    "href": "usr_grp.html#a-simple-example",
+    "title": "Users and Groups",
+    "section": "A Simple Example",
+    "text": "A Simple Example\nWe’ll set up a shared folder for the “datasci” group:\nCreate the folder:\n\nmkdir /srv/datasci-projects\n\nChange its group and owner:\n\nchown root:datasci /srv/datasci-projects\n\nSet group write permissions:\n\nchmod 770 /srv/datasci-projects\n\nEnable the “setgid” bit so new files inherit the group:\n\nchmod g+s /srv/datasci-projects\n\nNow any member of the datasci group can drop files in /srv/datasci-projects, and they’ll automatically belong to the datasci group.",
+    "crumbs": [
+      "Basics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>[Users and Groups]{style=\"color: #9b2e0c;\"}</span>"
+    ]
+  },
+  {
+    "objectID": "usr_grp.html#troubleshoot",
+    "href": "usr_grp.html#troubleshoot",
+    "title": "Users and Groups",
+    "section": "Troubleshoot",
+    "text": "Troubleshoot\n\n“Permission denied” User doesn’t have the right permission. Check ls -l and see if they need to be in a group, change ownership, or use sudo.\nUser can’t access shared folder Make sure:\n\nThe folder’s group matches the user’s group.\nPermissions allow group read/write (rwx or at least rw-).\nThe user has been added (and re-logged-in) to that group.\n\n“User already exists” We might have a system or service account with that name. Pick a unique user name.",
+    "crumbs": [
+      "Basics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>[Users and Groups]{style=\"color: #9b2e0c;\"}</span>"
+    ]
+  },
+  {
+    "objectID": "usr_grp.html#recap",
+    "href": "usr_grp.html#recap",
+    "title": "Users and Groups",
+    "section": "Recap",
+    "text": "Recap\nUsers and groups are Linux’s way of keeping things tidy and safe. By:\n\nCreating individual accounts,\nAssigning people to groups,\nSetting permissions on files and folders,\n\nAs Admins, we control who can see, change, or run anything on the system. Once we’re comfortable with these basics, we can:\n\nSet up project teams,\nSecure sensitive data,\nDelegate system tasks safely.\n\nIn the next chapter, we’ll explore permissions in depth.",
+    "crumbs": [
+      "Basics",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>[Users and Groups]{style=\"color: #9b2e0c;\"}</span>"
     ]
   },
   {
     "objectID": "permissions.html",
     "href": "permissions.html",
-    "title": "🏗️ Permissions",
+    "title": "Permissions",
     "section": "",
-    "text": "Caution\n\n\n\n\n\n\nThis section is under development. Thank you for your patience.\n\n\n\n\n\nchmod\nchmod changes file permissions.\nls -l data/README.md\n# -rw-r--r--@ 1 username  staff  8834 May 14 09:33 data/README.md\nThe file permissions for data/README.md are stored in the combination of characters and symbols returned from ls -l:\nBreakdown of -rw-r--r--@:\n\n\n\n\n\n\n# -\n\n\nThe - indicates that the item is a regular file.\n\n\n\n\n\n\n\n\n\n# -rw-\n\n\nThe first three characters after the dash represent the user (owner) permissions. The user has read (r) and write (w) permissions but no execute (x) permission.\n\n\n\n\n\n\n\n\n\n# -rw-r--\n\n\nThe next three characters represent the group permissions. The group has read (r) permission only, with no write (w) or execute (x) permissions.\n\n\n\n\n\n\n\n\n\n# -rw-r--r--\n\n\nThe final three characters represent the permissions for others (everyone else). Like the group, others have only read (r) permission, with no write (w) or execute (x) permissions.\n\n\n\n\n\n\n\n\n\n# -rw-r--r--@\n\n\nThe @ symbol indicates that the file has extended attributes, which are additional metadata stored by the operating system.\n\n\n\n\n\n\n\n\n\n# -rw-r--r--@ 1\n\n\nThe 1 indicates the count of hard links pointing to the file, which in this case is the file itself. This is typical for regular files that haven’t been explicitly linked elsewhere.\n\n\n\nSymbolic Notation\nTo grant the permissions above (i.e., -rw-r--r--), we can group the arguments to chmod:\nchmod u=rw,go=r filename\nIn this case,\nu=rw: specifies that the user (owner) can read and write\ngo=r: specifies that both the group and others can read, but not write or execute.\nWe can also use chmod to add permissions with +. The code below grants execute permissions to the user (owner) of the file named data/README.md:\nchmod u+x data/README.md\nThis command adds (+) execute (x) permission to the user (u) of the file.\nNumeric Notation\nTo set the permissions of the file data/README.md so that the user can read and execute it, the group can read it, and others have no permissions, we would use:\nchmod 750 data/README.md\nHere, 7 stands for read (4), write (2), and execute (1) permissions for the user. 5 represents read and execute permissions for the group (4+1), and 0 means no permissions for others.\nBoth of these examples modify the permissions of data/README.md to enhance or restrict access as specified.\n\n\n\nchown\nchown changes file ownership\n\n\n\n\n\n\nSee a typo, error, or something missing?\n\n\n\n\n\n\nPlease open an issue on GitHub.",
+    "text": "Why Permissions?\nEvery file and folder on Linux has rules about who can see it, change it, or run it. Those rules are called permissions, and they’re what keep your data safe and organized. In this chapter, you’ll learn:\nSecurity and privacy: Imagine you share a computer with someone else. You don’t want them accidentally deleting your photos, and they don’t want you messing with their work documents. Permissions keep each person’s files separate and safe.\nAccident prevention: Even on your own machine, permissions protect important system files. If you could delete or change everything without restriction, you might break your system by mistake.\nControlled sharing: When you do want to share, permissions let you decide exactly who can view or edit a file or folder.",
     "crumbs": [
       "Basics",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>🏗️ [Permissions]{style=\"color: #9b2e0c;\"}</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>[Permissions]{style=\"color: #9b2e0c;\"}</span>"
+    ]
+  },
+  {
+    "objectID": "permissions.html#why-permissions",
+    "href": "permissions.html#why-permissions",
+    "title": "Permissions",
+    "section": "",
+    "text": "Permission Categories\nLinux assigns permissions in three categories for every file and folder:\n\nOwner (the user who created or “owns” the file)\nGroup (a set of users who share access rights)\nOthers (everyone else on the system)\n\nAnd there are three types of actions:\n\nRead (r): View the contents of a file or list a folder’s contents\nWrite (w): Change a file or add/remove files in a folder\nExecute (x): Run a file as a program or “enter” a folder to work inside\n\n\n\nView Permissions\nOpen a terminal and type:\nls -l\nYou’ll see output like this:\n-rwxr---r-- 1 alice staff 1024 Jun 25 10:00 report.txt\ndrwxr-xr-x 2 bob   staff 4096 Jun 24 14:30 projects\nLet’s break down the first line (report.txt):\n-rwxr--r--  \n\nThe first character (- or d) tells you if it’s a file (-) or directory (d).\nNext three characters (rwx) are the owner’s permissions.\nNext three (r--) are the group’s permissions.\nLast three (r--) are others’ permissions.\n\nSo for report.txt:\n\nOwner (alice) can read, write, and execute (r w x)\nGroup (staff) can only read (r – –)\nOthers can only read (r – –)\n\n\n\nChang Permissions\nTo adjust who can do what, use the chmod command. There are two common styles: symbolic (using letters) and numeric (using numbers). We’ll start with symbolic—it’s easier to read.\nls -l data/README.md\n# -rw-r--r--@ 1 username  staff  8834 May 14 09:33 data/README.md\nThe file permissions for data/README.md are stored in the combination of characters and symbols returned from ls -l:\nBreakdown of -rw-r--r--@:\n\n\n\n\n\n\n# -\n\n\nThe - indicates that the item is a regular file.\n\n\n\n\n\n\n\n\n\n# -rw-\n\n\nThe first three characters after the dash represent the user (owner) permissions. The user has read (r) and write (w) permissions but no execute (x) permission.\n\n\n\n\n\n\n\n\n\n# -rw-r--\n\n\nThe next three characters represent the group permissions. The group has read (r) permission only, with no write (w) or execute (x) permissions.\n\n\n\n\n\n\n\n\n\n# -rw-r--r--\n\n\nThe final three characters represent the permissions for others (everyone else). Like the group, others have only read (r) permission, with no write (w) or execute (x) permissions.\n\n\n\n\n\n\n\n\n\n# -rw-r--r--@\n\n\nThe @ symbol indicates that the file has extended attributes, which are additional metadata stored by the operating system.\n\n\n\n\n\n\n\n\n\n# -rw-r--r--@ 1\n\n\nThe 1 indicates the count of hard links pointing to the file, which in this case is the file itself. This is typical for regular files that haven’t been explicitly linked elsewhere.\n\n\n\n\nSymbolic Mode\nThis command adds (+) execute (x) permission to the user (u) of the file.\n\nu = owner (you)\ng = group\no = others\na = all (owner, group, and others)\n\nAnd the operations:\n\n+ to add a permission\n- to remove a permission\n= to set exactly those permissions\n\nExamples:\n\nAdd write permission for your group on report.txt:\n\nchmod g+w report.txt\n\nRemove execute permission for others on script.sh:\n\nchmod o-x script.sh\n\nSet read/write for owner, read-only for group and others on data.csv:\n\nchmod u=rw,g=r,o=r data.csv\nSymbolic Notation\nTo grant the permissions above (i.e., -rw-r--r--), we can group the arguments to chmod:\nchmod u=rw,go=r filename\nIn this case,\nu=rw: specifies that the user (owner) can read and write\ngo=r: specifies that both the group and others can read, but not write or execute.\nWe can also use chmod to add permissions with +. The code below grants execute permissions to the user (owner) of the file named data/README.md:\nchmod u+x data/README.md\n\n\nNumeric Mode\nEach permission (r, w, x) has a numeric value:\n\nr = 4\nw = 2\nx = 1\n\nAdd them together for each category:\n\n\n\nPermission\nValue\n\n\n\n\nnone\n0\n\n\n–x\n1\n\n\n-w-\n2\n\n\n-wx\n3\n\n\nr–\n4\n\n\nr-x\n5\n\n\nrw-\n6\n\n\nrwx\n7\n\n\n\nA three-digit number (e.g., 750) sets owner, group, and others, in that order.\nExample: To give the owner full access, the group read/execute, and others none:\nchmod 750 myscript.sh\n\nOwner: 7 (rwx)\nGroup: 5 (r-x)\nOthers: 0 (—)\n\nNumeric Notation\nTo set the permissions of the file data/README.md so that the user can read and execute it, the group can read it, and others have no permissions, we would use:\nchmod 750 data/README.md\nHere, 7 stands for read (4), write (2), and execute (1) permissions for the user. 5 represents read and execute permissions for the group (4+1), and 0 means no permissions for others.\nBoth of these examples modify the permissions of data/README.md to enhance or restrict access as specified.\n\n\n\n\nPermission Bits\nBeyond basic read/write/execute, Linux has three special bits you may encounter:\n\nSetuid (s on owner’s x) When set on an executable file, this lets users run it with the file owner’s permissions.\nSetgid (s on group’s x) Similar to setuid, but for group permissions; on folders, new files inherit the folder’s group.\nSticky bit (t on others’ x) On a folder, users can only delete or rename files they own, even if others have write permission.\n\nYou’ll see them as lowercase s or t in the permission string, for example:\n-rwsr-xr-x 1 root root 123K May 10  2023 /usr/bin/passwd\ndrwxrwxrwt 2 root root 4.0K Jun 20  2024 /tmp\n\n/usr/bin/passwd uses setuid so you can change your password safely.\n/tmp uses the sticky bit so everyone can write there, but you can only remove your own files.",
+    "crumbs": [
+      "Basics",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>[Permissions]{style=\"color: #9b2e0c;\"}</span>"
+    ]
+  },
+  {
+    "objectID": "permissions.html#a-simple-example",
+    "href": "permissions.html#a-simple-example",
+    "title": "Permissions",
+    "section": "A Simple Example",
+    "text": "A Simple Example\nLet’s create a folder where members of the “team” group can freely share files, but nobody else can peek.\n\nCreate the group (if it doesn’t exist):\n\nsudo groupadd team\n\nCreate the folder:\n\nsudo mkdir /srv/team-files\n\nChange the folder’s group to team:\n\nsudo chown root:team /srv/team-files\n\nSet permissions so owner (root) and group can read/write/enter, others have no access:\n\nsudo chmod 770 /srv/team-files\n\nEnable setgid so new files inherit the group:\n\nsudo chmod g+s /srv/team-files\nNow any member of the team group who drops files into /srv/team-files will automatically share them with the rest of the team.",
+    "crumbs": [
+      "Basics",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>[Permissions]{style=\"color: #9b2e0c;\"}</span>"
+    ]
+  },
+  {
+    "objectID": "permissions.html#check-and-fix-permissions",
+    "href": "permissions.html#check-and-fix-permissions",
+    "title": "Permissions",
+    "section": "Check and Fix Permissions",
+    "text": "Check and Fix Permissions\nSee current settings:\nls -ld /path/to/file-or-folder\nIf you get “Permission denied”:\n\nCheck who owns the file and what group it’s in (ls -l).\n\nVerify your user is in the right group (groups).\n\nAdjust with chmod, chown, or chgrp as needed.",
+    "crumbs": [
+      "Basics",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>[Permissions]{style=\"color: #9b2e0c;\"}</span>"
+    ]
+  },
+  {
+    "objectID": "permissions.html#recap",
+    "href": "permissions.html#recap",
+    "title": "Permissions",
+    "section": "Recap",
+    "text": "Recap\nPermissions are your first line of defense in Linux:\n\nThey protect your personal files.\nThey keep system files safe.\nThey let you share selectively.\n\nWith just a few simple commands—ls -l, chmod, chown, and chgrp—you’re in control of who can read, change, or run anything on your system. Practice by examining files on your machine, tweaking permissions in a safe folder, and watching how access changes. In the next chapter, we’ll dive into working with processes, showing you how Linux runs programs and how you can manage them.\n\n\n\n\n\n\nSee a typo, error, or something missing?\n\n\n\n\n\n\nPlease open an issue on GitHub.",
+    "crumbs": [
+      "Basics",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>[Permissions]{style=\"color: #9b2e0c;\"}</span>"
     ]
   },
   {
@@ -595,7 +705,7 @@
     "href": "syntax.html",
     "title": "🏗️ Syntax",
     "section": "",
-    "text": "Caution\n\n\n\n\n\n\nThis section is under construction. Thank you for your patience.\n\n\n\n\nIn the previous section we covered some of the basic common commands you’ll use in a Linux-like operating systems. This section dives deeper into the syntax–the commands, arguments, and options–you’ll type into the terminal or write in a shell script. We’ll also discuss creating variables and how to chain commands together using pipes\n\nCommands\n\n\nArguments\n\n\nOptions\n\n\nPipes\n\n\nVariables\n\n\n\n\n\n\nSee a typo, error, or something missing?\n\n\n\n\n\n\nPlease open an issue on GitHub.",
+    "text": "Caution\n\n\n\n\n\n\nThis section is under construction. Thank you for your patience.\n\n\n\n\nIn the previous section we covered some of the typical commands you’ll use in a Linux-like operating systems. This section dives deeper into the syntax–the commands, arguments, and options–you’ll type into the terminal or write in a shell script. We’ll also discuss creating variables and how to chain commands together using pipes.\n\nCommands\n\n\nArguments\n\n\nOptions\n\n\nPipes\n\n\nVariables\n\n\n\n\n\n\nSee a typo, error, or something missing?\n\n\n\n\n\n\nPlease open an issue on GitHub.",
     "crumbs": [
       "🏗️ Syntax"
     ]
