@@ -41,15 +41,23 @@ co_box(
 )
 ```
 
-In the previous section we covered some of the basic common commands you'll use in a Linux-like operating systems. This section dives deeper into the syntax--the commands, arguments, and options--you'll type into the terminal or write in a shell script. We'll also discuss creating variables and  how to chain commands together using pipes
+In the previous section we covered some of the typical commands you'll use in a Linux-like operating systems. This section dives deeper into the syntax--the commands, arguments, and options--you'll type into the terminal or write in a shell script. We'll also discuss creating variables and how to chain commands together using pipes.
 
 ### Commands 
 
+
+
 ### Arguments 
+
+
 
 ### Options 
 
+
+
 ### Pipes 
+
+
 
 ### Variables 
 

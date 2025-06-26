@@ -6,7 +6,7 @@ knitr:
     
 ---
 
-# 🏗️ [Windows]{style="color: #9b2e0c;"} {#sec-wsl}
+# Windows {#sec-wsl}
 
 ```{bash}
 #| label: setup
@@ -32,7 +32,7 @@ co_box(
   size = "1.00", 
   header = "Caution", 
   fold = FALSE,
-  contents = "This section is under contruction. Thank you for your patience."
+  contents = "This section is being reviewed. Thank you for your patience."
 )
 ```
 
@@ -66,6 +66,96 @@ wsl --install -d Ubuntu
 
 ## Configure 
 
+A Linux terminal looks like a text window with a prompt, something like:
 
+```bash
+john@LAPTOP:~$
+```
+
+* **`john`** is your Linux user name.
+* **`LAPTOP`** is your computer’s name.
+* **`~`** means you’re in your “home” folder (your personal space).
+* After the dollar sign (`$`), you type commands.
+
+###  Keeping Linux Updated
+
+Linux uses a package manager to install and update software. 
+
+**On Ubuntu or Debian**:
+
+```bash
+sudo apt update
+```
+
+This asks Windows for your Linux password (`sudo` means *run as administrator*).
+
+After updating `apt`, download and install any available updates:
+
+```bash
+sudo apt upgrade
+```
+
+Run these commands every few weeks to keep things fresh and secure.
+
+### Sharing Files 
+
+One of WSL’s coolest features is file sharing:
+
+**Windows → Linux**
+
+Your Windows drives are mounted under `/mnt`. For example, your C: drive is at `/mnt/c`. So if you want to work on a file stored in Windows’ Documents folder, you might type:
+
+```bash
+cd /mnt/c/Users/YourName/Documents
+ls
+```
+
+**Linux → Windows**
+
+You can save files in your Linux home (`~/`), then open them in Windows by navigating in File Explorer to:
+
+```powershell
+\\wsl$\Ubuntu\home\john
+```
+
+(Replace `Ubuntu` and `john` with your distribution name and user name.)
+
+### Customizing Shell
+
+If you're spending a lot of time in the terminal, it's nice to customize it to your liking. Below are some examples:
+
+**Change the prompt color** 
+
+Edit a file called `.bashrc`. In your terminal, type:
+
+```bash
+nano ~/.bashrc
+```
+
+Scroll to the bottom and add a line like:
+
+```bash
+PS1="\[\e[32m\]\u@\h:\w\$ \[\e[0m\]"
+```
+
+Press Ctrl+O to save, Enter to confirm, then Ctrl+X to exit. Finally, reload with:
+
+```bash
+source ~/.bashrc
+```
+
+**Auto-update on launch** 
+
+In the same file (`~/.bashrc`), you could add:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+Now every time you open your terminal, it checks for updates.
 
 ## Recap
+
+Linux can feel a bit mysterious if we're used to clicking icons in Windows. WSL lets you run a "real" Linux command line inside Windows, without setting up a separate computer or virtual machine. WSL allows us to use Linux tools from the same computer we're already using.
+
+WSL is fast, lightweight, and it integrates quickly with Windows files and applications.

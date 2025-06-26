@@ -3,13 +3,23 @@ engine: knitr
 knitr:
   opts_chunk: 
     collapse: true
+    
+execute: 
+  eval: false
 ---
 
-# 🏗️ [Users and Groups]{style="color: #9b2e0c;"} {#sec-usr-grps}
+# [Users and Groups]{style="color: #9b2e0c;"} {#sec-usr-grps}
 
-```{r}
+```{bash}
 #| label: setup
 #| include: false
+whoami
+```
+
+```{r}
+#| label: common
+#| include: false
+#| eval: true
 source("_common.R")
 ```
 
@@ -19,13 +29,511 @@ source("_common.R")
 #| results: asis
 #| eval: true
 co_box(
-  color = "r",
+  color = "y",
   look = "default", 
   hsize = "1.25", 
   size = "1.00", 
   header = "Caution", 
   fold = FALSE,
-  contents = "This section is under development. Thank you for your patience.
+  contents = "This section is being reviewd Thank you for your patience.
   "
 )
 ```
+
+Linux is built for sharing. Whether you’re the only person on your laptop or part of a team on a shared server, Linux keeps everyone’s files and settings organized and secure by using **users** and **groups**. In this chapter, you’ll learn how Linux separates people and workloads, how to create and manage accounts, and how to use groups to let the right people share the right stuff.
+
+## Why Users?
+
+***Users in an operating system provide a transparent, secure and private personal space.***
+
+Each user gets a "home" folder where their personal files live (i.e., `/home/john`). No one else can poke around in `home/john` without explicit permission. By default, one user can’t read or change another user’s files. This keeps us from accidentally breaking someone else’s work (and vice versa).
+
+If something goes wrong (i.e., a file is deleted, a program crashes), we (Admins) can see which user account ran the command, which helps with troubleshooting.
+
+## The Superuser
+
+The **`root`** account is like the **master** user. `root` can do anything—install software, delete any file, change other users’ passwords. Because `root` has so much power, we usually do routine tasks as a normal user and only become `root` when we need more authority.
+
+We can use **`sudo <COMMAND>`** ("superuser do") to run single commands as `root`, instead of logging in as the root `user` directly.
+
+### Check Accounts
+
+Open a terminal and try these:
+
+```{bash}
+whoami
+# martin 
+```
+
+Lists your user ID (UID), your primary group ID (GID), and any extra groups you belong to.
+
+```{bash}
+id
+# uid=1000 (martin) gid=1000(martin)groups=1000(martin),4(adm),24(cdrom),
+# 27(sudo),30(dip),46(plugdev),100(users),114(lpadmin)
+```
+
+### List All Users
+
+All user accounts are recorded in the file `/etc/passwd`. You can view it by running:
+
+```{bash}
+cut -d: -f1 /etc/passwd
+```
+
+```{verbatim}
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+_apt
+nobody
+systemd-network
+systemd-timesync
+dhcpcd
+messagebus
+syslog
+systend-resolve
+uuidd
+USbnux
+tss
+systemd-oom
+kernoops
+whoopsie
+dnsmasq
+avahi
+tcpdump
+sssd
+speech-dispatcher
+cups-pk-helper
+fwupd-refresh
+saned
+geoclue
+cups-browsed
+hplip
+polkitd
+rtkit
+colord
+gnome-initial-setup
+gdm
+na-openvpn
+gnone-remote-desktop
+martin
+```
+
+That command prints the list of user names (the first field in each line).
+
+> **Tip:** On a typical desktop you’ll see your account plus system accounts (like `daemon`, `syslog`). You usually only manage the human users.
+
+### Add New Users
+
+Log into the `su` account to manage user and groups to avoid typing `sudo` with the commands below. Linux provides a friendly command called **`adduser`** (on Debian/Ubuntu) or **`useradd`** (on Red Hat–based systems). We’ll use `adduser` here:
+
+```{bash}
+adduser bob
+```
+
+The terminal returns the following prompts:
+
+1.  **Enter a password** for the new account.\
+2.  **Confirm** the password.\
+3.  Optionally, enter the user’s full name and other details (you can press Enter to skip).
+
+```{verbatim}
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for bob
+Enter the new value, or press ENTER for the default
+    Full Name []: Bob Smith
+    Room Number []: 101
+    Work Phone []: 555-555-5555
+    Home Phone []: 555-555-5551
+    Other []: 555-555-5552
+Is the information correct? [Y/n] y
+info: Adding new user 'bob' to supplemental / extra groups 'users' ...
+info: Adding user 'bob' to group 'users' ...
+```
+
+When it’s done, you’ll have a new home folder at `/home/bob` and a private environment just for Bob.
+
+### Change Passwords
+
+If someone forgets their password, as admins we can reset it:
+
+```{bash}
+passwd bob
+```
+
+We’ll be asked to enter the new password for Bob and then confirm it.
+
+### Remove Users
+
+To delete an account and its home folder:
+
+```{bash}
+deluser --remove-home bob
+```
+
+**`--remove-home`** also erases `/home/bob`. If we only want to delete the account but keep the files, omit this option.
+
+### Change user
+
+As Admins, we can sign in as other users with `su` (*switch user*)
+
+```{bash}
+su bob
+```
+
+We can move into the user's home directory with `cd`: 
+
+```{bash}
+cd ~
+```
+
+Confirm this with `pwd`: 
+
+```{bash}
+pwd
+```
+
+```{verbatim}
+/home/bob
+```
+
+
+## Groups
+
+A **`group`** is a collection of users. Groups make it easy to share files:
+
+**Example:** A 'design' group might include Alice, Bob, and Carol. Any files owned by the design group can be read or modified by all three.
+
+Linux gives every user a **primary group** (by default, a `group` with the same name as their user). We can also add users to extra (secondary) groups.
+
+We'll switch back to our original user to see what groups we belong to: 
+
+```{bash}
+bob@martin-VirtualBox:-$ exit
+exit # out of bob into root
+root@martin-VirtualBox:/home/martin# exit  
+exit # out of root into original user
+martingnartin-VirtualBox:-$
+```
+
+### View Groups
+
+To see which groups we’re in:
+
+```{bash}
+groups
+```
+
+```{verbatim}
+martin adm cdrom sudo dip plugdev users lpadmin
+```
+
+To see which groups a user is in:
+
+```{bash}
+groups bob
+```
+
+```{verbatim}
+bob : bob users
+```
+
+As we can see, `bob` is a user who belong to the `users` group (also named `bob`).
+
+To list all groups on the system:
+
+```{bash}
+cut -d: -f1 /etc/group
+```
+
+```{verbatim}
+root 
+daemon 
+bin 
+sys
+adm 
+tty 
+disk
+lp
+mail 
+news
+uucp
+man 
+proxy 
+kmem
+dialout 
+fax 
+voice 
+cdron 
+floppy 
+tape 
+sudo 
+audio 
+dip 
+www-data 
+backup 
+operator 
+list 
+irc
+src
+shadow 
+utmp
+video 
+sasl 
+plugdev
+staff 
+games 
+users
+nogroup 
+systemd-journal 
+systemd-network
+crontab 
+systemd-timesync 
+input 
+sgx
+kvn
+render 
+messagebus 
+syslog
+systemd-resolve
+_ssh
+tss
+ssl-cert 
+systemd-oom
+bluetooth 
+rdma
+whoopsie 
+netdev
+avahi 
+tcpdump
+sssd
+lpadmin
+fwupd-refresh
+scanner 
+saned 
+geoclue 
+pipewire 
+polkitd
+rtkit
+colord 
+gdr
+nm-openvpn
+lxd
+gnome-remote-desktop 
+gamemode 
+gnome-initial-setup 
+martin 
+bob
+```
+
+### Create New Group
+
+Sign into `su` to add groups:
+
+```{bash}
+sudo su
+```
+
+```{bash}
+groupadd datasci
+```
+
+Creates a group called `datasci`.
+
+### Add Users to a Group
+
+Add `bob` to the `datasci` group:
+
+```{bash}
+usermod -aG datasci bob
+```
+
+The `-aG` flag means "*append to the supplemental groups.*"
+
+To confirm, run:
+
+```{bash}
+groups bob
+```
+
+```{verbatim}
+bob : bob users datasci
+```
+
+We should see `datasci` listed.
+
+### Remove User from a Group
+
+Sometimes we need to take someone off a team:
+
+```{bash}
+gpasswd -d bob datasci
+```
+
+Removes Bob from the `datasci` group.
+
+## Ownership and Permissions
+
+This is a brief overview of ownership and permissions, but we'll dive deeper in the [Permissions](permissions.qmd) chapter.
+
+Files in Linux has three categories of permissions:
+
+| Permissions | Description                |
+|-------------|----------------------------|
+| **Owner**   | the user who owns the file |
+| **Group**   | the file's group           |
+| **Others**  | everyone else              |
+
+
+ And three permission types:
+
+| Permission Type | Description                               |
+|-----------------|-------------------------------------------|
+| `r`             | read                                      |
+| `w`             | write                                     |
+| `x`             | execute (run a program or enter a folder) |
+
+
+We'll sign in as `bob` and create a new `report.txt` file in `/home/bob/`: 
+
+```{bash}
+su bob
+cd ~
+echo "new report" >> report.txt
+```
+
+We can see permissions with:
+
+```{bash}
+ls -l report.txt
+```
+
+For example:
+
+```{verbatim}
+-rw-rw-r-- 1 bob bob 11 Jun 26 10:15 report.txt
+```
+
+-   `-rw-rw-r--` means:
+
+    -   Owner (bob) can read/write.
+    -   Group (bob) can read/write.
+    -   Others have read access.
+
+-   `bob` is the owner and the group.
+
+### Change Ownership
+
+**`chown`** changes the file’s owner:
+
+```{bash}
+chown martin report.txt
+```
+
+### Change Group
+
+**`chgrp`** changes the file’s group:
+
+```{bash}
+chgrp datasci report.txt
+```
+
+### Change Both
+
+Change both at once with **`chown`**:
+
+```{bash}
+chown martin:datasci report.txt
+```
+
+### Change Permissions
+
+To adjust who can do what:
+
+```{bash}
+chmod g+w report.txt
+```
+
+Adds write permission (`+w`) to the group (`g`).
+
+```{bash}
+chmod o-rwx report.txt
+```
+
+Removes all rights (`-rwx`) from others (`o`).
+
+> **Tip:** We can also use numeric codes (e.g., `chmod 660 report.txt` gives read/write to owner and group, none to others), but starting with letters (u, g, o) is more intuitive.
+
+## A Simple Example
+
+We'll set up a shared folder for the "`datasci`" group:
+
+**Create the folder:**
+
+```{bash}
+mkdir /srv/datasci-projects
+```
+
+**Change its group and owner:**
+
+```{bash}
+chown root:datasci /srv/datasci-projects
+```
+
+**Set group write permissions:**
+
+```{bash}
+chmod 770 /srv/datasci-projects
+```
+
+**Enable the "setgid" bit** so new files inherit the group:
+
+```{bash}
+chmod g+s /srv/datasci-projects
+```
+
+Now any member of the `datasci` group can drop files in `/srv/datasci-projects`, and they’ll automatically belong to the `datasci` group.
+
+## Troubleshoot
+
+-   **"Permission denied"** User doesn't have the right permission. Check `ls -l` and see if they need to be in a group, change ownership, or use `sudo`.
+
+-   **User can’t access shared folder** Make sure:
+
+    1.  The folder’s group matches the user’s group.
+    2.  Permissions allow group read/write (`rwx` or at least `rw-`).
+    3.  The user has been added (and re-logged-in) to that group.
+
+-   **"User already exists"** We might have a system or service account with that name. Pick a unique user name.
+
+## Recap
+
+Users and groups are Linux’s way of keeping things tidy and safe. By:
+
+-   Creating individual accounts,
+-   Assigning people to groups,
+-   Setting permissions on files and folders,
+
+As Admins, we control who can see, change, or run anything on the system. Once we’re comfortable with these basics, we can:
+
+-   Set up project teams,
+-   Secure sensitive data,
+-   Delegate system tasks safely.
+
+In the next chapter, we’ll explore permissions in depth. 

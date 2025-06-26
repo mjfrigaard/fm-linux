@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-06-25">
+<meta name="dcterms.date" content="2025-06-26">
 <meta name="description" content="A Linux Field Manual">
 
-<title>🏗️ Permissions – FM-Linux</title>
+<title>Permissions – FM-Linux</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./permissions.html"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./permissions.html"><span class="chapter-title"><span style="color: #9b2e0c;">Permissions</span></span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,7 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./wsl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Windows</span></span></a>
+  <a href="./wsl.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Windows</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -219,12 +219,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./usr_grp.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Users and Groups</span></span></a>
+  <a href="./usr_grp.html" class="sidebar-item-text sidebar-link"><span class="chapter-title"><span style="color: #9b2e0c;">Users and Groups</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permissions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></a>
+  <a href="./permissions.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title"><span style="color: #9b2e0c;">Permissions</span></span></a>
   </div>
 </li>
       </ul>
@@ -491,17 +491,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#chmod" id="toc-chmod" class="nav-link active" data-scroll-target="#chmod"><code>chmod</code></a></li>
-  <li><a href="#chown" id="toc-chown" class="nav-link" data-scroll-target="#chown"><code>chown</code></a></li>
+  <li><a href="#why-permissions" id="toc-why-permissions" class="nav-link active" data-scroll-target="#why-permissions">Why Permissions?</a>
+  <ul>
+  <li><a href="#permission-categories" id="toc-permission-categories" class="nav-link" data-scroll-target="#permission-categories">Permission Categories</a></li>
+  <li><a href="#view-permissions" id="toc-view-permissions" class="nav-link" data-scroll-target="#view-permissions">View Permissions</a></li>
+  <li><a href="#chang-permissions" id="toc-chang-permissions" class="nav-link" data-scroll-target="#chang-permissions">Chang Permissions</a>
+  <ul class="collapse">
+  <li><a href="#symbolic-mode" id="toc-symbolic-mode" class="nav-link" data-scroll-target="#symbolic-mode">Symbolic Mode</a></li>
+  <li><a href="#numeric-mode" id="toc-numeric-mode" class="nav-link" data-scroll-target="#numeric-mode">Numeric Mode</a></li>
+  </ul></li>
+  <li><a href="#permission-bits" id="toc-permission-bits" class="nav-link" data-scroll-target="#permission-bits">Permission Bits</a></li>
+  </ul></li>
+  <li><a href="#a-simple-example" id="toc-a-simple-example" class="nav-link" data-scroll-target="#a-simple-example">A Simple Example</a></li>
+  <li><a href="#check-and-fix-permissions" id="toc-check-and-fix-permissions" class="nav-link" data-scroll-target="#check-and-fix-permissions">Check and Fix Permissions</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./permissions.html"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html">Basics</a></li><li class="breadcrumb-item"><a href="./permissions.html"><span class="chapter-title"><span style="color: #9b2e0c;">Permissions</span></span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-perms" class="quarto-section-identifier"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Permissions</span></span></span></h1>
+<h1 class="title"><span id="sec-perms" class="quarto-section-identifier"><span class="chapter-title">Permissions</span></span></h1>
 </div>
 
 
@@ -512,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2025-06-25</p>
+      <p class="date">2025-06-26</p>
     </div>
   </div>
   
@@ -524,7 +536,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -542,11 +554,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="chmod" class="level3">
-<h3 class="anchored" data-anchor-id="chmod"><code>chmod</code></h3>
-<p><code><a href="syntax_ref.html#sec-chmod" class="quarto-xref"><span>chmod</span></a></code> changes file permissions.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> data/README.md</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--@ 1 username  staff  8834 May 14 09:33 data/README.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Every file and folder on Linux has rules about who can see it, change it, or run it. Those rules are called <strong>permissions</strong>, and they’re what keep your data safe and organized. In this chapter, you’ll learn:</p>
+<ol type="1">
+<li>What permissions are and why they matter</li>
+<li>How to read and understand permission settings</li>
+<li>How to change permissions with simple commands</li>
+<li>A few handy examples and troubleshooting tips</li>
+</ol>
+<section id="why-permissions" class="level2">
+<h2 class="anchored" data-anchor-id="why-permissions">Why Permissions?</h2>
+<p><strong>Security and privacy</strong>: Imagine you share a computer with someone else. You don’t want them accidentally deleting your photos, and they don’t want you messing with their work documents. Permissions keep each person’s files separate and safe.</p>
+<p><strong>Accident prevention</strong>: Even on your own machine, permissions protect important system files. If you could delete or change everything without restriction, you might break your system by mistake.</p>
+<p><strong>Controlled sharing</strong>: When you do want to share, permissions let you decide exactly who can view or edit a file or folder.</p>
+<section id="permission-categories" class="level3">
+<h3 class="anchored" data-anchor-id="permission-categories">Permission Categories</h3>
+<p>Linux assigns permissions in three categories for every file and folder:</p>
+<ol type="1">
+<li><strong>Owner</strong> (the user who created or “owns” the file)</li>
+<li><strong>Group</strong> (a set of users who share access rights)</li>
+<li><strong>Others</strong> (everyone else on the system)</li>
+</ol>
+<p>And there are three types of actions:</p>
+<ul>
+<li><strong>Read (r)</strong>: View the contents of a file or list a folder’s contents</li>
+<li><strong>Write (w)</strong>: Change a file or add/remove files in a folder</li>
+<li><strong>Execute (x)</strong>: Run a file as a program or “enter” a folder to work inside</li>
+</ul>
+</section>
+<section id="view-permissions" class="level3">
+<h3 class="anchored" data-anchor-id="view-permissions">View Permissions</h3>
+<p>Open a terminal and type:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You’ll see output like this:</p>
+<pre class="plaintext"><code>-rwxr---r-- 1 alice staff 1024 Jun 25 10:00 report.txt
+drwxr-xr-x 2 bob   staff 4096 Jun 24 14:30 projects</code></pre>
+<p>Let’s break down the first line (<code>report.txt</code>):</p>
+<pre><code>-rwxr--r--  </code></pre>
+<ul>
+<li>The first character (<code>-</code> or <code>d</code>) tells you if it’s a file (<code>-</code>) or directory (<code>d</code>).</li>
+<li>Next three characters (<code>rwx</code>) are the <strong>owner’s</strong> permissions.</li>
+<li>Next three (<code>r--</code>) are the <strong>group’s</strong> permissions.</li>
+<li>Last three (<code>r--</code>) are <strong>others’</strong> permissions.</li>
+</ul>
+<p>So for <code>report.txt</code>:</p>
+<ul>
+<li><strong>Owner</strong> (alice) can <strong>read</strong>, <strong>write</strong>, and <strong>execute</strong> (r w x)</li>
+<li><strong>Group</strong> (staff) can only <strong>read</strong> (r – –)</li>
+<li><strong>Others</strong> can only <strong>read</strong> (r – –)</li>
+</ul>
+</section>
+<section id="chang-permissions" class="level3">
+<h3 class="anchored" data-anchor-id="chang-permissions">Chang Permissions</h3>
+<p>To adjust who can do what, use the <code><a href="syntax_ref.html#sec-chmod" class="quarto-xref"><span>chmod</span></a></code> command. There are two common styles: <strong>symbolic</strong> (using letters) and <strong>numeric</strong> (using numbers). We’ll start with symbolic—it’s easier to read.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> data/README.md</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--@ 1 username  staff  8834 May 14 09:33 data/README.md</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The file permissions for <code>data/README.md</code> are stored in the combination of characters and symbols returned from <code>ls -l</code>:</p>
 <p>Breakdown of <strong><code>-rw-r--r--@</code></strong>:</p>
 <div>
@@ -555,7 +616,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-panel" data-layout="[50,50]">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="sourceCode" id="cb2" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p>The <code>-</code> indicates that the item is a regular file.</p>
@@ -568,7 +629,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-panel" data-layout="[50,50]">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="sourceCode" id="cb3" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p>The first three characters after the dash represent the user (owner) permissions. The user has read (<code>r</code>) and write (<code>w</code>) permissions but no execute (<code>x</code>) permission.</p>
@@ -581,7 +642,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-panel" data-layout="[50,50]">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="sourceCode" id="cb4" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p>The next three characters represent the group permissions. The group has read (<code>r</code>) permission only, with no write (<code>w</code>) or execute (<code>x</code>) permissions.</p>
@@ -594,7 +655,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-panel" data-layout="[50,50]">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="sourceCode" id="cb5" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p>The final three characters represent the permissions for others (everyone else). Like the group, others have only read (<code>r</code>) permission, with no write (<code>w</code>) or execute (<code>x</code>) permissions.</p>
@@ -607,7 +668,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-panel" data-layout="[50,50]">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="sourceCode" id="cb6" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--@</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--@</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p>The <code>@</code> symbol indicates that the file has extended attributes, which are additional metadata stored by the operating system.</p>
@@ -620,34 +681,184 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-layout-panel" data-layout="[50,50]">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="sourceCode" id="cb7" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--@ 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10" style="background-color: #f8f8f8; font-style: italic;"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -rw-r--r--@ 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p>The <code>1</code> indicates the count of hard links pointing to the file, which in this case is the file itself. This is typical for regular files that haven’t been explicitly linked elsewhere.</p>
 </div>
 </div>
 </div>
+<section id="symbolic-mode" class="level4">
+<h4 class="anchored" data-anchor-id="symbolic-mode">Symbolic Mode</h4>
+<p>This command adds (<code>+</code>) execute (<code>x</code>) permission to the user (<code>u</code>) of the file.</p>
+<ul>
+<li><strong>u</strong> = owner (you)</li>
+<li><strong>g</strong> = group</li>
+<li><strong>o</strong> = others</li>
+<li><strong>a</strong> = all (owner, group, and others)</li>
+</ul>
+<p>And the operations:</p>
+<ul>
+<li><strong>+</strong> to add a permission</li>
+<li><strong>-</strong> to remove a permission</li>
+<li><strong>=</strong> to set exactly those permissions</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<ol type="1">
+<li><strong>Add write permission for your group</strong> on <code>report.txt</code>:</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> g+w report.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Remove execute permission for others</strong> on <code>script.sh</code>:</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> o-x script.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><strong>Set read/write for owner, read-only for group and others</strong> on <code>data.csv</code>:</li>
+</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u=rw,g=r,o=r data.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Symbolic Notation</strong></p>
 <p>To grant the permissions above (i.e., <code>-rw-r--r--</code>), we can group the arguments to <code>chmod</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u=rw,go=r filename</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u=rw,go=r filename</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In this case,</p>
 <p><strong><code>u=rw</code></strong>: specifies that the <code>u</code>ser (owner) can <code>r</code>ead and <code>w</code>rite</p>
 <p><strong><code>go=r</code></strong>: specifies that <em>both</em> the <code>g</code>roup and <code>o</code>thers can <code>r</code>ead, but not <code>w</code>rite or <code>e</code>xecute.</p>
 <p>We can also use <code>chmod</code> to add permissions with <code>+</code>. The code below grants execute permissions to the user (owner) of the file named <code>data/README.md</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u+x data/README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This command adds (<code>+</code>) execute (<code>x</code>) permission to the user (<code>u</code>) of the file.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u+x data/README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="numeric-mode" class="level4">
+<h4 class="anchored" data-anchor-id="numeric-mode">Numeric Mode</h4>
+<p>Each permission (r, w, x) has a numeric value:</p>
+<ul>
+<li><strong>r</strong> = 4</li>
+<li><strong>w</strong> = 2</li>
+<li><strong>x</strong> = 1</li>
+</ul>
+<p>Add them together for each category:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Permission</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>none</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>–x</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>-w-</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>-wx</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>r–</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>r-x</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>rw-</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>rwx</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>A three-digit number (e.g., <strong>750</strong>) sets owner, group, and others, in that order.</p>
+<p><strong>Example:</strong> To give the owner full access, the group read/execute, and others none:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 750 myscript.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Owner: 7 (rwx)</li>
+<li>Group: 5 (r-x)</li>
+<li>Others: 0 (—)</li>
+</ul>
 <p><strong>Numeric Notation</strong></p>
 <p>To set the permissions of the file <code>data/README.md</code> so that the user can read and execute it, the group can read it, and others have no permissions, we would use:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 750 data/README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> 750 data/README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here, <code>7</code> stands for read (<code>4</code>), write (<code>2</code>), and execute (<code>1</code>) permissions for the user. <code>5</code> represents read and execute permissions for the group (<code>4+1</code>), and <code>0</code> means no permissions for others.</p>
 <p>Both of these examples modify the permissions of <code>data/README.md</code> to enhance or restrict access as specified.</p>
 <!--
 Overall, the permissions `644` (as represented numerically) allow the owner to read and write the file, while the group and others can only read it.
 -->
 </section>
-<section id="chown" class="level3">
-<h3 class="anchored" data-anchor-id="chown"><code>chown</code></h3>
-<p><code><a href="syntax_ref.html#sec-chown" class="quarto-xref"><span>chown</span></a></code> changes file ownership</p>
+</section>
+<section id="permission-bits" class="level3">
+<h3 class="anchored" data-anchor-id="permission-bits">Permission Bits</h3>
+<p>Beyond basic read/write/execute, Linux has three <strong>special bits</strong> you may encounter:</p>
+<ol type="1">
+<li><strong>Setuid (s on owner’s x)</strong> When set on an executable file, this lets users run it with the file owner’s permissions.</li>
+<li><strong>Setgid (s on group’s x)</strong> Similar to setuid, but for group permissions; on folders, new files inherit the folder’s group.</li>
+<li><strong>Sticky bit (t on others’ x)</strong> On a folder, users can only delete or rename files they own, even if others have write permission.</li>
+</ol>
+<p>You’ll see them as lowercase <code>s</code> or <code>t</code> in the permission string, for example:</p>
+<pre class="plaintext"><code>-rwsr-xr-x 1 root root 123K May 10  2023 /usr/bin/passwd
+drwxrwxrwt 2 root root 4.0K Jun 20  2024 /tmp</code></pre>
+<ul>
+<li><code>/usr/bin/passwd</code> uses <strong>setuid</strong> so you can change your password safely.</li>
+<li><code>/tmp</code> uses the <strong>sticky bit</strong> so everyone can write there, but you can only remove your own files.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="a-simple-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-simple-example">A Simple Example</h2>
+<p>Let’s create a folder where members of the “team” group can freely share files, but nobody else can peek.</p>
+<ol type="1">
+<li><strong>Create the group</strong> (if it doesn’t exist):</li>
+</ol>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> groupadd team</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li><strong>Create the folder</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mkdir /srv/team-files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li><strong>Change the folder’s group</strong> to <code>team</code>:</li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chown root:team /srv/team-files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li><strong>Set permissions</strong> so owner (root) and group can read/write/enter, others have no access:</li>
+</ol>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod 770 /srv/team-files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="1">
+<li><strong>Enable setgid</strong> so new files inherit the group:</li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod g+s /srv/team-files</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now any member of the <code>team</code> group who drops files into <code>/srv/team-files</code> will automatically share them with the rest of the team.</p>
+</section>
+<section id="check-and-fix-permissions" class="level2">
+<h2 class="anchored" data-anchor-id="check-and-fix-permissions">Check and Fix Permissions</h2>
+<p><strong>See current settings:</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-ld</span> /path/to/file-or-folder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>If you get “Permission denied”:</strong></p>
+<ol type="1">
+<li>Check who owns the file and what group it’s in (<code>ls -l</code>).<br>
+</li>
+<li>Verify your user is in the right group (<code>groups</code>).<br>
+</li>
+<li>Adjust with <code>chmod</code>, <code>chown</code>, or <code>chgrp</code> as needed.</li>
+</ol>
+</section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<p>Permissions are your first line of defense in Linux:</p>
+<ul>
+<li>They protect your personal files.</li>
+<li>They keep system files safe.</li>
+<li>They let you share selectively.</li>
+</ul>
+<p>With just a few simple commands—<strong><code>ls -l</code></strong>, <strong><code>chmod</code></strong>, <strong><code>chown</code></strong>, and <strong><code>chgrp</code></strong>—you’re in control of who can read, change, or run anything on your system. Practice by examining files on your machine, tweaking permissions in a safe folder, and watching how access changes. In the next chapter, we’ll dive into <strong>working with processes</strong>, showing you how Linux runs programs and how you can manage them.</p>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1129,8 +1340,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./usr_grp.html" class="pagination-link" aria-label="🏗️ [Users and Groups]{style=&quot;color: #9b2e0c;&quot;}">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">🏗️ <span style="color: #9b2e0c;">Users and Groups</span></span></span>
+      <a href="./usr_grp.html" class="pagination-link" aria-label="[Users and Groups]{style=&quot;color: #9b2e0c;&quot;}">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title"><span style="color: #9b2e0c;">Users and Groups</span></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
