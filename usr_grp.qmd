@@ -81,7 +81,9 @@ All user accounts are recorded in the file `/etc/passwd`. You can view it by run
 cut -d: -f1 /etc/passwd
 ```
 
-```{verbatim}
+```{bash}
+#| code-fold: true 
+#| code-summary: 'show/hide /etc/passwd'
 root
 daemon
 bin
@@ -262,7 +264,9 @@ To list all groups on the system:
 cut -d: -f1 /etc/group
 ```
 
-```{verbatim}
+```{bash}
+#| code-fold: true 
+#| code-summary: 'show/hide /etc/group'
 root 
 daemon 
 bin 
@@ -432,9 +436,9 @@ For example:
 
 -   `-rw-rw-r--` means:
 
-    -   Owner (bob) can read/write.
-    -   Group (bob) can read/write.
-    -   Others have read access.
+  -   Owner (bob) can read/write.
+  -   Group (bob) can read/write.
+  -   Others have read access.
 
 -   `bob` is the owner and the group.
 
