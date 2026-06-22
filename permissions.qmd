@@ -3,13 +3,17 @@ engine: knitr
 knitr:
   opts_chunk: 
     collapse: true
+    
+execute: 
+  eval: false
 ---
 
-# [Permissions]{style="color: #9b2e0c;"} {#sec-perms}
+# Permissions {#sec-perms}
 
 ```{r}
 #| label: setup
 #| include: false
+#| eval: true
 source("_common.R")
 ```
 
@@ -30,68 +34,91 @@ co_box(
 )
 ```
 
-Every file and folder on Linux has rules about who can see it, change it, or run it. Those rules are called **permissions**, and they’re what keep your data safe and organized. In this chapter, you’ll learn:
+Every file and folder on Linux has rules about who can see it, change it, or run it. Those rules are called **permissions**, and they’re what keep data safe and organized. In this chapter, we’ll cover:
 
-1. What permissions are and why they matter
-2. How to read and understand permission settings
-3. How to change permissions with simple commands
-4. A few handy examples and troubleshooting tips
+1.  What permissions are and why they're important\
+2.  How to read and understand permission settings\
+3.  How to change permissions with simple commands\
+4.  A few handy examples and troubleshooting tips
 
-## Why Permissions?
+## Why do we need permissions?
 
-**Security and privacy**: Imagine you share a computer with someone else. You don’t want them accidentally deleting your photos, and they don’t want you messing with their work documents. Permissions keep each person’s files separate and safe.
+**Security and privacy**
 
-**Accident prevention**: Even on your own machine, permissions protect important system files. If you could delete or change everything without restriction, you might break your system by mistake.
+Imagine you share a computer with someone else. You don’t want them accidentally deleting your photos, and they don’t want you messing with their work documents. Permissions keep each person’s files separate and safe.
 
-**Controlled sharing**: When you do want to share, permissions let you decide exactly who can view or edit a file or folder.
+**Accident prevention**
+
+Even on your own machine, permissions protect important system files. If you could delete or change everything without restriction, you might break your system by mistake.
+
+**Controlled sharing**
+
+When you do want to share, permissions let you decide exactly who can view or edit a file or folder.
 
 ### Permission Categories
 
 Linux assigns permissions in three categories for every file and folder:
 
-1. **Owner** (the user who created or “owns” the file)
-2. **Group** (a set of users who share access rights)
-3. **Others** (everyone else on the system)
+1.  **Owner** (the user who created or “owns” the file)
+2.  **Group** (a set of users who share access rights)
+3.  **Others** (everyone else on the system)
 
-And there are three types of actions:
+There are also three types of actions:
 
-* **Read (r)**: View the contents of a file or list a folder’s contents
-* **Write (w)**: Change a file or add/remove files in a folder
-* **Execute (x)**: Run a file as a program or “enter” a folder to work inside
+-   **Read (`r`)**: View the contents of a file or list a folder’s contents
+-   **Write (`w`)**: Change a file or add/remove files in a folder
+-   **Execute (`x`)**: Run a file as a program or “enter” a folder to work inside
 
 ### View Permissions
 
 Open a terminal and type:
 
-```bash
+```{bash}
 ls -l
 ```
 
 You’ll see output like this:
 
-```plaintext
--rwxr---r-- 1 alice staff 1024 Jun 25 10:00 report.txt
-drwxr-xr-x 2 bob   staff 4096 Jun 24 14:30 projects
+```{bash}
+# total 8
+# drwxr-xr-x 2 martin datasci 4096 Jul  1 23:47 projects
+# -rw-rw-r-- 1 martin datasci   11 Jun 26 10:15 report.txt
 ```
 
-Let’s break down the first line (`report.txt`):
+Let’s break down the first line (i.e., the `projects` folder):
 
-```
--rwxr--r--  
-```
++-------------------------------------------------------------------------------------+---------------------------------+----------------+-----------------+-------------------------------------------------+--------------------+----------------+
+| File Mode                                                                           | Links                           | Owner          | Group           | Size                                            | Timestamp          | Name           |
++=====================================================================================+=================================+================+=================+=================================================+====================+================+
+| **`drwxr-xr-x`**                                                                    | **`2`**                         | **`martin`**   | **`datasci`**   | **`4096`**                                      | **`Jul 1 23:47`**  | `projects`     |
+|                                                                                     |                                 |                |                 |                                                 |                    |                |
+| -   **`d`** entry is a **directory**                                                | 2 hard links:                   | **User** owner | **Group** owner | The space the folder occupies on the filesystem | Last modified date | Directory name |
+|                                                                                     |                                 |                |                 |                                                 |                    |                |
+| -   **`rwx`**: **r**ead, **w**rite, and e**x**ecute for **owner**                   | -   The directory itself (`.`)  |                |                 |                                                 |                    |                |
+|                                                                                     | -   The parent reference (`..`) |                |                 |                                                 |                    |                |
+| -   **`r-x`: r**ead + e**x**ecute for users in **group** *and* **others**; no write |                                 |                |                 |                                                 |                    |                |
++-------------------------------------------------------------------------------------+---------------------------------+----------------+-----------------+-------------------------------------------------+--------------------+----------------+
 
-* The first character (`-` or `d`) tells you if it’s a file (`-`) or directory (`d`).
-* Next three characters (`rwx`) are the **owner’s** permissions.
-* Next three (`r--`) are the **group’s** permissions.
-* Last three (`r--`) are **others’** permissions.
+The second line displays the permissions for `report.txt`:
 
-So for `report.txt`:
++-----------+---------+---------+---------+---------+-----------+---------+
+| File Mode | Links   | Owner   | Group   | Size    | Timestamp | Name    |
++===========+=========+=========+=========+=========+===========+=========+
+|           |         |         |         |         |           |         |
++-----------+---------+---------+---------+---------+-----------+---------+
 
-* **Owner** (alice) can **read**, **write**, and **execute** (r w x)
-* **Group** (staff) can only **read** (r – –)
-* **Others** can only **read** (r – –)
+1.  **`-`** – this entry is a **regular file**, not a directory or special.
+2.  **`rw-` (owner)** – **r**ead and **w**rite allowed for **martin**; no execute.
+3.  **`rw-` (group)** – **r**ead and **w**rite allowed for **datasci** group; no execute.
+4.  **`r--` (others)** – **r**ead only for everyone else; no write or execute.
+5.  **`1`** – a single hard link to this file.
+6.  **`martin`** – user owner.
+7.  **`datasci`** – group owner.
+8.  **`11`** – file size is 11 bytes.
+9.  **`Jun 26 10:15`** – last modified on June 26 at 10:15.
+10. **`report.txt`** – the filename.
 
-### Chang Permissions
+### Change Permissions
 
 To adjust who can do what, use the <code>@sec-chmod</code> command. There are two common styles: **symbolic** (using letters) and **numeric** (using numbers). We’ll start with symbolic—it’s easier to read.
 
@@ -152,38 +179,38 @@ The `@` symbol indicates that the file has extended attributes, which are additi
 The `1` indicates the count of hard links pointing to the file, which in this case is the file itself. This is typical for regular files that haven't been explicitly linked elsewhere.
 :::
 
-#### Symbolic Mode 
+#### Symbolic Mode
 
 This command adds (`+`) execute (`x`) permission to the user (`u`) of the file.
 
-* **u** = owner (you)
-* **g** = group
-* **o** = others
-* **a** = all (owner, group, and others)
+-   **u** = owner (you)
+-   **g** = group
+-   **o** = others
+-   **a** = all (owner, group, and others)
 
 And the operations:
 
-* **+** to add a permission
-* **-** to remove a permission
-* **=** to set exactly those permissions
+-   **+** to add a permission
+-   **-** to remove a permission
+-   **=** to set exactly those permissions
 
 **Examples:**
 
-1. **Add write permission for your group** on `report.txt`:
+1.  **Add write permission for your group** on `report.txt`:
 
-```bash
+``` bash
 chmod g+w report.txt
 ```
-   
-2. **Remove execute permission for others** on `script.sh`:
 
-```bash
+2.  **Remove execute permission for others** on `script.sh`:
+
+``` bash
 chmod o-x script.sh
 ```
-   
-3. **Set read/write for owner, read-only for group and others** on `data.csv`:
 
-```bash
+3.  **Set read/write for owner, read-only for group and others** on `data.csv`:
+
+``` bash
 chmod u=rw,g=r,o=r data.csv
 ```
 
@@ -211,14 +238,14 @@ chmod u+x data/README.md
 
 Each permission (r, w, x) has a numeric value:
 
-* **r** = 4
-* **w** = 2
-* **x** = 1
+-   **r** = 4
+-   **w** = 2
+-   **x** = 1
 
 Add them together for each category:
 
 | Permission | Value |
-| ---------- | ----- |
+|------------|-------|
 | none       | 0     |
 | --x        | 1     |
 | -w-        | 2     |
@@ -230,16 +257,15 @@ Add them together for each category:
 
 A three-digit number (e.g., **750**) sets owner, group, and others, in that order.
 
-**Example:**
-To give the owner full access, the group read/execute, and others none:
+**Example:** To give the owner full access, the group read/execute, and others none:
 
-```bash
+``` bash
 chmod 750 myscript.sh
 ```
 
-* Owner: 7 (rwx)
-* Group: 5 (r-x)
-* Others: 0 (---)
+-   Owner: 7 (rwx)
+-   Group: 5 (r-x)
+-   Others: 0 (---)
 
 **Numeric Notation**
 
@@ -263,56 +289,53 @@ Overall, the permissions `644` (as represented numerically) allow the owner to r
 
 Beyond basic read/write/execute, Linux has three **special bits** you may encounter:
 
-1. **Setuid (s on owner’s x)**
-   When set on an executable file, this lets users run it with the file owner’s permissions.
-2. **Setgid (s on group’s x)**
-   Similar to setuid, but for group permissions; on folders, new files inherit the folder’s group.
-3. **Sticky bit (t on others’ x)**
-   On a folder, users can only delete or rename files they own, even if others have write permission.
+1.  **Setuid (s on owner’s x)** When set on an executable file, this lets users run it with the file owner’s permissions.
+2.  **Setgid (s on group’s x)** Similar to setuid, but for group permissions; on folders, new files inherit the folder’s group.
+3.  **Sticky bit (t on others’ x)** On a folder, users can only delete or rename files they own, even if others have write permission.
 
 You’ll see them as lowercase `s` or `t` in the permission string, for example:
 
-```plaintext
+``` plaintext
 -rwsr-xr-x 1 root root 123K May 10  2023 /usr/bin/passwd
 drwxrwxrwt 2 root root 4.0K Jun 20  2024 /tmp
 ```
 
-* `/usr/bin/passwd` uses **setuid** so you can change your password safely.
-* `/tmp` uses the **sticky bit** so everyone can write there, but you can only remove your own files.
+-   `/usr/bin/passwd` uses **setuid** so you can change your password safely.
+-   `/tmp` uses the **sticky bit** so everyone can write there, but you can only remove your own files.
 
----
+------------------------------------------------------------------------
 
 ## A Simple Example
 
 Let’s create a folder where members of the “team” group can freely share files, but nobody else can peek.
 
-1. **Create the group** (if it doesn’t exist):
+1.  **Create the group** (if it doesn’t exist):
 
-```bash
+``` bash
 sudo groupadd team
 ```
- 
-2. **Create the folder**:
 
-```bash
+2.  **Create the folder**:
+
+``` bash
 sudo mkdir /srv/team-files
 ```
- 
-3. **Change the folder’s group** to `team`:
 
-```bash
+3.  **Change the folder’s group** to `team`:
+
+``` bash
 sudo chown root:team /srv/team-files
 ```
- 
-4. **Set permissions** so owner (root) and group can read/write/enter, others have no access:
 
-```bash
+4.  **Set permissions** so owner (root) and group can read/write/enter, others have no access:
+
+``` bash
 sudo chmod 770 /srv/team-files
 ```
 
-5. **Enable setgid** so new files inherit the group:
+5.  **Enable setgid** so new files inherit the group:
 
-```bash
+``` bash
 sudo chmod g+s /srv/team-files
 ```
 
@@ -322,26 +345,45 @@ Now any member of the `team` group who drops files into `/srv/team-files` will a
 
 **See current settings:**
 
-```bash
+``` bash
 ls -ld /path/to/file-or-folder
 ```
 
 **If you get “Permission denied”:**
 
-1. Check who owns the file and what group it’s in (`ls -l`).    
-2. Verify your user is in the right group (`groups`).   
-3. Adjust with `chmod`, `chown`, or `chgrp` as needed.    
+1.  Check who owns the file and what group it’s in (`ls -l`).\
+2.  Verify your user is in the right group (`groups`).\
+3.  Adjust with `chmod`, `chown`, or `chgrp` as needed.
 
 ## Recap
 
 Permissions are your first line of defense in Linux:
 
-* They protect your personal files.
-* They keep system files safe.
-* They let you share selectively.
+-   They protect your personal files.
+-   They keep system files safe.
+-   They let you share selectively.
 
 With just a few simple commands—**`ls -l`**, **`chmod`**, **`chown`**, and **`chgrp`**—you’re in control of who can read, change, or run anything on your system. Practice by examining files on your machine, tweaking permissions in a safe folder, and watching how access changes. In the next chapter, we’ll dive into **working with processes**, showing you how Linux runs programs and how you can manage them.
 
+`ls -l` output:
+
++-------------------+-------------------------------------------------------------------+
+| Column            | Meaning                                                           |
++===================+===================================================================+
+| **1. File mode**  | `d`/`-` + nine permission bits                                    |
++-------------------+-------------------------------------------------------------------+
+| **2. Link count** | Number of hard links                                              |
++-------------------+-------------------------------------------------------------------+
+| **3. Owner**      | User name who owns the file/directory                             |
++-------------------+-------------------------------------------------------------------+
+| **4. Group**      | Group name associated with the file/directory                     |
++-------------------+-------------------------------------------------------------------+
+| **5. Size**       | Size in bytes (for files) or filesystem-allocated size (for dirs) |
++-------------------+-------------------------------------------------------------------+
+| **6. Timestamp**  | Last modification date and time                                   |
++-------------------+-------------------------------------------------------------------+
+| **7. Name**       | File or directory name                                            |
++-------------------+-------------------------------------------------------------------+
 
 ```{r}
 #| label: git_contrib_box

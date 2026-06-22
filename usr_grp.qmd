@@ -8,7 +8,7 @@ execute:
   eval: false
 ---
 
-# [Users and Groups]{style="color: #9b2e0c;"} {#sec-usr-grps}
+# Users and Groups {#sec-usr-grps}
 
 ```{bash}
 #| label: setup
@@ -40,7 +40,7 @@ co_box(
 )
 ```
 
-Linux is built for sharing. Whether you’re the only person on your laptop or part of a team on a shared server, Linux keeps everyone’s files and settings organized and secure by using **users** and **groups**. In this chapter, you’ll learn how Linux separates people and workloads, how to create and manage accounts, and how to use groups to let the right people share the right stuff.
+Linux keeps everyone’s files and settings organized and secure by using **users** and **groups**. In this chapter, we’ll cover how Linux separates people and workloads, how to create and manage accounts, and how to use groups to let the right people share the right stuff.
 
 ## Why Users?
 
@@ -50,7 +50,7 @@ Each user gets a "home" folder where their personal files live (i.e., `/home/joh
 
 If something goes wrong (i.e., a file is deleted, a program crashes), we (Admins) can see which user account ran the command, which helps with troubleshooting.
 
-## The Superuser
+## Superusers
 
 The **`root`** account is like the **master** user. `root` can do anything—install software, delete any file, change other users’ passwords. Because `root` has so much power, we usually do routine tasks as a normal user and only become `root` when we need more authority.
 
@@ -84,55 +84,55 @@ cut -d: -f1 /etc/passwd
 ```{bash}
 #| code-fold: true 
 #| code-summary: 'show/hide /etc/passwd'
-root
-daemon
-bin
-sys
-sync
-games
-man
-lp
-mail
-news
-uucp
-proxy
-www-data
-backup
-list
-irc
-_apt
-nobody
-systemd-network
-systemd-timesync
-dhcpcd
-messagebus
-syslog
-systend-resolve
-uuidd
-USbnux
-tss
-systemd-oom
-kernoops
-whoopsie
-dnsmasq
-avahi
-tcpdump
-sssd
-speech-dispatcher
-cups-pk-helper
-fwupd-refresh
-saned
-geoclue
-cups-browsed
-hplip
-polkitd
-rtkit
-colord
-gnome-initial-setup
-gdm
-na-openvpn
-gnone-remote-desktop
-martin
+# root
+# daemon
+# bin
+# sys
+# sync
+# games
+# man
+# lp
+# mail
+# news
+# uucp
+# proxy
+# www-data
+# backup
+# list
+# irc
+# _apt
+# nobody
+# systemd-network
+# systemd-timesync
+# dhcpcd
+# messagebus
+# syslog
+# systend-resolve
+# uuidd
+# USbnux
+# tss
+# systemd-oom
+# kernoops
+# whoopsie
+# dnsmasq
+# avahi
+# tcpdump
+# sssd
+# speech-dispatcher
+# cups-pk-helper
+# fwupd-refresh
+# saned
+# geoclue
+# cups-browsed
+# hplip
+# polkitd
+# rtkit
+# colord
+# gnome-initial-setup
+# gdm
+# na-openvpn
+# gnone-remote-desktop
+# martin
 ```
 
 That command prints the list of user names (the first field in each line).
@@ -165,8 +165,11 @@ Enter the new value, or press ENTER for the default
     Home Phone []: 555-555-5551
     Other []: 555-555-5552
 Is the information correct? [Y/n] y
-info: Adding new user 'bob' to supplemental / extra groups 'users' ...
-info: Adding user 'bob' to group 'users' ...
+```
+
+```{bash}
+# info: Adding new user 'bob' to supplemental / extra groups 'users' ...
+# info: Adding user 'bob' to group 'users' ...
 ```
 
 When it’s done, you’ll have a new home folder at `/home/bob` and a private environment just for Bob.
@@ -211,8 +214,8 @@ Confirm this with `pwd`:
 pwd
 ```
 
-```{verbatim}
-/home/bob
+```{bash}
+# /home/bob
 ```
 
 
@@ -228,9 +231,23 @@ We'll switch back to our original user to see what groups we belong to:
 
 ```{bash}
 bob@martin-VirtualBox:-$ exit
-exit # out of bob into root
+```
+
+```{bash}
+# exit # out of bob into root
+```
+
+```{bash}
 root@martin-VirtualBox:/home/martin# exit  
-exit # out of root into original user
+```
+
+```{bash}
+# exit # out of root into original user
+```
+
+Now we're back to user log in:
+
+```{bash}
 martingnartin-VirtualBox:-$
 ```
 
@@ -242,8 +259,8 @@ To see which groups we’re in:
 groups
 ```
 
-```{verbatim}
-martin adm cdrom sudo dip plugdev users lpadmin
+```{bash}
+# martin adm cdrom sudo dip plugdev users lpadmin
 ```
 
 To see which groups a user is in:
@@ -253,7 +270,7 @@ groups bob
 ```
 
 ```{verbatim}
-bob : bob users
+# bob : bob users
 ```
 
 As we can see, `bob` is a user who belong to the `users` group (also named `bob`).
@@ -267,83 +284,83 @@ cut -d: -f1 /etc/group
 ```{bash}
 #| code-fold: true 
 #| code-summary: 'show/hide /etc/group'
-root 
-daemon 
-bin 
-sys
-adm 
-tty 
-disk
-lp
-mail 
-news
-uucp
-man 
-proxy 
-kmem
-dialout 
-fax 
-voice 
-cdron 
-floppy 
-tape 
-sudo 
-audio 
-dip 
-www-data 
-backup 
-operator 
-list 
-irc
-src
-shadow 
-utmp
-video 
-sasl 
-plugdev
-staff 
-games 
-users
-nogroup 
-systemd-journal 
-systemd-network
-crontab 
-systemd-timesync 
-input 
-sgx
-kvn
-render 
-messagebus 
-syslog
-systemd-resolve
-_ssh
-tss
-ssl-cert 
-systemd-oom
-bluetooth 
-rdma
-whoopsie 
-netdev
-avahi 
-tcpdump
-sssd
-lpadmin
-fwupd-refresh
-scanner 
-saned 
-geoclue 
-pipewire 
-polkitd
-rtkit
-colord 
-gdr
-nm-openvpn
-lxd
-gnome-remote-desktop 
-gamemode 
-gnome-initial-setup 
-martin 
-bob
+# root 
+# daemon 
+# bin 
+# sys
+# adm 
+# tty 
+# disk
+# lp
+# mail 
+# news
+# uucp
+# man 
+# proxy 
+# kmem
+# dialout 
+# fax 
+# voice 
+# cdron 
+# floppy 
+# tape 
+# sudo 
+# audio 
+# dip 
+# www-data 
+# backup 
+# operator 
+# list 
+# irc
+# src
+# shadow 
+# utmp
+# video 
+# sasl 
+# plugdev
+# staff 
+# games 
+# users
+# nogroup 
+# systemd-journal 
+# systemd-network
+# crontab 
+# systemd-timesync 
+# input 
+# sgx
+# kvn
+# render 
+# messagebus 
+# syslog
+# systemd-resolve
+# _ssh
+# tss
+# ssl-cert 
+# systemd-oom
+# bluetooth 
+# rdma
+# whoopsie 
+# netdev
+# avahi 
+# tcpdump
+# sssd
+# lpadmin
+# fwupd-refresh
+# scanner 
+# saned 
+# geoclue 
+# pipewire 
+# polkitd
+# rtkit
+# colord 
+# gdr
+# nm-openvpn
+# lxd
+# gnome-remote-desktop 
+# gamemode 
+# gnome-initial-setup 
+# martin 
+# bob
 ```
 
 ### Create New Group
@@ -376,8 +393,8 @@ To confirm, run:
 groups bob
 ```
 
-```{verbatim}
-bob : bob users datasci
+```{bash}
+# bob : bob users datasci
 ```
 
 We should see `datasci` listed.
@@ -425,22 +442,19 @@ echo "new report" >> report.txt
 We can see permissions with:
 
 ```{bash}
-ls -l report.txt
+ls -l 
 ```
 
-For example:
-
-```{verbatim}
--rw-rw-r-- 1 bob bob 11 Jun 26 10:15 report.txt
+```{bash}
+# total 4
+# -rw-rw-r-- 1 bob bob 11 Jun 26 10:15 report.txt
 ```
 
--   `-rw-rw-r--` means:
-
-  -   Owner (bob) can read/write.
-  -   Group (bob) can read/write.
-  -   Others have read access.
-
--   `bob` is the owner and the group.
+-   `-rw-rw-r--` means:   
+    -   Owner (bob) can read/write.   
+    -   Group (bob) can read/write.   
+    -   Others have read access.    
+-   `bob` is the owner and the group.   
 
 ### Change Ownership
 
@@ -450,12 +464,34 @@ For example:
 chown martin report.txt
 ```
 
+```{bash}
+ls -l
+```
+
+As we can see, the first `bob` has been changed to `martin`:
+
+```{bash}
+# total 4
+# -rw-rw-r-- 1 martin bob 11 Jun 26 10:15 report.txt
+```
+
 ### Change Group
 
 **`chgrp`** changes the file’s group:
 
 ```{bash}
 chgrp datasci report.txt
+```
+
+```{bash}
+ls -l
+```
+
+As we can see, the second `bob` has been changed to `datasci`:
+
+```{bash}
+# total 4
+# -rw-rw-r-- 1 martin datasci 11 Jun 26 10:16 report.txt
 ```
 
 ### Change Both
@@ -468,19 +504,17 @@ chown martin:datasci report.txt
 
 ### Change Permissions
 
-To adjust who can do what:
+Add write permission (`+w`) to the group (`g`).
 
 ```{bash}
 chmod g+w report.txt
 ```
 
-Adds write permission (`+w`) to the group (`g`).
+Remove all rights (`-rwx`) from others (`o`).
 
 ```{bash}
 chmod o-rwx report.txt
 ```
-
-Removes all rights (`-rwx`) from others (`o`).
 
 > **Tip:** We can also use numeric codes (e.g., `chmod 660 report.txt` gives read/write to owner and group, none to others), but starting with letters (u, g, o) is more intuitive.
 
@@ -488,13 +522,13 @@ Removes all rights (`-rwx`) from others (`o`).
 
 We'll set up a shared folder for the "`datasci`" group:
 
-**Create the folder:**
+**Create a `/srv/datasci-projects` folder:**
 
 ```{bash}
 mkdir /srv/datasci-projects
 ```
 
-**Change its group and owner:**
+**Change the group and owner:**
 
 ```{bash}
 chown root:datasci /srv/datasci-projects
@@ -514,30 +548,34 @@ chmod g+s /srv/datasci-projects
 
 Now any member of the `datasci` group can drop files in `/srv/datasci-projects`, and they’ll automatically belong to the `datasci` group.
 
-## Troubleshoot
+## Troubleshooting
 
--   **"Permission denied"** User doesn't have the right permission. Check `ls -l` and see if they need to be in a group, change ownership, or use `sudo`.
+**"Permission denied"** 
 
--   **User can’t access shared folder** Make sure:
+[Permission errors are very common.]{style="color: #9b2e0c; font-weight: bold;"} When a user doesn't have the right permissions to access a file or folder, use `ls -l` to see if the file/folder has the correct group and ownership.
 
-    1.  The folder’s group matches the user’s group.
-    2.  Permissions allow group read/write (`rwx` or at least `rw-`).
-    3.  The user has been added (and re-logged-in) to that group.
+Make sure:
 
--   **"User already exists"** We might have a system or service account with that name. Pick a unique user name.
+1.  The folder’s group matches the user’s group.
+2.  Permissions allow group read/write (`rwx` or at least `rw-`).
+3.  The user has been added (and re-logged-in) to that group.
+
+**"User already exists"** 
+
+We might have a system or service account with that name. Pick a unique user name.
 
 ## Recap
 
-Users and groups are Linux’s way of keeping things tidy and safe. By:
+Users and groups are Linux’s way of keeping things tidy and safe by
 
--   Creating individual accounts,
--   Assigning people to groups,
--   Setting permissions on files and folders,
+- Creating individual accounts,
+- Assigning people to groups,
+- Setting permissions on files and folders.
 
 As Admins, we control who can see, change, or run anything on the system. Once we’re comfortable with these basics, we can:
 
--   Set up project teams,
--   Secure sensitive data,
--   Delegate system tasks safely.
+- Set up project teams,
+- Secure sensitive data,
+- Delegate system tasks safely.
 
 In the next chapter, we’ll explore permissions in depth. 
